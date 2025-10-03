@@ -5,11 +5,11 @@ Fondation et empire
 1952
 
 " Je suis Riose..
-- Je vous reconnais. " Le vieil homme demeurait figé sur
-place, sans avoir l'air surpris. " La raison de votre visite ? "
+- Je vous reconnais. ” Le vieil homme demeurait figé sur
+place, sans avoir l'air surpris. ” La raison de votre visite ? "
 Riose recula d'un pas, en un geste plein de déférence.
 " Une raison pacifique. Si vous êtes Ducem Barr, je sollicite
-la faveur d'un entretien. "
+la faveur d'un entretien. ”
 Ducem Barr s'écarta et, à l'intérieur de la maison, les murs
 s'éclairèrent. Le général entra dans une lumière de plein jour.
 Il toucha les murs du cabinet, puis regarda le bout de ses
@@ -121,8 +121,8 @@ d'un ton songeur. Ce serait une expérience psychohistorique, à
 mon propre compte.
 
 - Quel genre d'expérience ?
-- Psychohistorique. " Le vieillard eut un sourire un peu
-crispant. Puis il reprit sèchement : " Vous feriez mieux de
+- Psychohistorique. ” Le vieillard eut un sourire un peu
+crispant. Puis il reprit sèchement : ” Vous feriez mieux de
 reprendre du thé. J'ai pas mal de choses à vous raconter.
 Il se renversa parmi les coussins de son fauteuil. Les murs
 lumineux n'émettaient plus qu'une douce lueur d'un rose
@@ -137,7 +137,7 @@ avait ordonné le massacre et qui connut par la suite une fin si
 cruelle. "
 Barr eut un sourire railleur et reprit :
 " Mon père était un patricien de l'Empire et un sénateur de
-Siwenna. Il s'appelait Onum Barr."
+Siwenna. Il s'appelait Onum Barr.”
 Riose l'interrompit avec impatience :
 " Je connais fort bien les circonstances de son exil. Inutile
 de vous étendre là-dessus. "
@@ -150,7 +150,7 @@ histoire impériale, mais qui était protégé par un bouclier
 
 minutieuses des spectres de diffraction n'ont pas permis de
 distinguer les éléments qui le constituaient avant la fusion.
-- Alors, votre "preuve" demeure sur la douteuse frontière
+- Alors, votre “preuve” demeure sur la douteuse frontière
 des mots que ne soutient aucun indice concret. "
 Barr haussa les épaules.
 " Vous avez voulu apprendre ce que je savais, et menacé de
@@ -194,17 +194,17 @@ leva et boucla sa ceinture.)
 celui que vous avez si bien assassiné, il y a d'étranges contes où
 il est question de barbares qui vivent à l'extérieur. D'ailleurs,
 une de ses filles a été donnée en mariage à un prince barbare. Je
-trouverai bien. " Il tendit la main. " Je vous remercie de votre
+trouverai bien. ” Il tendit la main. ” Je vous remercie de votre
 hospitalité. "
 Ducem Barr effleura de ses doigts la main tendue et
 s'inclina cérémonieusement.
 " Votre visite a été un grand honneur.
 - Quant aux renseignements que vous m'avez donnés, reprit
 Bel Riose, je saurai comment vous remercier de cela quand je
-reviendrai. "
+reviendrai. ”
 Ducem Barr suivit humblement son hôte jusqu'à la porte et
 murmura, tandis que s'éloignait le véhicule terrestre :
-" Si vous revenez. "
+" Si vous revenez. ”
 
 IT
 FONDATION
@@ -256,7 +256,7 @@ mégot disparut, désintégré dans un bref éclair silencieux.
 " Je pense, dit-il d'un ton sarcastique, que le dernier de mes
 honorables interlocuteurs ne parle que par habitude. Nous
 pouvons nous permettre, ici, de nous souvenir que c'est nous le
-gouvernement. "
+gouvernement. ”
 II y eut un murmure approbateur.
 Le quatrième homme avait ses petits yeux fixés sur la table.
 " Alors, laissons tranquille la politique du gouvernement. Ce
@@ -273,7 +273,7 @@ devrions faire maintenant. Et d'ailleurs, même si nous l'avions
 
 - Ce qui nous laisse.
 - Tirer nous-mêmes nos conclusions, de toute évidence.
-Les doigts de Forell pianotaient de nouveau sur la table. " Ce
+Les doigts de Forell pianotaient de nouveau sur la table. ” Ce
 jeune homme est un chef militaire de l'Empire, et pourtant il a
 
 "1
@@ -325,12 +325,12 @@ d'une crise de plus : il y en a déjà eu trois.
 - Que d'une crise de plus, oui ! répéta Forell d'un ton
 soucieux. Mais, lors des deux premières, nous avions Salvor
 Hardin pour nous guider ; au moment de la troisième, 1l y avait
-Hober Mallow. Qui avons-nous maintenant ? " II considéra ses
+Hober Mallow. Qui avons-nous maintenant ? ” II considéra ses
 —
 
 16—
 
-- Les Marchands Indépendants ? " suggéra le quatrième. Et
+- Les Marchands Indépendants ? ” suggéra le quatrième. Et
 Forell hocha la tête en murmurant : " S'il en est encore temps...
 "1
 
@@ -360,8 +360,8 @@ plafond était une maquette stéréoscopique de la Galaxie, et au
 centre duquel se tenait Bel Riose en tenue de campagne.
 " Patricien, bonjour ! "
 Puis le général propulsa du pied un fauteuil et congédia son
-aide de camp en lui disant : " Cette porte doit rester fermée
-jusqu'à ce que je l'ouvre. "
+aide de camp en lui disant : ” Cette porte doit rester fermée
+jusqu'à ce que je l'ouvre. ”
 II se planta devant le Siwennien, jambes écartées et mains
 derrière le dos, se balançant lentement d'un air méditatif.
 Puis il lança soudain :
@@ -373,7 +373,7 @@ Puis il lança soudain :
 —
 
 leurs minuscules astronefs. Leurs Marchands - c'est le nom que
-se donnent leurs agents - pénètrent à des parsecs de chez eux. "
+se donnent leurs agents - pénètrent à des parsecs de chez eux. ”
 Ducem Barr coupa court à cette furieuse tirade.
 " Qu'y a-t-il de renseignements précis dans tout cela ; et
 qu'y a-t-il de simple fureur ? "
@@ -389,9 +389,9 @@ question de me le dire. Les fonctionnaires n'ont rien dit. Ils ne
 parlaient qu'affaires.
 Mais j'ai conversé avec des gens
 ordinaires. J'ai absorbé les idées de la masse : leur "destin
-évident", le calme avec lequel ils acceptent un grand avenir.
+évident”, le calme avec lequel ils acceptent un grand avenir.
 C'est une chose qui ne peut se dissimuler : un optimisme
-universel qu'ils ne cherchent même pas à cacher. "
+universel qu'ils ne cherchent même pas à cacher. ”
 Le Siwennien manifestait ouvertement une sorte de
 satisfaction tranquille.
 " Vous remarquerez que, jusqu'à maintenant, tout cela
@@ -401,7 +401,7 @@ que j'ai pu réunir sur le sujet.
 - Vous rendez là sans nul doute, répondit Riose d'un ton
 mordant, un beau tribut à vos facultés d'analyse. Il y a là aussi
 un commentaire fort outrecuidant sur le danger croissant qui
-menace les domaines de Sa Majesté Impériale. "
+menace les domaines de Sa Majesté Impériale. ”
 Barr haussa les épaules avec indifférence, et Riose se
 pencha soudain pour prendre le vieil homme par les épaules, et
 le dévisager avec une étrange douceur au fond des yeux.
@@ -426,7 +426,7 @@ probablement
 me
 mettre en garde contre
 ses ripostes
-éventuelles. Allons, soyons amis. "
+éventuelles. Allons, soyons amis. ”
 Ducem Barr se leva.
 " L'aide que je pourrais vous donner ne veut rien dire, dit-il
 sans ambages. Je ne vais donc pas vous l'imposer.
@@ -458,7 +458,7 @@ qu'on ne peut ni arrêter, ni dévier, ni retarder. "
 Les deux hommes se dévisagèrent longuement, puis le
 général recula.
 "J'accepte le défi, dit-il simplement. Une volonté vivante
-contre une science morte. "
+contre une science morte. ”
 
 IV
 CLÉON II : … Communément appelé le " Grand ". Dernier
@@ -482,7 +482,7 @@ et, pour
 
 le
 
-commun des mortels, il est simplement " l'empereur de Riose ".
+commun des mortels, il est simplement ” l'empereur de Riose ”.
 Les événements de la dernière année de son règne ne doivent
 pas rejeter dans l'ombre quarante ans de...
 ENCYCLOPEDIA
@@ -538,7 +538,7 @@ parmi eux se révéleront-ils, ricana l'empereur.
 votre cour qui vous donne des ennuis.
 - I] causera plus d'ennuis à d'autres qu'à moi-même, s'il en
 est qui agissent prématurément en se fondant sur cette rumeur.
-Mais qu'est-ce que vous me voulez ? Finissons-en. " Brodrig, sur
+Mais qu'est-ce que vous me voulez ? Finissons-en. ” Brodrig, sur
 un geste de l'empereur, se releva et dit : "Il s'agit du général Bel
 Riose, le gouverneur militaire de Siwenna.
 - Riose ? fit Cléon II en fronçant les sourcils. Je ne le situe
@@ -588,7 +588,7 @@ commerçants et autres racailles, est dangereux à toutes les
 époques. Même s'il n'avait pas le désir de vous faire subir le sort
 que votre auguste père a réservé à l'usurpateur Ricker, un de
 nos loyaux seigneurs du domaine pourrait décider de faire de lui
-son instrument. "
+son instrument. ”
 —
 
 98
@@ -597,8 +597,8 @@ son instrument. "
 
 cette région. Si leurs descendants vivent encore et conservent
 leur nom, alors ils sont sûrement retombés dans la barbarie.
-- Ainsi donc, il veut des renforts. " L'Empereur considéra
-d'un œil sévère son secrétaire. " C'est extrêmement curieux :
+- Ainsi donc, il veut des renforts. ” L'Empereur considéra
+d'un œil sévère son secrétaire. ” C'est extrêmement curieux :
 proposer de combattre des sauvages avec dix astronefs et en
 demander davantage avant d'avoir frappé un seul coup. Et
 pourtant, je commence à me souvenir de ce Riose ; c'était un
@@ -612,11 +612,11 @@ jambes ankylosées.
 yeux, un cerveau et un cour loyal. Brodrig..
 Le secrétaire pencha la tête d'un air soumis.
 " Et les astronefs, Sire ?
-- Pas encore ! " L'empereur poussa un petit gémissement en
+- Pas encore ! ” L'empereur poussa un petit gémissement en
 changeant de position. Il braqua vers son secrétaire un doigt
-sans force. " Pas avant d'en savoir plus. Réunissez le Conseil des
+sans force. ” Pas avant d'en savoir plus. Réunissez le Conseil des
 Seigneurs pour aujourd'hui. Ce sera une bonne occasion pour
-discuter le budget. Je le ferai passer, ou des têtes tomberont. "
+discuter le budget. Je le ferai passer, ou des têtes tomberont. ”
 
 V
 Avec Siwenna pour base, les forces de l'Empire explorèrent
@@ -705,11 +705,11 @@ cela ne réussit pas toujours à cet égard.
 - Vous allez trouver cela gênant, général : cette autorité
 extérieure.
 - Je n'en doute pas, dit Riose en rougissant un peu, mais je
-n'y peux rien. "
+n'y peux rien. ”
 Le récepteur placé près de la main du général s'alluma et,
 avec une secousse imperceptible, le message roulé en cylindre
 tomba dans sa case. Riose le déroula.
-" Bon. Ça yest!"
+" Bon. Ça yest!”
 Ducem Barr haussa les sourcils d'un air interrogateur.
 " Vous savez que nous avons capturé un de ces Marchands,
 dit Riose. Vivant... et avec son astronef intact.
@@ -718,7 +718,7 @@ dit Riose. Vivant... et avec son astronef intact.
 minute. Restez assis, patricien, je tiens à ce que vous soyez là
 quand je vais l'interroger. C'est pourquoi je vous ai demandé de
 venir aujourd'hui. Vous le comprendrez peut-être là où je
-risquerais de manquer des points importants. "
+risquerais de manquer des points importants. ”
 Le signal de la porte retentit et, d'une pression du doigt, le
 général fit s'ouvrir le battant. L'homme qui se tenait sur le seuil
 était grand et barbu, et il portait un court manteau de matière
@@ -743,9 +743,9 @@ avant tout.
 
 - D'accord, dit calmement Devers. Mais de quel genre de
 coopération parlez-vous, chef ? A vous parler net, je ne sais pas
-très bien où j'en suis. " Il regarda autour de lui. " Où sommesnous, par exemple, et à quoi tout ça rime-t-il ?
+très bien où j'en suis. ” Il regarda autour de lui. " Où sommesnous, par exemple, et à quoi tout ça rime-t-il ?
 - Ah ! j'ai négligé l'autre moitié des présentations. Je m'en
-excuse. " Riose était de bonne humeur. " Ce monsieur est
+excuse. ” Riose était de bonne humeur. ” Ce monsieur est
 Ducem Barr, patricien de l'Empire. Je suis Bel Riose, pair de
 l'Empire et général de troisième classe dans les forces armées de
 Sa Majesté Impériale. "
@@ -758,7 +758,7 @@ d'un ton pincé.
 - J'aurais dû m'en douter, dit Lathan Devers en pointant sa
 barbe vers le plafond. C'est un engin rudement soigné qui a
 abordé mon coucou. Aucun royaume de la Périphérie n'aurait
-pu produire ça. "Il fronça les sourcils. " Alors, qu'est-ce que tout
+pu produire ça. "Il fronça les sourcils. ” Alors, qu'est-ce que tout
 ça veut dire, chef ? Ou bien est-ce que je dois vous appeler
 général ?
 - Ça veut dire la guerre.
@@ -798,7 +798,7 @@ que je n'y ai pas passé deux mois de suite en dix ans ? C'est vous
 qui perdez votre temps. Mais faites donc la guerre, si c'est aux
 fables que vous en avez.
 Barr, pour la première fois, intervint d'une voix douce :
-" Vous êtes donc si sûr que la Fondation sera victorieuse ? "
+" Vous êtes donc si sûr que la Fondation sera victorieuse ? ”
 Le Marchand se retourna. Il avait rougi un peu et une vieille
 cicatrice qu'il avait à la tempe formait une ligne blanche.
 " Tiens, le muet. Comment avez-vous déduit ça de ce que j'ai
@@ -819,7 +819,7 @@ Lathan Devers le suivit des yeux.
 "Il n'a pas l'air content. Qu'est-ce qui se passe ?
 - Une bataille, sans doute, dit Barr d'un ton rogue. Les
 forces de la Fondation se lancent dans leur première bataille.
-Vous feriez mieux de venir avec moi. "
+Vous feriez mieux de venir avec moi. ”
 Il y avait des soldats armés dans la pièce. Ils avaient une
 attitude respectueuse et un visage tendu. Devers suivit le vieux
 patriarche siwennien dans le couloir.
@@ -843,12 +843,12 @@ répondait rien, laissez-moi vous demander quelque chose. Vous
 disiez que votre pays a été battu un jour. Par qui ? Des gens
 d'une comète venant d'autres nébuleuses ?
 - Par l'Empire, répondit Barr.
-- Vraiment ? Alors, qu'est-ce que vous faites ici ? "
+- Vraiment ? Alors, qu'est-ce que vous faites ici ? ”
 Barr gardait un silence éloquent.
 Le Marchand avança la lèvre inférieure et hocha lentement
 la tête. Il ôta le bracelet à mailles plates passé à son poignet
 droit et le tendit à son compagnon.
-" Qu'est-ce que vous pensez de ça ? " Il portait le même au
+" Qu'est-ce que vous pensez de ça ? ” Il portait le même au
 poignet gauche.
 
 - Vous avez tué un vice-roi jadis, hein ? fit doucement le
@@ -867,18 +867,18 @@ vous déverserais mon cour et c'est le général qui serait content.
 N'y comptez pas.
 " Mais j'aimerais quand même que vous me prouviez que
 vous êtes le fils d'Onum Barr de Siwenna, le sixième et le plus
-jeune qui a échappé au massacre. "
+jeune qui a échappé au massacre. ”
 Ducem Barr, d'une main tremblante, ouvrit un petit coffre
 métallique qu'il prit dans une niche creusée dans le mur. Il en
 tira un objet de métal qu'il lança au Marchand.
-" Regardez ça ", dit-il.
+" Regardez ça ”, dit-il.
 Devers examina l'objet. Il approcha de son œil le maillon
 central de la chaîne et jura doucement.
 " Ce sont les initiales de Mallow, et ça date d'il y a cinquante
-ans comme un rien. "
+ans comme un rien. ”
 Il leva les yeux et sourit.
 " Ça va. Un bouclier atomique individuel, c'est une preuve
-qui me suffit ", dit-il en tendant sa grande main.
+qui me suffit ”, dit-il en tendant sa grande main.
 
 VI
 Les minuscules astronefs avaient surgi des profondeurs du
@@ -942,7 +942,7 @@ que la structure psychique du prisonnier reste peut-être
 imperméable à la sonde puisque, depuis son enfance, il a été
 soumis à un environnement et à des stimuli nerveux différents.
 Mais il peut encore être utile. C'est dans cet espoir que je le
-garde vivant. "
+garde vivant. ”
 Brodrig s'appuya le menton sur sa canne d'ivoire.
 " Je vais voir si l'on peut trouver un spécialiste dans la
 capitale. En attendant, et cet autre personnage dont vous venez
@@ -971,7 +971,7 @@ zones du front à un moment intéressant.
 - Ah ! oui ? Intéressant à quel titre ?
 - En ce sens que le blocus est aujourd'hui terminé.
 Intéressant en ce sens que, dans la semaine, la vingtième flotte
-de la frontière fait mouvement vers le cœur de la résistance. "
+de la frontière fait mouvement vers le cœur de la résistance. ”
 Riose sourit et tourna les talons.
 Brodrig éprouvait un vague agacement.
 
@@ -982,8 +982,8 @@ n'est qu'une rumeur, mais quand même, il faut que je vous le
 dise. Le général a remis ça. (Il hocha la tête lentement,
 gravement.)
 - Pas possible ? fit Devers. Et qu'est-ce qu'il a fait ?
-- Il a bouclé le blocus, voilà. " Le sergent eut un petit rire de
-fierté paternelle. " N'est-ce pas qu'il est fort ? Un des gars qui
+- Il a bouclé le blocus, voilà. ” Le sergent eut un petit rire de
+fierté paternelle. ” N'est-ce pas qu'il est fort ? Un des gars qui
 fait toujours de belles phrases dit que ça s'est passé aussi
 harmonieusement que la musique des sphères, mais je ne sais
 pas de quoi il parle.
@@ -994,9 +994,9 @@ regagner mon bord, maintenant que mon bras est rafistolé. J'en
 ai assez de traîner mes guêtres 1c1.
 - Moi aussi ", marmonna brusquement Devers d'un ton
 farouche.
-Le sergent le regarda d'un air hésitant, puis dit : " Il faut que
+Le sergent le regarda d'un air hésitant, puis dit : ” Il faut que
 je m'en aille maintenant. Le capitaine va faire sa ronde et
-j'aimerais autant qu'il ne me surprenne pas ici. " Il s'arrêta sur
+j'aimerais autant qu'il ne me surprenne pas ici. ” Il s'arrêta sur
 le seuil. "A propos, monsieur, dit-il en s'adressant avec une
 brusque timidité au Marchand, j'ai eu des nouvelles de ma
 femme. Elle dit que le petit réfrigérateur que vous m'avez
@@ -1009,12 +1009,12 @@ souriant du sergent.
 
 Ducem Barr se leva de son siège.
 " Ma foi, il nous paye bien le réfrigérateur. Voyons un peu ce
-nouveau livre. Ah ! le titre a disparu. "
+nouveau livre. Ah ! le titre a disparu. ”
 Il déroula un mètre environ de la pellicule et l'examina à la
 lumière. Puis, il murmura :
 "Tiens, tiens, c'est le Jardin de Summa, Devers.
-- Ah ! oui ? " fit le Marchand d'un ton parfaitement
-indifférent. Il repoussa ce qui restait de son dîner. " Asseyez-
+- Ah ! oui ? ” fit le Marchand d'un ton parfaitement
+indifférent. Il repoussa ce qui restait de son dîner. ” Asseyez-
 
 —
 
@@ -1095,14 +1095,14 @@ d'une voix nonchalante :
 " Vous resterez debout en présence d'un pair de l'Empire. "
 Il sourit.
 Devers haussa les épaules.
-" Si mon stock ne vous intéresse pas, pourquoi suis-je ici ? "
+" Si mon stock ne vous intéresse pas, pourquoi suis-je ici ? ”
 Le secrétaire privé attendit d'un air glacial et Devers ajouta
 lentement : " Monsieur.
 
 " Ma foi, dit le secrétaire en souriant, vous êtes un gaillard
 bien silencieux. D'après le général, même une psychosonde n'a
 rien donné, et cela a d'ailleurs été une erreur de sa part, car cela
-m'a convaincu que notre Jeune héros mentait. " II semblait
+m'a convaincu que notre Jeune héros mentait. ” II semblait
 d'excellente humeur. " Mon brave Marchand, dit-il, j'ai une
 psychosonde
 à
@@ -1112,7 +1112,7 @@ qui
 devrait
 vous
 convenir
-particulièrement bien. Vous voyez ceci... "
+particulièrement bien. Vous voyez ceci... ”
 Entre le pouce et l'index, il tenait négligemment des
 rectangles roses et jaunes aux dessins compliqués, mais
 aisément identifiables.
@@ -1126,7 +1126,7 @@ que l'on n'a rien pour rien.
 - En échange de quoi ? De la vérité ! Quels sont les mobiles
 du général ? Pourquoi fait-il cette guerre ? "
 Lathan Devers soupira et se lissa la barbe d'un air songeur.
-" Ce qu'il veut ? " Ses yeux suivaient les mains du secrétaire
+" Ce qu'il veut ? ” Ses yeux suivaient les mains du secrétaire
 qui comptait l'argent lentement, billet par billet. "En un mot,
 l'Empire.
 - Tiens. Comme c'est banal ! On finit toujours par en arriver
@@ -1140,8 +1140,8 @@ religion, et personne ne peut les utiliser. J'ai essayé et voilà où
 j'en suis. avec une condamnation à mort qui m'attend.
 - Je comprends. Et ces vieux secrets ? Allons, pour cent
 mille crédits, j'ai droit aux détails.
-- La transmutation des éléments "", dit brièvement Devers.
-Le regard du secrétaire se durcit et perdit de son détachement. "
+- La transmutation des éléments "”, dit brièvement Devers.
+Le regard du secrétaire se durcit et perdit de son détachement. ”
 On m'a toujours dit que les lois de la physique atomique
 n'admettent pas la transmutation pratique.
 
@@ -1155,14 +1155,14 @@ les exécutions intéressantes. Je vous ai acheté cent mille crédits,
 Marchand. Tâchez de rester une marchandise qui les vaudra. Si
 l'idée vous venait d'oublier que vous êtes acheté et de vouloir...
 disons, répéter notre conversation à Riose, vous serez exécuté.
-Exécuté à ma façon. "
+Exécuté à ma façon. ”
 Et sur ce visage délicat, on vit apparaître soudain une
 expression d'une intense cruauté, qui changea le sourire étudié
 en un rictus découvrant des babines rouges. Un instant, Devers
 aperçut ce démon de l'espace qui avait acheté son acheteur, au
 fond des yeux qui le fixaient.
-Sans rien dire, il regagna sa cellule, escorté des deux " petits
-camarades " de Brodrig, pistolet au poing. A Ducem Barr qui
+Sans rien dire, il regagna sa cellule, escorté des deux ” petits
+camarades ” de Brodrig, pistolet au poing. A Ducem Barr qui
 l'interrogeait, il répondit tranquillement :
 " Non, figurez-vous que c'est lui qui m'a acheté. "
 Deux mois de rude guerre avaient laissé leurs marques sur
@@ -1176,7 +1176,7 @@ Le sergent salua et sortit, et Riose, ramassant les papiers
 d'un geste sec.
 " Prenez place, dit-il sèchement aux deux hommes. Je n'ai
 pas beaucoup de temps. A vrai dire, je ne devrais même pas être
-ici, mais il faut que je vous voie. "
+ici, mais il faut que je vous voie. ”
 IT se tourna vers Ducem Barr, dont les longs doigts
 caressaient avec intérêt le cube de cristal dans lequel était
 enchâssée la réplique du visage austère de Sa Majesté Impériale
@@ -1253,18 +1253,18 @@ dissimula sous sa blouse.
 Le sergent Luk se retourna en les voyant sortir par la porte à
 
 peine entrebâillée.
-" Précédez-nous, sergent ! " dit Barr d'un ton dégagé.
+" Précédez-nous, sergent ! ” dit Barr d'un ton dégagé.
 Devers referma la porte derrière eux.
 Le sergent Luk les conduisit en silence jusqu'à leur cellule,
 puis, après avoir marqué un arrêt à peine perceptible,
 poursuivit son chemin, car il sentait contre ses côtes le canon
 d'un pistolet atomique et une voix sans douceur lui disait à
-l'oreille : " A l'astronef marchand.
+l'oreille : ” A l'astronef marchand.
 Devers s'avança pour ouvrir le sas à air, et Barr dit :
 " Restez où vous êtes, Luk. Vous avez été correct et nous
 n'allons pas vous tuer. "
 Mais le sergent reconnut les initiales sur le pistolet.
-" Vous avez tué le général ", s'écria-t-il d'une voix que la
+" Vous avez tué le général ”, s'écria-t-il d'une voix que la
 colère étranglait.
 Avec un cri de fureur, il se précipita aveuglément vers
 l'éclair qui jaillissait du canon et s'effondra, volatilisé.
@@ -1274,12 +1274,12 @@ clignoter et que, sur le fond crémeux de la grande lentille dans
 le ciel qui constituait la Galaxie, d'autres formes noires
 s'élevèrent.
 " Tenez-vous bien, Barr, dit Devers d'un ton résolu, et
-voyons un peu s'ils ont un engin aussi rapide que le mien. "
+voyons un peu s'ils ont un engin aussi rapide que le mien. ”
 Il savait bien qu'ils n'en avaient pas !
 Une fois dans l'espace libre, le Marchand reprit d'une voix
 lasse :
 " Je ne me suis pas assez méfié de Brodrig. J'ai l'impression
-qu'il est de mèche avec le général. "
+qu'il est de mèche avec le général. ”
 A toute allure, ils s'enfonçaient dans les profondeurs de la
 masse stellaire qu'était la Galaxie.
 
@@ -1337,7 +1337,7 @@ que nous n'aurons pas trop longtemps à attendre.
 
 Siwenna qui périrait. Vous voyez que je n'avais pas le choix ! Et
 que je ne suis pas en dehors de tout cela.
-Devers baissa les yeux et Barr reprit doucement : " C'est sur
+Devers baissa les yeux et Barr reprit doucement : ” C'est sur
 une victoire de la Fondation que reposent les espoirs de
 Siwenna. C'est pour une victoire de la Fondation que mes fils se
 sont sacrifiés. Et Hari Seldon ne précalcule pas l'inévitable salut
@@ -1369,7 +1369,7 @@ mâle sur dix, simplement pour n'avoir pas versé des impôts
 exorbitants. C'était ce même Brodrig qui les percevait. Non,
 Riose peut vivre. Auprès de lui, il est miséricordieux.
 - Mais six mois, six mois à la base ennemie, sans rien en
-tirer ! " Les robustes mains de Devers étaient crispées, au point
+tirer ! ” Les robustes mains de Devers étaient crispées, au point
 qu'il en faisait craquer ses jointures. " Ne rien en avoir tiré !
 - Ah ! attendez. Vous me rappelez... fit Barr en fouillant
 dans sa bourse. Ceci compte peut-être pour quelque chose ?
@@ -1404,11 +1404,11 @@ Barr leva la tête en criant d'un ton amer :
 joue au général, désormais. Maintenant que Riose n'est plus là,
 il est commandant en chef et il lui faut satisfaire ses bas
 instincts en rédigeant de pompeux rapports sur des affaires
-militaires auxquelles il ne connaît rien. " La planète Untel ne
-résiste plus. "" L'offensive continue. "" L'ennemi faiblit. " Quel
+militaires auxquelles il ne connaît rien. ” La planète Untel ne
+résiste plus. ”” L'offensive continue. "” L'ennemi faiblit. " Quel
 prétentieux à la tête vide !
 - Attendez donc, attendez...
-- Jetez donc ça. " Le vieil homme se détourna, vexé. " La
+- Jetez donc ça. ” Le vieil homme se détourna, vexé. " La
 Galaxie sait que je ne m'attendais pas à quelque chose d'une
 importance extraordinaire, mais, en temps de guerre, il est
 raisonnable de supposer que même l'ordre le plus banal, faute
@@ -1427,7 +1427,7 @@ minute du temps de Riose, qu'il va pouvoir utiliser maintenant à
 des fins plus constructives. "
 Mais Devers s'était levé.
 " Voulez-vous vous calmer un peu et cesser de vous agiter ?
-Au nom de Seldon... " Il brandit le message sous le nez de Barr.
+Au nom de Seldon... ” Il brandit le message sous le nez de Barr.
 " Relisez-moi ça. Que veut-il dire par "triomphe final recherché"
 
 ?
@@ -1448,8 +1448,8 @@ Vous n'en connaissez pas l'emplacement dans l'espace, et je ne
 m'en rappelle pas les coordonnées, pour ne rien dire des
 éphémérides. Vous ne savez même pas où nous sommes dans
 l'espace.
-- On ne se perd pas dans l'espace ", fit Devers en souriant. Il
-manipulait déjà ses instruments de bord. "" Nous gagnons la
+- On ne se perd pas dans l'espace ”, fit Devers en souriant. Il
+manipulait déjà ses instruments de bord. ”" Nous gagnons la
 planète la plus proche et nous revenons avec la position et les
 meilleures cartes de navigation que nous permettent d'acheter
 les cent mille crédits de Brodrig.
@@ -1556,7 +1556,7 @@ certaine
 coûteront qu'une centaine de crédits chacun peut-être. Je me
 chargerai des négociations. Tout d'abord, ils ne comprendraient
 pas votre accent, et ensuite, vous ne connaissez pas l'étiquette
-de la corruption impériale. C'est un art, je vous assure. Ah!"
+de la corruption impériale. C'est un art, je vous assure. Ah!”
 Il venait de trouver à la troisième page des Nouvelles
 Impériales ce qu'il cherchait, et il passa le journal à Devers.
 Devers lut lentement. Le vocabulaire ne lui était pas
@@ -1679,13 +1679,13 @@ Nous allons prendre congé.
 
 avait donné le signalement précis, piloté par deux meurtriers
 déjà identifiés.
-" Attention ", fit Devers, et il passa brusquement dans
+" Attention ”, fit Devers, et il passa brusquement dans
 l'hyper-espace à trois mille kilomètres au-dessus de Trantor.
 Ce passage, si près d'une base planétaire, fit sombrer Barr
 dans l'inconscience et plongea Devers dans un brouillard de
 douleur, mais, quelques années-lumière plus loin, l'espace
 autour d'eux était libre.
-" [n'y a pas un appareil impérial capable de me suivre ", fit
+" [n'y a pas un appareil impérial capable de me suivre ”, fit
 Devers avec fierté. Puis il ajouta d'un ton plus amer : " Mais
 nous n'avons plus nulle part où fuir et nous ne pouvons pas
 lutter contre leur masse. Que faut-il faire ? Que peut-on faire ? "
@@ -1696,14 +1696,14 @@ ses muscles était endolori.
 Il lui tendit le numéro des Nouvelles Impériales qu'il tenait
 encore, et le Marchand eut tôt fait de déchiffrer les gros titres.
 " Recherchés pour arrestation : Riose et Brodrig ", murmura
-Devers. " Pourquoi ? demanda-t-il en regardant Barr.
+Devers. ” Pourquoi ? demanda-t-il en regardant Barr.
 - L'article ne le dit pas, mais quelle importance ? La guerre
 avec la Fondation est terminée, et en ce moment même Siwenna
-se révolte. Regardez l'article. " Son ton déjà se faisait songeur. "
+se révolte. Regardez l'article. ” Son ton déjà se faisait songeur. ”
 Nous allons nous arrêter dans une des provinces pour avoir les
 derniers
 détails. Si vous le permettez, je vais dormir
-maintenant. "
+maintenant. ”
 Ce qu'il fit.
 Par bonds de plus en plus grands, l'astronef marchand
 parcourait la Galaxie pour regagner la Fondation.
@@ -1741,7 +1741,7 @@ bouffées de cigare.
 - C'est bien possible, fit Barr en souriant. Voilà ce que c'est
 que de n'être pas formé à la psychohistoire. Les mots sont un
 substitut bien vague pour les équations mathématiques. Mais
-voyons un peu... "
+voyons un peu... ”
 Barr réfléchit, tandis que Forell se détendait, appuyé à la
 rampe, et que Devers regardait le ciel velouté et songeait à
 Trantor.
@@ -1782,7 +1782,7 @@ tranquillement, mais de façon irrésistible. "
 d'événements qui n'aboutisse pas au triomphe de la Fondation.
 C'était inévitable quoi que Riose ait fait, quoi que nous ayons
 
-fait. "
+fait. ”
 Le magnat de la Fondation hocha lourdement la tête.
 " Bon ! Mais si l'empereur et le général n'avaient été qu'une
 seule et même personne. Hein ? Alors qu'est-ce qui se serait
@@ -1811,7 +1811,7 @@ guerre civile de l'Empire.
 - Il y a une Seconde Fondation, dit Barr d'un ton songeur.
 - À l'autre extrémité de la Galaxie ? Nous n'avons pas à nous
 en occuper avant des siècles. "
-A ces mots, Devers se tourna brusquement, l'air sombre. "
+A ces mots, Devers se tourna brusquement, l'air sombre. ”
 Peut-être y a-t-1l des ennemis à l'intérieur.
 - Vous croyez ? dit Forell d'un ton froid. Qui, par exemple ?
 - Des gens, par exemple, qui aimeraient que la richesse se
@@ -1829,8 +1829,8 @@ LE MULET
 
 I
 
-LE MULET : … On possède moins de renseignements sur "
-le Mulet " que sur tout autre personnage d'une importance
+LE MULET : … On possède moins de renseignements sur ”
+le Mulet ” que sur tout autre personnage d'une importance
 incomparable dans l'histoire de la Galaxie. On ignore son vrai
 nom ; en ce qui concerne sa jeunesse, on en est réduit aux
 comectures. Même la période de sa plus grande célébrité ne
@@ -1939,7 +1939,7 @@ trouver un véhicule public. "
 Son regard maintenant s'était posé sur Bayta et ne la lâchaït
 pas. I lui dit d'un ton plus doux :
 " J'ai votre cristal ici, et il est bien. Maïs je vois que le type
-qui l'a fait n'était qu'un amateur. "
+qui l'a fait n'était qu'un amateur. ”
 Il tira d'une poche de sa veste un petit cube transparent et, à
 la lumière, le visage rieur contenu dans l'épaisseur du cube
 apparut comme une Bayta en miniature.
@@ -1952,7 +1952,7 @@ nous. Tenez, prenez mon bras et regagnons la voiture. Je n'avais
 jamais cru jusqu'à maintenant que mon fils savait ce qu'il
 voulait. Mais je crois que je vais changer d'avis.
 - Comment va le paternel ces temps-ci ? dit Toran à mi-voix
-à son oncle. Toujours aussi coureur ? "
+à son oncle. Toujours aussi coureur ? ”
 Un large sourire plissa le visage de Randu.
 
 _ 86—
@@ -1980,7 +1980,7 @@ de la Fondation.
 pour un honnête Marchand, reprit Fran.
 - Ma femme est de la Fondation
 ", expliqua Toran. Il
-regarda les deux hommes puis ajouta doucement : " La voici. "
+regarda les deux hommes puis ajouta doucement : ” La voici. "
 La conversation roula sur des sujets d'ordre général après le
 repas du soir, que Fran avait épicé de trois récits puisés parmi
 ses souvenirs et où le sang, les femmes, les bénéfices et les
@@ -2018,7 +2018,7 @@ de la rappeler, même brièvement. Aujourd'hui, vous savez, c'est
 l'anniversaire de Seldon, et bien que je sois de la Fondation et
 vous de Port, nous avons cela en commun..."
 Elle alluma lentement une cigarette et en considéra d'un air
-absent le bout rougeoyant. " Les lois de l'histoire sont aussi
+absent le bout rougeoyant. ” Les lois de l'histoire sont aussi
 absolues que celles de la physique, et si les probabilités
 d'erreurs sont plus grandes, c'est seulement parce que l'histoire
 ne traite pas avec des humains en aussi grand nombre que la
@@ -2042,7 +2042,7 @@ leurs tas d'or ruinent la Fondation, tandis que les braves
 Marchands cachent leur pauvreté sur des mondes misérables
 comme Port. C'est une honte pour Seldon, c'est comme si on lui
 jetait de la boue à la figure, comme si on lui crachaït dans la
-barbe. "Il leva le bras, puis son visage s'allongea. " Si seulement
+barbe. "Il leva le bras, puis son visage s'allongea. ” Si seulement
 J'avais mon autre bras ! Si, jadis, on m'avait écouté !
 - Papa, dit Toran, calme-toi.
 
@@ -2065,13 +2065,13 @@ en
 organisation... et dès que la Fondation le jugera utile, vous vous
 en apercevrez. Alors vous feriez mieux de vous chercher des
 alliés - sur la Fondation elle-même, si vous pouvez.
-- Randu ", dit Fran, en regardant son frère comme un grand
+- Randu ”, dit Fran, en regardant son frère comme un grand
 taureau désemparé.
 Randu ôta la pipe qu'il avait aux lèvres.
 " Le garçon a raison, Fran. Si tu réfléchis un peu, tu le
 comprendras. Toran, je vais te dire pourquoi j'ai amené ce sujet
-sur le tapis. " Il vida le fourneau de sa pipe dans le
-désintégrateur et se mit à la bourrer méthodiquement. " Ton
+sur le tapis. ” Il vida le fourneau de sa pipe dans le
+désintégrateur et se mit à la bourrer méthodiquement. ” Ton
 allusion au fait que la Fondation s'intéresse à nous, Toran, est
 tout à fait justifiée. Nous avons eu deux récentes visites, ces
 temps-ci, pour des histoires d'impôts. L'inquiétant, c'est que le
@@ -2146,12 +2146,12 @@ la
 
 semaine
 
-prochaine. Il faut vous laisser le temps de reprendre haleine. "
+prochaine. Il faut vous laisser le temps de reprendre haleine. ”
 
 métal. Deux fonctionnaires, dans le costume droit qui datait de
 trois siècles, s'avancèrent et crièrent :
 " Une audience pour le capitaine Han Pritcher, de
-l'Information. "
+l'Information. ”
 Ils reculèrent en s'inclinant cérémonieusement tandis que le
 capitaine s'avançait. Son escorte s'arrêta à la porte, et il entra
 seul dans le cabinet.
@@ -2182,10 +2182,10 @@ Indbur le troisième était un étrange mélange de traits de
 caractère qui, aux yeux de tous sauf aux siens, apparaissaient
 comme autant de succédanés.
 Pour lui, la passion de l'arrangement géométrique s'appelait
-" ordre ", un intérêt fébrile pour les détails les plus insignifiants
-de la bureaucratie devenait " zèle ", l'indécision, quand il avait
-raison, était " prudence " et l'entêtement aveugle, quand il avait
-tort, " détermination ".
+" ordre ”, un intérêt fébrile pour les détails les plus insignifiants
+de la bureaucratie devenait ” zèle ”, l'indécision, quand il avait
+raison, était ” prudence " et l'entêtement aveugle, quand il avait
+tort, " détermination ”.
 Avec cela, il ne gaspillait pas l'argent, ne tuait personne
 inutilement et était plein de bonnes intentions.
 —
@@ -2276,7 +2276,7 @@ exactes.
 Néanmoins,
 ïil convient
 d'enquêter sur cet homme.
-- Hum. En effet ! En effet ! " Le Maire tomba dans une sorte
+- Hum. En effet ! En effet ! ” Le Maire tomba dans une sorte
 de rêverie, et lentement, en vingt-quatre coups de son stylet,
 dessina six carrés disposés en hexagone sur la feuille blanche
 d'un bloc qu'il déchira, plia soigneusement en trois et glissa
@@ -2298,7 +2298,7 @@ désespérément pendant plus d'un an. La victoire inéluctable que
 nous avons remportée nous a coûté cinq cents astronefs et un
 
 demi-million d'hommes. Excellence, le Plan Seldon aide ceux
-qui s'aident eux-mêmes. "
+qui s'aident eux-mêmes. ”
 Le Maire Indbur fronça les sourcils et se lassa soudain de la
 patience qu'il affichait. L'idée lui vint qu'il avait tort de se
 montrer ainsi condescendant, puisqu'on prenait cela pour une
@@ -2315,7 +2315,7 @@ avez vos instructions.
 - On ne vous a rien demandé, capitaine. Vous avez vos
 instructions. Vous allez les suivre. Toute autre discussion avec
 moi ou avec ceux qui me représentent sera considérée comme
-de la trahison. Vous pouvez disposer. "
+de la trahison. Vous pouvez disposer. ”
 Le capitaine Han Pritcher s'agenouilla de nouveau, puis
 sortit lentement à reculons.
 Le Maire Indbur retrouva son calme et prit sur la pile de
@@ -2360,7 +2360,7 @@ chaleur. Ses bras bronzés par le soleil étaient croisés autour de
 ses genoux et elle considérait d'un œil distrait le corps allongé
 de son mari, qui étincelait presque sous la splendeur pâle du
 soleil.
-" N'en abuse pas ", avait-elle dit d'abord, mais Toran était
+" N'en abuse pas ”, avait-elle dit d'abord, mais Toran était
 originaire d'une étoile rouge moribonde. Malgré trois ans passés
 dans la Fondation, le soleil pour lui était un luxe, et depuis
 quatre jours maintenant, sa peau, préalablement traitée pour
@@ -2390,7 +2390,7 @@ que sympathisante retenaïit le garde écumant.
 Le clown continua son chemin le long de la plage. Il côtoyait
 divers groupes sans s'arrêter nulle part. La foule du début s'était
 dispersée. Le garde était parti.
-" Drôle de type "", dit Bayta avec amusement, et Toran
+" Drôle de type "”, dit Bayta avec amusement, et Toran
 acquiesça, l'air indifférent.
 Le clown était assez près maintenant pour qu'on le vit
 distinctement. Son mince visage était prolongé par un nez
@@ -2413,7 +2413,7 @@ l'élocution un peu compliquée des Secteurs Centraux.
 esprits m'ont gratifié, dit-il, je dirais alors que cette dame ne
 peut exister, car quel homme sain d'esprit affirmerait qu'un rêve
 est une réalité ? Et pourtant, ne serais-je pas en droit de croire
-ce que voient mes yeux charmés ? "
+ce que voient mes yeux charmés ? ”
 — 106—
 
 - Voyons, fit Bayta, je voudrais bien vous aider, mais
@@ -2428,7 +2428,7 @@ courant, son pistolet d'alerte à la main.
 lourde main s'abattit sur la frêle épaule du clown qui se mit à
 geindre.)
 - Qu'a-t-il fait ? dit Toran.
-- Ce qu'il a fait ? Ça alors, elle est bonne, celle-là ! " Le garde
+- Ce qu'il a fait ? Ça alors, elle est bonne, celle-là ! ” Le garde
 tira d'une petite sacoche attachée à sa ceinture un mouchoir
 rouge avec lequel il s'essuya le cou. "Je vais vous dire ce qu'il a
 fait, reprit-il d'un ton gourmand. IL s'est enfui. L'alerte a été
@@ -2507,17 +2507,17 @@ et ïl est infiniment
 probable
 qu'à titre de
 compensation, on expédierait votre corps - écartelé - jusqu'à la
-Fondation. Cela s'est déjà vu. "
+Fondation. Cela s'est déjà vu. ”
 Le lieutenant s'humecta les lèvres. Toran avait dit vrai.
 - Votre nom ? demanda-t-il.
 - Je répondrai à vos questions dans mon astronef, répondit
 
 Toran, profitant de son avantage. Vous pourrez vous procurer le
 numéro de mon box au Hangar ; mon appareil est enregistré
-sous le nom de" Bayta "".
+sous le nom de" Bayta "”.
 - Vous refusez de livrer le fuyard ?
 - Au Mulet, peut-être. Envoyez-moi donc votre maître et
-qu'il vienne lui-même le chercher !"
+qu'il vienne lui-même le chercher !”
 
 — 110 —
 
@@ -2527,7 +2527,7 @@ solution évidente n'avait pas tardé à devenir milliardaire. Ses
 héritiers - par la naissance ou par la finance - comptaient parmi
 les hommes les plus riches de Kalgan.
 Le Hangar s'étend sur plus de dix mille hectares de
-territoire et le terme de " hangar " ne suffit pas tout à fait à le
+territoire et le terme de ” hangar ” ne suffit pas tout à fait à le
 décrire. C'est essentiellement un hôtel... pour astronefs. Le
 voyageur paie d'avance et son appareil est garé dans une niche
 d'où il peut s'envoler dans l'espace à tout moment. Le voyageur
@@ -2568,7 +2568,7 @@ pas votre temps en remerciements. Est-ce qu'il n'y a pas un
 proverbe de la Galaxie Centrale à propos de la reconnaissance ?
 - En effet, gente dame. Car un sage, m'a-t-on dit, a déclaré
 un Jour : "La gratitude est louable et efficace quand elle ne se
-perd pas en phrases vides." Mais hélas, madame, je ne suis,
+perd pas en phrases vides.” Mais hélas, madame, je ne suis,
 semble-t-il, qu'un amas de phrases vides. Lorsque celles-ci
 plaisaient au Mulet, cela m'a valu une tenue de cour et un grand
 nom - car voyez-vous, à l'origine je m'appelais simplement
@@ -2592,12 +2592,12 @@ magie, de feux capables de consumer les planètes et de secrets
 d'une redoutable puissance. On dit que même les plus grands
 personnages de la Galaxie ne pourraient connaître les honneurs
 et la déférence que tient pour son dû un simple mortel pouvant
-dire : " Je suis un citoyen de la Fondation ", quand bien même il
+dire : " Je suis un citoyen de la Fondation ”, quand bien même il
 ne serait qu'un pauvre mineur ou un rien du tout comme moi.
 - Voyons, Magnifico, dit Bayta, vous ne finirez jamais si
 vous parlez tout le temps. Tenez, voilà un peu de lait parfumé.
 
-C'est bon. "
+C'est bon. ”
 Elle posa sur la table un pichet et fit signe à Toran de la
 suivre hors de la cuisine.
 " Torie, qu'allons-nous faire de lui maintenant ?
@@ -2607,10 +2607,10 @@ suivre hors de la cuisine.
 Toran ouvrit la porte intérieure et mit le contact de son
 pistolet automatique, le pouce sur le déclencheur. Il y eut un
 bruit de pas, puis la porte s'ouvrit et Magnifico s'écria :
-" Ce n'est pas le Mulet. Ce n'est qu'un homme. "
+" Ce n'est pas le Mulet. Ce n'est qu'un homme. ”
 L'homme s'inclina gravement devant le clown.
 " Exact. Je ne suis pas le Mulet. "Il écarta les bras, paumes
-ouvertes. " Je ne suis pas armé et ma mission est pacifique.
+ouvertes. ” Je ne suis pas armé et ma mission est pacifique.
 Vous pouvez vous détendre et ranger votre pistolet. Votre main
 tremble un peu trop pour mon confort.
 - Qui êtes-vous ? demanda brusquement Toran.
@@ -2631,7 +2631,7 @@ une heure donnée, l'alarme sera donnée à la plus proche base de
 la Fondation : alors, je doute que vos armes soient d'une grande
 
 utilité. "
-Il y eut un silence hésitant, puis Bayta dit calmement : "
+Il y eut un silence hésitant, puis Bayta dit calmement : ”
 Range ton pistolet, Toran, et crois-le sur parole. Il a l'air sincère.
 - Merci", dit l'étranger.
 Toran posa son pistolet sur la chaise auprès de lui.
@@ -2646,7 +2646,7 @@ personne sur Kalgan qui ne sache pas que les hommes du Mulet
 — 116 —
 
 - En effet, dit Toran.
-- Je peux m'asseoir ? Merci. " Le capitaine Pritcher passa
+- Je peux m'asseoir ? Merci. ” Le capitaine Pritcher passa
 une longue jambe par-dessus son genou et un bras par-dessus le
 dossier de son siège. " Je commencerai par vous dire que je ne
 sais pas du tout à quoi m'en tenir. en ce qui vous concerne.
@@ -2749,14 +2749,14 @@ des astronefs qui vous attendent là-haut. Si vous vous perdez
 — 120—
 
 IT y avait une raison au fait que l'élément connu sous le nom
-de " science pure " fût la forme de vie la plus libre de la
+de ” science pure ” fût la forme de vie la plus libre de la
 Fondation. Dans une Galaxie où la prédominance - voire la
 survivance - de la Fondation continuait à reposer sur sa
 supériorité technique,
 le savant jouissait d'une certaine
 immunité. On avait besoin de lui, et il le savait.
 De même, il y avait des raisons pour qu'Ebling Mis - seuls
-ceux qui ne le connaissaient pas ajoutaient ses titres à son nom fût la forme de vie la plus libre dans la " science pure " de la
+ceux qui ne le connaissaient pas ajoutaient ses titres à son nom fût la forme de vie la plus libre dans la ” science pure ” de la
 Fondation. Dans un monde où la science était respectée, il était
 le Savant, avec un S majuscule. On avait besoin de lui et il le
 savait.
@@ -2787,7 +2787,7 @@ s'approchant de la petite porte.
 " Que signifie tout cela ? " demanda-t-il.
 — 122—
 
-- Une crise Seldon ! " fit Indbur, manifestant pour la
+- Une crise Seldon ! ” fit Indbur, manifestant pour la
 première fois de l'intérêt.
 Mis était un grand psychologue : un démocrate, un rustre et
 un rebelle assurément, mais un psychologue aussi. Le Maire ne
@@ -2845,7 +2845,7 @@ ancêtres étaient là pour l'écouter, les deux fois. A la troisième et
 parce qu'on n'en avait pas besoin - mais de récentes recherches,
 qui ne se trouvent pas dans les rapports que vous possédez,
 indiquent qu'il est apparu quand même, et au bon moment.
-Vous comprenez ? "
+Vous comprenez ? ”
 Il n'attendit pas de réponse. Il finit par jeter son cigare,
 déchiqueté maintenant et à demi consumé, et par en allumer un
 autre, tirant aussitôt d'énergiques bouffées de fumée.
@@ -2859,7 +2859,7 @@ déterminer, avec une assez grande certitude, la date de la
 prochaine apparition de Hari Seldon. Je peux vous donner le
 jour exact, autrement dit celui où la crise Seldon qui approche,
 la cinquième, atteindra son paroxysme.
-- Dans combien de temps ? " demanda Indbur d'une voix
+- Dans combien de temps ? ” demanda Indbur d'une voix
 tendue.
 Mis fit alors exploser sa bombe
 avec une joyeuse
@@ -2867,7 +2867,7 @@ nonchalance : " Quatre mois, dit-il. Quatre mois moins deux
 Jours.
 — 126—
 
-dans sa niche. " Je vous assure, Mis, il n'y a rien là qui sente
+dans sa niche. ” Je vous assure, Mis, il n'y a rien là qui sente
 autre chose que l'ordre et la paix...
 La porte tout au bout de la pièce s'ouvrit et, par une
 coïncidence trop saisissante pour être vraisemblable, un notable
@@ -2897,7 +2897,7 @@ ont été enregistrées et un rapport complet rédigé.
 rapports de la frontière salinnienne. Des astronefs identifiés
 comme venant de Kalgan ont pénétré sans autorisation sur le
 territoire de la Fondation. Ces appareils sont armés. Des
-combats ont eu lieu. "
+combats ont eu lieu. ”
 Le secrétaire était presque plié en deux. Indbur restait
 debout. Ebling Mis se secoua, s'approcha du secrétaire et lui
 administra une petite tape sur l'épaule.
@@ -3023,7 +3023,7 @@ moment qui ne nous était guère propice.
 - Oui, mais ce Mulet est un excellent remplaçant, dit
 Mangin. Je n'ergote pas sur les détails.
 - Vous changerez peut-être d'avis quand vous connaîtrez
-tous les détails. " Randu se pencha en avant, les paumes
+tous les détails. ” Randu se pencha en avant, les paumes
 appuyées sur la table. "Il y a un mois, reprit-il, j'ai envoyé mon
 neveu et sa femme sur Kalgan.
 - Votre neveu ! s'écria Ovall Gri, surpris. Je ne savais pas
@@ -3048,7 +3048,7 @@ Fondation. Voyons, nous n'avons pas un élément nouveau, sauf
 les déclarations d'un... enfin, d'un garçon sans expérience. Si
 nous attendions un peu ? Jusqu'à maintenant, les victoires du
 Mulet ne nous inquiétaient pas, et à moins qu'il n'aille beaucoup
-plus loin que cela, je ne vois pas de raison de changer. Si ? "
+plus loin que cela, je ne vois pas de raison de changer. Si ? ”
 Randu, le front soucieux, semblait désespéré de la fragilité
 de son argumentation.
 
@@ -3081,7 +3081,7 @@ lasse. Je dis contre le Mulet, et peu m'importe pour qui.
 neutraliser, les messages que j'ai reçus donnent peu de détails.
 Mais vous comprenez bien qu'un pareil instrument changerait
 la nature de la guerre et risquerait de rendre notre flotte tout
-entière périmée. "
+entière périmée. ”
 Randu se sentait terriblement vieux. Son visage s'assombrit.
 " J'ai bien peur que ce monstre ne nous dévore tous. Et
 pourtant, il faut le combattre. "
@@ -3092,18 +3092,18 @@ de Terminus, était bien connue des membres de l'intelligentsia,
 des érudits et simplement des gens cultivés de la Fondation. Ses
 caractéristiques dépendaient, très subjectivement, de la source
 de documentation à laquelle on se référait. Pour un biographe
-un peu philosophe, c'était " le symbole d'une retraite non loin
-d'une réalité non académique " ; un chroniqueur mondain
+un peu philosophe, c'était ” le symbole d'une retraite non loin
+d'une réalité non académique ” ; un chroniqueur mondain
 décrivait en termes
 suaves
 l'atmosphère terriblement
-masculine de désordre " ; un docteur en philosophie de
-l'université parlait brutalement de " bibliothèque bien fournie
-mais mal organisée " ; un ami qui n'était pas de l'université
+masculine de désordre ” ; un docteur en philosophie de
+l'université parlait brutalement de ” bibliothèque bien fournie
+mais mal organisée ” ; un ami qui n'était pas de l'université
 disait : "Il y a toujours de quoi boire et on peut poser les pieds
-sur le divan " ; et un reporter qui avait le goût des adjectifs
-parlait de la demeure " rocheuse, bien plantée, solidement sur
-terre d'Ebling Mis, blasphémateur de gauche au crâne chauve "".
+sur le divan ” ; et un reporter qui avait le goût des adjectifs
+parlait de la demeure ” rocheuse, bien plantée, solidement sur
+terre d'Ebling Mis, blasphémateur de gauche au crâne chauve "”.
 Aux yeux de Bayta, qui pour l'instant n'avait d'autre public
 qu'elle-même
 et qui
@@ -3136,10 +3136,10 @@ main, vigoureusement, comme un homme.
 - Oui. Nous avons rempli les formalités légales.
 - Heureuse ?
 
-- Jusqu'à maintenant. "
+- Jusqu'à maintenant. ”
 Mis haussa les épaules et se tourna vers Magnifico. Il se mit
 à défaire le paquet.
-" Tu sais ce que c'est, mon garçon ? "
+" Tu sais ce que c'est, mon garçon ? ”
 Magnifico jaillit de son siège et s'empara de l'instrument. Il
 se mit à manipuler les innombrables boutons et contacts et se
 mit à sauter de joie, menaçant de destruction le mobilier
@@ -3156,10 +3156,10 @@ devant eux apparut une douce lueur rose, juste dans le champ
 visuel.
 " Allons, mon garçon, dit Ebling Mis, tu as dit que tu
 pourrais faire marcher un de ces appareils ; en voilà l'occasion.
-Mais tu ferais mieux de l'accorder. Il sort d'un musée. " Puis il
-ajouta, à l'adresse de Bayta : " Pour autant que je sache,
+Mais tu ferais mieux de l'accorder. Il sort d'un musée. ” Puis il
+ajouta, à l'adresse de Bayta : ” Pour autant que je sache,
 personne dans la Fondation n'est capable de le faire marcher. "
-Il se pencha plus près et dit précipitamment : " Le clown ne
+Il se pencha plus près et dit précipitamment : ” Le clown ne
 parlera pas sans vous. Voulez-vous m'aider ? "
 Elle acquiesça.
 " Bon ! fit-il. Sa peur est presque dissipée, et je doute que
@@ -3171,7 +3171,7 @@ De nouveau elle acquiesca.
 jouer, et sa réaction montre clairement que c'est une des
 grandes joies de son existence. Alors, qu'il joue bien ou mal,
 ayez l'air intéressée, ayez l'air d'approuver. Et puis manifestezmoi de l'amitié, de la confiance. Avant tout, conformez-vous à
-mon attitude. " Il jeta un rapide coup d'œil à Magnifiée,
+mon attitude. ” Il jeta un rapide coup d'œil à Magnifiée,
 
 Elle remarqua qu'en fermant les yeux, le dessin des couleurs
 était plus clair, que chaque petit mouvement de couleur avait sa
@@ -3217,11 +3217,11 @@ rehaussés de joyaux.
 
 Mis se secoua.
 " Voyons, dit-il, voyons, Magnifico, accepteriez-vous de faire
-la même chose pour d'autres ? "
-Un instant, le clown recula. " Pour d'autres ? balbutia-t-il.
+la même chose pour d'autres ? ”
+Un instant, le clown recula. ” Pour d'autres ? balbutia-t-il.
 - Pour des milliers, cria Mis, dans les grandes salles de la
 Fondation. Aimeriez-vous être votre propre maître, honoré de
-tous, riche et... et... " son imagination lui faisait défaut " et tout
+tous, riche et... et... ” son imagination lui faisait défaut ” et tout
 ça ? Qu'en dites-vous ?
 - Mais comment puis-je être tout cela, puissant Seigneur,
 moi qui ne suis qu'un pauvre clown n'ayant pas droit aux
@@ -3264,7 +3264,7 @@ Pour l'instant, vous m'assourdissez seulement de paroles.
 - Environ un mois, et j'aurai peut-être quelque chose pour
 vous. Ou peut-être pas, bien sûr. Mais qu'importe ? Si tout cela
 n'entre pas dans le Plan de Seldon, nos chances sont bien
-minces. "
+minces. ”
 Indbur se retourna vers le psychologue d'un air furieux.
 " Là, je vous tiens, traître. Mensonge ! Dites-moi donc que
 vous n'êtes pas un de ces criminels qui répandent des rumeurs
@@ -3388,7 +3388,7 @@ neveu lorsque celui-ci est arrivé de Kalgan. Ce n'est pas le seul
 exemple que nous connaissions, et nous ne voulons plus risquer
 nos astronefs et nos hommes entre les mains de traîtres
 éventuels.
-- En sortant d'ici, vous serez gardé à vue ", dit Indbur.
+- En sortant d'ici, vous serez gardé à vue ”, dit Indbur.
 Randu s'éloigna sous les regards silencieux de la petite
 coterie des dirigeants de Terminus.
 Il était midi moins dix !
@@ -3407,14 +3407,14 @@ fauteuil roulant, un personnage vieux et ratatiné, dont seuls les
 yeux brillaient dans le visage ridé, et dont la voix se révéla être
 chez lui ce qu'il y avait de plus vivant. Il avait un livre sur les
 genoux, et la voix déclara doucement :
-" Je suis Hari Seldon !"
+" Je suis Hari Seldon !”
 Il parlait d'une voix intense.
 " Je suis Hari Seldon ! Aucune sensation sensorielle ne me
 permet de savoir s'il y a quelqu'un ici, mais c'est sans
 importance. Il reste peu d'années pour que puisse se produire
 un échec du Plan. Pour les trois premiers siècles, le pourcentage
-de probabilités de non-déviation est de 94,2. " Il sourit, puis
-reprit d'un ton cordial : " Au fait, s'il en est parmi vous qui sont
+de probabilités de non-déviation est de 94,2. ” Il sourit, puis
+reprit d'un ton cordial : ” Au fait, s'il en est parmi vous qui sont
 debout, vous pouvez vous asseoir. Si quelqu'un veut fumer, je
 vous en prie. Je ne suis pas ici en chair et en os. Inutile de faire
 des cérémonies avec moi.
@@ -3455,7 +3455,7 @@ qui s'était précipité au-devant de lui.
 " Excellence, fit-il, aucun véhicule ne fonctionne dans la
 ville, toutes les communications avec l'extérieur sont coupées.
 On signale que la dixième flotte a été battue et que les astronefs
-du Mulet arrivent dans l'atmosphère. L'état-major.… "
+du Mulet arrivent dans l'atmosphère. L'état-major.… ”
 Indbur s'effondra. Dans la salle, on n'entendait plus une
 voix maintenant. Même la foule qui s'amassait était craintive,
 mais
@@ -3463,18 +3463,18 @@ silencieuse,
 et l'on sentait planer dangereusement
 l'horreur de la panique.
 On releva Indbur. On porta du vin à ses lèvres. Il remua les
-lèvres avant d'ouvrir les yeux, et un seul mot se forma : "
+lèvres avant d'ouvrir les yeux, et un seul mot se forma : ”
 Capitulez !"
 Bayta était au bord des larmes... non par chagrin ni par
 humiliation, mais purement et simplement par un immense
 désespoir mêlé de peur. Ebling Mis la tira par la manche.
-" Venez, jeune personne... "
+" Venez, jeune personne... ”
 Elle se sentit soulevée de son siège.
 " Nous partons, dit-il. Emmenez votre musicien avec vous.
-- Magnifiée ", murmura Bayta.
+- Magnifiée ”, murmura Bayta.
 Le clown était recroquevillé sur lui-même, horrifié, le regard
 vitreux.
-" Le Mulet, cria-t-il. Le Mulet vient me chercher. "
+" Le Mulet, cria-t-il. Le Mulet vient me chercher. ”
 
 TROISIÈME PARTIE
 LE CLOWN
@@ -3530,7 +3530,7 @@ de son unité. Elle déchira soigneusement l'emballage où se
 trouvaient ses couverts et les réchauffa comme elle put dans ses
 mains.
 " Vous ne trouvez rien d'autre à faire, Hella ? dit-elle.
-- Oh ! si. Si!" D'un petit geste habile, elle lança le mégot de
+- Oh ! si. Si!” D'un petit geste habile, elle lança le mégot de
 sa cigarette dans le petit réduit prévu à cet effet, et la minuscule
 pile atomique la désintégra avant qu'elle eût touché le fond. "
 Par exemple, dit Hella en croisant ses mains soignées sous son
@@ -3539,14 +3539,14 @@ menton, je pense que nous pourrions conclure un accord avec le
 Mulet et faire cesser toute cette absurdité. Mais moi, je ne
 dispose pas des... heu... des moyens nécessaires pour filer
 quand le Mulet arrive. " Bayta ne broncha pas. Elle reprit d'un
-ton léger et indifférent : " Vous n'avez pas de frères ni de mari
+ton léger et indifférent : ” Vous n'avez pas de frères ni de mari
 qui se battent, n'est-ce pas ?
 - Non. Tout ce qui joue en ma faveur est de ne pas voir de
 raison au sacrifice des frères et des maris des autres.
 - Le sacrifice sera d'autant plus certain quand il s'agira de
 capituler.
 - La Fondation a capitulé et elle connaît la paix. Nos
-hommes sont toujours absents et la Galaxie est contre nous. "
+hommes sont toujours absents et la Galaxie est contre nous. ”
 Bayta haussa les épaules et dit d'un ton suave :
 " Je crois malheureusement que c'est surtout le premier de
 ces deux inconvénients qui vous gêne. "
@@ -3572,7 +3572,7 @@ saviez pas ?
 Magnifico, 1l doit donc venir aussi.
 - Tu veux dire que son concert à l'usine des moteurs devra
 être annulé ?
-- Evidemment. "
+- Evidemment. ”
 Bayta passa dans la pièce voisine et s'assit devant un repas
 qui offrait tous les signes de l'improvisation. Elle coupa les
 sandwiches en deux d'un geste précis et dit :
@@ -3582,7 +3582,7 @@ vraiment bizarre.
 - Il éveille ton complexe maternel, Bay, voilà tout. Un jour
 nous aurons un bébé et tu oublieras Magnifico.
 - I] me semble, marmonna Bayta dans son sandwich, que tu
-éveilles bien suffisamment mon complexe maternel. " Elle
+éveilles bien suffisamment mon complexe maternel. ” Elle
 reposa son sandwich et resta grave un moment. " Torie….
 - Oui?
 - Torie, j'étais à la Mairie aujourd'hui... au bureau de
@@ -3619,7 +3619,7 @@ héros populaire du passé a tout prévu et s'occupe de tous Îles
 détails. Cette attitude a des caractéristiques religieuses, et vous
 
 savez ce que ça veut dire ?
-- Pas le moins du monde. "
+- Pas le moins du monde. ”
 Mis
 n'était guère
 enchanté
@@ -3644,8 +3644,8 @@ longtemps, nos muscles sont atrophiés, et nous ne pouvons plus
 nous tenir debout.
 - C'est ça. C'est une métaphore un peu maladroiïte. Mais
 c'est Ça.
-- Et vous, Ebling, où en sont vos muscles ? " Le psychologue
-exhala lentement une bouffée de fumée. " Rouilles, mais pas
+- Et vous, Ebling, où en sont vos muscles ? ” Le psychologue
+exhala lentement une bouffée de fumée. ” Rouilles, mais pas
 atrophiés. Ma profession m'a amené à quelque réflexion
 indépendante.
 - Et vous voyez une issue ?
@@ -3665,7 +3665,7 @@ capable d'annihiler l'énergie mentale, tout comme il en possède
 une qui annihile les réactions atomiques.
 Cela pourrait
 expliquer ce qui nous frappe maintenant... et ce qui a frappé la
-Fondation. "
+Fondation. ”
 Randu semblait plongé dans un silence maussade.
 " Qu'ont donné vos recherches sur le bouffon du Mulet ?
 - Rien jusqu'à maintenant, fit Ebling Mis d'un ton hésitant.
@@ -3704,11 +3704,11 @@ des facteurs que nous ignorons.
 
 —
 
-- Je ne pense pas que Port le fera. " Randu tourna vers le
-psychologue un visage inquiet. "" Je crois que Port attend de
+- Je ne pense pas que Port le fera. ” Randu tourna vers le
+psychologue un visage inquiet. ”" Je crois que Port attend de
 capituler. C'est pour vous dire cela que je vous ai fait venir. Je
 veux que vous quittiez Port.
-- Déjà ? " fit Ebling Mis stupéfait.
+- Déjà ? ” fit Ebling Mis stupéfait.
 Randu se sentait affreusement las.
 " Ebling, vous êtes le plus grand psychologue de la
 Fondation. Les véritables maîtres psychologues ont disparu
@@ -3741,7 +3741,7 @@ cette
 raison précise. Et, Ebling, ïl y a une autre mission, plus
 importante. Hari Seldon, il y a trois siècles, a institué deux
 Fondations : l'une à chaque extrémité de la Galaxie. Il faut que
-vous trouvez cette seconde Fondation. "
+vous trouvez cette seconde Fondation. ”
 
 IT
 Le palais du Maire - ce qui avait été jadis le palais du Maire
@@ -3769,15 +3769,15 @@ sa porte, bloquant le passage.
 "Je viens de la part de Miran, marmonna le capitaine.
 - Miran est en avance cette année, dit l'homme, répondant
 par la formule convenue.
-- Pas plus que l'année dernière ", reprit le capitaine. Mais
-l'homme ne s'écartait toujours pas. " Qui êtes-vous ? dit-il.
+- Pas plus que l'année dernière ”, reprit le capitaine. Mais
+l'homme ne s'écartait toujours pas. ” Qui êtes-vous ? dit-il.
 - Vous n'êtes pas le Renard ?
-- Vous répondez toujours en interrogeant ? "
+- Vous répondez toujours en interrogeant ? ”
 Le capitaine se maîtrisa et dit :
 " Je suis Han Pritcher, capitaine de la flotte et membre du
 Parti Démocratique Clandestin. Voulez-vous me laisser entrer ?
 Le Renard s'écarta.
-" Mon vrai nom est Orum Palley ", dit-il en tendant la main.
+" Mon vrai nom est Orum Palley ”, dit-il en tendant la main.
 Le capitaine la serra.
 La pièce était bien tenue mais sans luxe. Dans un coin, on
 apercevait un magnifique projecteur de vidéolivres, où l'œil
@@ -3861,7 +3861,7 @@ cherche-t-il seulement à se concilier les ouvriers. Si Seldon n'a
 ses soirées en ville et ne discutait jamais politique.
 Deux mois durant, il ne vit pas le Renard.
 Et puis, un Jour, un homme trébucha devant son établi et 1l
-retrouva un bout de papier dans sa poche. Le mot " Renard "
+retrouva un bout de papier dans sa poche. Le mot ” Renard ”
 était écrit dessus. Il le jeta dans la chambre de désintégration où
 il se volatilisa en fumée, produisant un millimicrovolt d'énergie,
 et il retourna à son travail.
@@ -3875,7 +3875,7 @@ nous sommes laissé aveugler par la psychohistoire de Seldon,
 dont un des premiers préceptes est que l'individu ne compte
 pas, qu'il ne fait pas l'histoire, mais que des facteurs
 économiques et sociaux complexes le dépassent et font de lui
-une marionnette. "" Il classa soigneusement ses cartes, en
+une marionnette. "” Il classa soigneusement ses cartes, en
 examina la valeur et posa un jeton sur le tapis. " Pourquoi ne
 pas tuer le Mulet ? reprit-il.
 - À quoi ça nous avancerait-il ? demanda son voisin de
@@ -4017,8 +4017,8 @@ reconnaissez pas ? Allons, vous êtes allé sur Kalgan, alors vous
 - Elle dresse la table du dîner, compose le menu... quelque
 chose comme ça... "
 Toran s'assit sur le matelas qui servait de lit à Magnifiée et
-attendit. L'appareil de propagande entourant les "bulletins
-spéciaux " du Mulet était d'une monotone uniformité. D'abord
+attendit. L'appareil de propagande entourant les “bulletins
+spéciaux ” du Mulet était d'une monotone uniformité. D'abord
 une musique martiale, puis la voix onctueuse du speaker.
 Venaient alors les nouvelles secondaires, qui se succédaient.
 Puis un silence. Puis une fanfare de trompettes, la tension qui
@@ -4047,7 +4047,7 @@ commandement
 du général Sammin,
 ont contre-attaqué
 violemment aujourd'hui le groupe adverse en provenance
-d'Iss.. " Le visage soigneusement inexpressif du speaker sur
+d'Iss.. ” Le visage soigneusement inexpressif du speaker sur
 l'écran s'effaça pour céder la place à de rapides passages
 d'astronefs fonçant dans l'espace dans le cours d'une bataille
 meurtrière.
@@ -4060,7 +4060,7 @@ grondait
 silencieusement le fracas du combat :
 " L'épisode le plus remarquable de la bataille fut le combat
 du croiseur lourd Cluster contre trois appareils ennemis de la
-classe Nova..."
+classe Nova...”
 Un plan rapproché apparut sur l'écran. Un grand astronef
 ouvrit le feu et l'un de ses attaquants sortit brutalement du
 champ, vira de bord et fonça sur lui. Le Cluster s'inclina
@@ -4130,7 +4130,7 @@ Toran vit soudain Magnifico arriver hors d'haleine.
 - Les instruments se comportent étrangement, monsieur,
 dit le clown à qui l'anxiété donnait un visage encore plus
 comique que d'habitude. Sachant mon ignorance, je n'ai touché
-à rien. "
+à rien. ”
 En deux secondes, Toran était dans la cabine de pilotage.
 " Réveillez Ebling
 Mis, dit-il à Magnifico.
@@ -4142,7 +4142,7 @@ il dit :
 " Bay, on nous a détectés.
 - Détectés? fit Bayta? Qui ça?
 - La Galaxie le sait, murmura Toran, mais j'imagine que
-c'est quelqu'un qui a ses canons déjà braqués sur nous. "
+c'est quelqu'un qui a ses canons déjà braqués sur nous. ”
 Il s'assit et, à voix basse, envoya dans le subéther le code
 d'identification de l'astronef.
 Quand Ebling Mis entra, vêtu d'un peignoir et les yeux
@@ -4152,7 +4152,7 @@ royaume intérieur qui s'appelle l'Autarchie de Filia.
 - Jamais entendu parler, dit Mis.
 - Moi non plus, répondit Toran, mais il n'empêche que nous
 sommes stoppés par un appareil filien, et je ne sais où ça va
-nous mener. "
+nous mener. ”
 Le capitaine-inspecteur de l'astronef filien monta à bord,
 escorté de six hommes armés. IL était de petite taille, il avait le
 cheveu rare, la lèvre mince et la peau sèche. En toussotant, il
@@ -4177,17 +4177,17 @@ réaction se passe normalement. Qui est le responsable ici ?
 On le conduisit dans le carré des officiers où un enseigne
 indifférent montait la garde.
 " Où est l'homme qui m'a accompagné ?
-- Veuillez attendre ", dit l'enseigne.
+- Veuillez attendre ”, dit l'enseigne.
 Un quart d'heure plus tard, on fit entrer Magnifico.
 " Qu'est-ce qu'ils vous ont fait ? demanda aussitôt Toran.
-- Rien. Rien du tout ", fit Magnifico en secouant la tête.
+- Rien. Rien du tout ”, fit Magnifico en secouant la tête.
 Il fallut deux cent cinquante crédits pour satisfaire aux
 demandes de Filia - cinquante crédits pour que tout fût réglé
 aussitôt - et ils se retrouvèrent dans l'espace libre.
 " Est-ce que, pour ce prix-là, nous n'avons pas droit à une
 escorte ? fit Bayta avec un rire forcé.
 - Ce n'était pas un appareil filien, répondit Toran d'un ton
-grave... et nous ne partons pas pour l'instant. Venez ici. " Ils se
+grave... et nous ne partons pas pour l'instant. Venez ici. ” Ils se
 rassemblèrent autour de lui. " C'était un astronef de la
 Fondation, dit-il d'une voix blanche, et c'étaient des hommes du
 
@@ -4325,8 +4325,8 @@ psychosondes,
 et nous avons là quatre cerveaux de la
 Fondation. Il y a bien des choses à propos de la Fondation qu'il
 serait utile de connaître, et beaucoup aussi à propos du Mulet.
-Du même coup, l'amitié du Mulet serait un peu moins
-accablante. "
+Du même coup, l’amitié du Mulet serait un peu moins
+accablante. ”
 Commason revint en frissonnant à sa première pensée.
 " Mais si la Fondation n'est pas tombée... si ces nouvelles
 sont fausses. Il paraît qu'on a prédit qu'elle ne pouvait pas
@@ -4335,7 +4335,7 @@ tomber.
 - Nous avons passé l'âge des devins, sire.
 - Et pourtant, si elle n'est pas tombée, Inchney. Réfléchis !
 Si elle n'est pas tombée. Le Mulet m'a fait de belles promesses.
-"Il était allé trop loin et il battit en retraite. "" Ou plutôt, il s'est
+"Il était allé trop loin et il battit en retraite. ”" Ou plutôt, il s'est
 
 bienveillant. Il ne devait pas être maigre, blanc et effacé... ni
 servir le thé de sa propre main tout en s'inquiétant du confort
@@ -4349,7 +4349,7 @@ d'accueillir des visiteurs de mes lointaines provinces depuis
 quelque temps maintenant. C'est mon fils qui s'occupe de ces
 détails depuis que je suis vieux. Vous n'avez pas rencontré mon
 fils ? Un charmant garçon. Têtu, peut-être, mais il est jeune.
-Voulez-vous une capsule parfumée ? Non ? "
+Voulez-vous une capsule parfumée ? Non ? ”
 Toran voulut l'interrompre.
 " Votre Majesté Impériale ?
 - Oui.
@@ -4374,19 +4374,19 @@ brusquement retentit :
 " Sire, on nous a dit qu'il faudra votre permission pour
 visiter la Bibliothèque de l'université impériale de Trantor.
 - Trantor ? répéta l'empereur. Trantor ? " Une expression de
-douloureuse surprise se peignit sur son visage. " Trantor ?
+douloureuse surprise se peignit sur son visage. ” Trantor ?
 
 " Votre Majesté Impériale est adorée du peuple. Votre
 amour pour la population est bien connu.
 - Il faudra que je rende visite à mon bon peuple d'Anacréon,
 mais mon médecin a dit... je ne me souviens pas de ce qu'il dit,
-mais... "" Il leva soudain les yeux. " Vous disiez quelque chose à
+mais... "” Il leva soudain les yeux. ” Vous disiez quelque chose à
 propos de Gilmer ?
 - Non, Votre Majesté Impériale.
 - I] ne doit pas avancer davantage. Retournez dire cela à
 votre peuple. Trantor doit tenir ! Mon père commande la flotte
 maintenant, et cette vermine de Gilmer doit geler dans l'espace
-avec sa horde de régicides. "
+avec sa horde de régicides. ”
 Il se laissa tomber dans un fauteuil et, une fois de plus, son
 regard redevint vague.
 " Qu'est-ce que je disais ?
@@ -4400,7 +4400,7 @@ visiteurs se dirigeaient à reculons jusqu'à la porte...
 L'éclair d'une arme jaillit.
 Bayta reprit lentement conscience, mais sans passer par la
 
-phase du " Où suis-je ? ". Elle se souvenait parfaitement de cet
+phase du ” Où suis-je ? ”. Elle se souvenait parfaitement de cet
 étrange vieillard qui se prétendait empereur et des autres
 hommes qui attendaient dehors. Le petit picotement qu'elle
 éprouvait aux doigts signifiait qu'elle avait simplement été
@@ -4433,8 +4433,8 @@ Le prince de la couronne se retourna vers cette nouvelle
 VOIX.
 " C'est à toi, monstre ? " fit-1l en balançant l'instrument qu'il
 avait pendu à son épaule. Il le manipula maladroitement,
-s'efforçant d'émettre un son, mais en vain. " Tu sais en Jouer,
-monstre ? "
+s'efforçant d'émettre un son, mais en vain. ” Tu sais en Jouer,
+monstre ? ”
 Magnifico hocha la tête.
 " Vous avez pillé un astronef de la Fondation, dit soudain
 Toran. Si l'empereur ne nous venge pas, la Fondation le fera.
@@ -4556,7 +4556,7 @@ s'avança et leur adressa le signe universel de paix : les deux
 mains devant lui, les paumes dures et calleuses tournées vers le
 ciel.
 Le jeune fit deux pas en avant et répéta le geste.
-" Je viens en paix. "
+" Je viens en paix. ”
 L'accent
 était
 étrange,
@@ -4586,7 +4586,7 @@ de ne pas montrer qu'il était scandalisé.
 La conversation qui précéda le repas effleura poliment le
 sujet de la culture sur Trantor. Ce fut le vieillard qui demanda :
 " Et les hydroponiques ? Certainement, pour un monde
-comme Trantor, les hydroponiques seraient la solution. "
+comme Trantor, les hydroponiques seraient la solution. ”
 Senter secoua lentement la tête. Il ne se sentait pas sûr de
 lui. Il ne connaissait que ce qu'il avait lu dans les livres.
 " Vous parlez de la culture artificielle sur produits
@@ -4632,7 +4632,7 @@ chuchoter en ces lieux) :
 
 " Je crois que nous avons dépassé la salle des catalogues. Je
 vais m'arrêter là-bas. " Il avait le front moite, ses mains
-tremblaient. " Il ne faut pas qu'on me dérange, Toran. Voudrez-
+tremblaient. ” Il ne faut pas qu'on me dérange, Toran. Voudrez-
 
 vous m'apporter mes repas en bas ?
 - Comme vous voudrez. Nous
@@ -4652,7 +4652,7 @@ nous
 travaillions
 
 - Vous pensez que vous trouverez ce que vous voulez ?
-- Je sais que Je trouverai ! " répondit Ebling Mis avec une
+- Je sais que Je trouverai ! ” répondit Ebling Mis avec une
 douce certitude.
 
 - À rien. Enfin, au Mulet, à Port, à la Fondation, à tout ça. A
@@ -4661,12 +4661,12 @@ propos de la Seconde Fondation. Et si cela nous aidera quand il
 l'aura trouvée. Je pense à un million d'autres choses. Tu es
 satisfait ? fit-elle nerveusement.
 - Si tu fais simplement la tête, tu ne voudrais pas t'arrêter ?
-Ce n'est pas agréable et ça n'arrange rien. " Bayta se leva avec un
+Ce n'est pas agréable et ça n'arrange rien. ” Bayta se leva avec un
 pâle sourire.
 " Bon. Je suis heureuse. Tu vois, je souris, je suis gaie.
-Dehors, on entendit l'exclamation de Magnifico : " Gente dame !
+Dehors, on entendit l'exclamation de Magnifico : ” Gente dame !
 - Qu'y a-t-il ?
-- Venez. "
+- Venez. ”
 La voix de Bayta s'étrangla brusquement lorsque, dans
 l'ouverture de la porte, apparut la haute silhouette...
 " Pritcher, s'écria Toran.
@@ -4701,7 +4701,7 @@ trouvés
 Toran,
 
 furieux. Vous étiez à bord de l'astronef filien, alors ? Vous nous
-avez SUIVIS ? "
+avez SUIVIS ? ”
 Un rien de gêne sembla passer sur le visage de Pritcher.
 " J'étais en effet à bord de l'astronef filien. Je vous ai
 d'abord trouvés... disons... par hasard.
@@ -4784,7 +4784,7 @@ Puis elle dit d'une voix frêle :
 nous soyons ainsi, qu'il vienne sur place nous conditionner luimême. Vous l'avez combattu jusqu'au dernier instant de votre
 conversion, J imagine, n'est-ce pas ?
 - En effet, dit gravement le colonel Pritcher.
-- Alors, octroyez-nous le même privilège. "
+- Alors, octroyez-nous le même privilège. ”
 Le colonel Pritcher se leva.
 " En ce cas, je pars, dit-il d'un ton pincé. Comme Jje l'ai dit
 tout à l'heure, ma mission pour l'instant ne vous concerne pas.
@@ -4825,14 +4825,14 @@ dans ses mains une des mains molles du psychologue.
 " Pouvons-nous vous parler, docteur ? (Elle employait
 rarement ce titre.)
 
-- I] y a quelque chose qui ne va pas ? " Une petite lueur
+- I] y a quelque chose qui ne va pas ? ” Une petite lueur
 s'alluma dans ses yeux. Ses joues flasques reprirent quelque
 couleur. "II y a quelque chose qui ne va pas ? répéta-t-il.
 - Le capitaine Pritcher est venu, dit Bayta. Laisse-moi
 parler, Torie. Vous vous souvenez du capitaine Pritcher, docteur
 9
 
-- Oui... oui. " Ses doigts pincèrent ses lèvres puis les
+- Oui... oui. ” Ses doigts pincèrent ses lèvres puis les
 relâchèrent. " Un grand type. Démocrate.
 - Oui, c'est lui. Il a découvert quelle est la mutation du
 Mulet. Il était ici, docteur, et il nous l'a dit.
@@ -4850,7 +4850,7 @@ soulevèrent comme si son cerveau endormi venait de s'aiguiller
 
 N'ai-je pas raison ? YŸ a-t-il une faille dans mon
 raisonnement ?
-- Pas de faille, Ebling "", fit Bayta en lui tapotant doucement
+- Pas de faille, Ebling "”, fit Bayta en lui tapotant doucement
 la main.
 Mis était Joyeux comme un enfant.
 " Tout cela est si facile ! Je vous assure, je me demande
@@ -4862,7 +4862,7 @@ comprends. Et mes hypothèses, mes théories semblent toujours
 se vérifier. Il y a un élan en moi... qui me pousse toujours de
 l'avant... si bien que je ne peux m'arrêter... et que je ne veux pas
 manger ni dormir. mais continuer toujours... toujours.
-toujours. "
+toujours. ”
 Sa voix n'était plus qu'un murmure. Sa main veinée de bleu
 passait en tremblant sur son front. Il y avait dans ses yeux une
 lueur frénétique qui s'effaça au bout d'un moment.
@@ -4891,7 +4891,7 @@ vous remettre à travailler. Vous allez vous coucher. Tiens, Torie,
 aide-moi. Restez tranquille, Ebling, et estimez-vous heureux
 
 Et j'ai les comptes-rendus de l'assemblée Seldon. Le Mulet n'a
-pas encore gagné... "
+pas encore gagné... ”
 Bayta éteignit les lumières.
 " Dormez !"
 Sans un mot, Toran et Bayta remontèrent à la surface.
@@ -4919,7 +4919,7 @@ reliques de musée. Tu as vu Magnifico, au fait ?
 - Pas depuis le petit déjeuner. Il doit être en bas avec Ebling,
 en train de regarder un microfilm.
 - Très bien. Ne perds pas de temps, car j'aurai besoin des
-œufs pour le dîner. "
+œufs pour le dîner. ”
 Toran la quitta en souriant avec un petit salut de la main.
 Bayta tourna les talons dès que Toran eut disparu parmi les
 enchevêtrements de métal. Elle hésita devant la porte de la
@@ -4938,7 +4938,7 @@ bouffon du Mulet. En ce cas, pourquoi n'était-il pas conditionné
 pour éprouver à son égard amour et foi ? Pourquoi, de tous ceux
 qui sont en contact avec le Mulet, le déteste-t-il tant ?
 - Mais. mais il était conditionné. Certainement, Bay ! "Il
-semblait de plus en plus sûr à mesure qu'il parlait. " Imaginezvous que le Mulet traite son clown comme il traite ses généraux
+semblait de plus en plus sûr à mesure qu'il parlait. ” Imaginezvous que le Mulet traite son clown comme il traite ses généraux
 ? Chez ceux-ci, il veut trouver foi et loyalisme, mais chez son
 clown, il n'a besoin que de trouver de la crainte. Vous n'avez
 jamais remarqué que l'état de perpétuelle panique où se trouve
@@ -4957,7 +4957,7 @@ part ses facultés mentales. Mais si cela l'amusait de faire figure
 de surhomme auprès du pauvre Magnifico... " Le psychologue
 haussa les épaules. " En tout cas, les renseignements de
 Magnifico n'ont plus d'importance.
-- Qu'est-ce qui en a, alors ? " Mis revint à son projecteur.
+- Qu'est-ce qui en a, alors ? ” Mis revint à son projecteur.
 " Qu'est-ce qui en a, alors ? répéta-t-elle. La Seconde
 Fondation ?
 - Est-ce que je vous ai dit quelque chose à ce propos ? dit le
@@ -5030,7 +5030,7 @@ J'ai confiance en lui.
 - Alors, il y a encore de l'espoir, fit-1il sans conviction.
 - Je... je ne comprends pas encore très bien. Peut-être !
 Peut-être que non ! Désormais, je porte un pistolet. " Tout en
-parlant, elle brandissait une arme au canon luisant. " A tout
+parlant, elle brandissait une arme au canon luisant. ” A tout
 hasard, Torie, à tout hasard.
 - Comment ça ?
 
@@ -5069,11 +5069,11 @@ fois, des larmes coulaient sur son visage. Toran avait les
 muscles tendus au point d'avoir l'impression que jamais plus il
 ne desserrerait les dents. Le visage de Magnifico était un
 masque impassible. Enfin, Toran réussit à articuler d'une voix
-méconnaissable : " Alors, tu es une créature du Mulet. Il a fini
-par t'avoir ! " Bayta le regarda, la bouche crispée par un rictus : "
+méconnaissable : ” Alors, tu es une créature du Mulet. Il a fini
+par t'avoir ! ” Bayta le regarda, la bouche crispée par un rictus : "
 Moi, une créature du Mulet ? Ca alors... " Elle sourit,
 péniblement, et rejeta ses cheveux en arrière. Lentement, sa
-voix redevint normale, ou presque. " C'est fini, Toran, je peux
+voix redevint normale, ou presque. ” C'est fini, Toran, je peux
 parler maintenant. Combien de temps survivrai-je, je ne sais
 pas. Mais je peux commencer à parler...
 Les nerfs de Toran maintenant s'étaient détendus.
@@ -5130,7 +5130,7 @@ pas prendre le risque. Il s'en serait aperçu d'avance et j'aurais
 tout perdu. "
 Elle semblait vidée de toute émotion.
 " C'est impossible, dit Toran d'une voix rauque. Regardemoi cette misérable créature. Lui, le Mulet ? Il n'entend même
-pas ce que nous disons. "
+pas ce que nous disons. ”
 Mais, quand son regard suivit son doigt braqué vers le
 clown, il vit que Magnifico était debout, aux aguets, l'œil vif. Il
 
@@ -5191,11 +5191,11 @@ comprenez ?
 
 " Mais c'était Ebling Mis ma découverte la plus importante.
 Il aurait pu être... " Magnifiée réprima la tristesse qui perçait
-dans sa voix. " Il existe un aspect du contrôle émotionnel que
+dans sa voix. ” Il existe un aspect du contrôle émotionnel que
 vous ne connaissez pas. L'intuition, le flair, le sens prophétique
 - selon le nom que vous choisissez de lui donner - peut être
 traité comme une émotion. En tout cas, c'est ce que je fais. Vous
-me suivez ? " Il poursuivit sans attendre. " L'esprit humain
+me suivez ? " Il poursuivit sans attendre. ” L'esprit humain
 fonctionne avec un faible rendement. J'ai vite découvert que je
 pouvais provoquer un usage continu du cerveau à haut
 rendement.
@@ -5218,8 +5218,8 @@ fonctionnant à plein rendement, il aurait sans doute pu réitérer
 les travaux de Hari Seldon.
 " Il y a réussi en partie. Je l'ai vraiment poussé au bout de
 ses forces. C'était cruel, mais nécessaire. Il était mourant vers la
-fin, mais il vivait encore... " Le chagrin de nouveau lui brisa la
-voix. " Il aurait vécu assez longtemps. Tous les trois, nous
+fin, mais il vivait encore... ” Le chagrin de nouveau lui brisa la
+voix. ” Il aurait vécu assez longtemps. Tous les trois, nous
 aurions gagné la Seconde Fondation. C'aurait été la dernière
 bataille, si je n'avais pas commis cette erreur.
 
@@ -5267,7 +5267,7 @@ branle. Vous le saurez quand :ïil vous frappera, et votre bref
 règne sera terminé, vous ne serez qu'un conquérant éphémère
 de plus à avoir passé sur le visage ensanglanté de l'histoire. "
 Elle haletait maintenant dans son ardeur.
-" Et nous vous avons vaincu, Toran et moi. J'en suis sûre. "
+" Et nous vous avons vaincu, Toran et moi. J'en suis sûre. ”
 Mais les yeux tristes du Mulet étaient de nouveau les yeux
 tristes de Magnifico.
 " Je ne vais pas vous tuer, ni votre mari. Vous ne pouvez
