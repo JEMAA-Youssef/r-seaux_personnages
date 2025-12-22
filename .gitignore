@@ -1,3 +1,9 @@
 /venv
 venv
 venv/
+old_output/
+/old_output
+old_output
+graph_submission.py
+verify_graph.py
+my_submission.csv

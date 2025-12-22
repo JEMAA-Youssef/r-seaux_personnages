@@ -44,7 +44,10 @@ MANUAL_BLACKLIST = {
     "Cependant", "Pourtant", "Mais", "Car", "Donc", "Or", "Ni", "Ou", "Et",
     "Qui", "Que", "Quoi", "Dont", "Où", "Quand", "Comment", "Pourquoi",
     "Jenarr", "Leggen", # Noms de chapitres ou auteurs cités souvent comme bruit
-    "Je", "Tu", "Il", "Nous", "Vous", "Ils", "Elles", "On", "Ce", "Ca", "Ça", "C'est"
+    "Je", "Tu", "Il", "Nous", "Vous", "Ils", "Elles", "On", "Ce", "Ca", "Ça", "C'est",
+    "Anciens", "Héliconien", "Kanite", "Médiévaliste", "Médiévalistes",
+    "Renégat", "Ridicule", "L'image", "Sire", "L'Empereur", "Randa-là",
+    "Galactos"
 }
 
 # Titres autorisés pour le rattrapage
@@ -224,3 +227,7 @@ def main():
 
 if __name__ == "__main__":
     main()
+
+
+
+#python3 listLP.py outputs/L_tagged.tsv -o outputs/LP_final.txt

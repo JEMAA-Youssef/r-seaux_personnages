@@ -33,7 +33,16 @@ from typing import List, Set, Tuple
 
 # Regex pour identifier les tokens (mots avec lettres, apostrophes, tirets)
 _LET = r"A-Za-zÀ-ÖØ-öø-ÿŒœÆæ"
-TOKEN_RE = re.compile(rf"[{_LET}]+(?:['’][{_LET}]+|-[{_LET}]+)*")
+# Regex pour un MOT (identique à votre version précédente)
+WORD_PATTERN = rf"[{_LET}]+(?:['’`\u2019][{_LET}]+|-[{_LET}]+)*"
+
+# Regex pour la PONCTUATION BLOQUANTE (virgules, points, etc.)
+# Ce sont les murs que l'algorithme ne doit pas traverser.
+PUNCT_PATTERN = r"[.,;?!:()«»“”\"]"
+
+# Tokenizer combiné : On capture soit un Mot, soit une Ponctuation
+# Le (?:...) signifie "groupe non capturant" pour garder une liste plate
+TOKEN_RE = re.compile(rf"(?:{WORD_PATTERN})|(?:{PUNCT_PATTERN})")
 
 # Regex pour repérer les fins de phrases (pour le contexte grammatical)
 SENT_BOUNDARY_RE = re.compile(r'(?<=[\.\!\?\;\:\u2026])\s+|[\n]+')
@@ -85,7 +94,11 @@ def normalize_text(text: str) -> str:
     return t
 
 def tokenize(text: str) -> List[str]:
-    """Découpe le texte en tokens."""
+    """
+    Découpe le texte en tokens (mots ET ponctuation).
+    Les espaces sont ignorés.
+    """
+    # findall avec notre nouvelle regex va récupérer les mots et la ponctuation
     return TOKEN_RE.findall(text)
 
 def get_sentence_starts(text: str) -> Set[int]:
@@ -190,95 +203,127 @@ def tag_candidates(counts: Counter, model: str = "fr_core_news_md") -> List[Tupl
 
 def build_ngram_greedy(tokens: List[str], cap_mask: List[bool], start_index: int, max_len: int = 6) -> str | None:
     """
-    Construit une séquence "gourmande" valide (PN + particule + PN...).
-    S'arrête si la chaîne est rompue.
+    Construit une séquence valide en s'arrêtant net à la moindre ponctuation.
     """
     n = len(tokens)
-    if not cap_mask[start_index]:
+    
+    # Si le mot de départ n'est pas une majuscule (ou est une ponctuation), on annule
+    if not cap_mask[start_index]: 
         return None
 
+    # Initialisation
     seq = [tokens[start_index]]
     j = start_index + 1
-    expect_particle = True # Après un nom, on peut avoir une particule
+    expect_particle = True 
 
     while j < n and len(seq) < max_len:
         token = tokens[j]
         
-        if expect_particle:
-            if token.lower() in PARTICLES:
+        # --- NOUVEAU : Le Mur de Ponctuation ---
+        # Si le token est une ponctuation (virgule, point...), on arrête TOUT de suite.
+        # On vérifie ça simplement : ce n'est ni un mot capitalisé, ni une particule, ni un mot minuscule accepté.
+        # Une virgule n'est jamais dans PARTICLES et n'est jamais isupper().
+        
+        if token in PARTICLES:
+            if expect_particle:
                 seq.append(token)
-                expect_particle = False # Après particule, on veut obligatoirement un Nom
+                expect_particle = False # Après une particule ("de"), on VEUT un Nom
                 j += 1
                 continue
-            # Si pas de particule, on regarde si c'est un autre Nom (ex: "Hari Seldon")
-            # On sort de la boucle pour traiter le cas "Nom Nom" ci-dessous
+            else:
+                # On a "Nom Particule Particule" ? Non, on arrête.
+                break
         
+        # Si c'est un mot avec Majuscule (Nom Propre)
         if cap_mask[j]:
             seq.append(token)
-            expect_particle = True # Après un Nom, on peut avoir une particule
+            expect_particle = True # Après un Nom, on peut avoir une particule ou un autre Nom
             j += 1
-        else:
-            break # Ni particule, ni Nom -> Fin de séquence
+            continue
+            
+        # Si on arrive ici, ce n'est ni une particule, ni une majuscule.
+        # C'est donc soit un mot minuscule ordinaire, soit une VIRGULE/POINT.
+        # Dans les deux cas -> FIN DE LA SÉQUENCE.
+        break
 
-    # Validation finale : La séquence ne doit pas finir par une particule
-    while seq and seq[-1].lower() in PARTICLES:
+    # Validation finale
+    
+    # 1. On ne finit pas par une particule (ex: "Duc de")
+    while seq and seq[-1] in PARTICLES:
         seq.pop()
 
-    if len(seq) >= 1:
-        return " ".join(seq)
-    return None
+    # 2. Nettoyage des ponctuations qui auraient pu se glisser (par sécurité)
+    # Bien que notre logique devrait les avoir empêchés d'entrer.
+    if not seq:
+        return None
+
+    # On renvoie la séquence seulement si elle est valide
+    return " ".join(seq)
 
 def generate_candidates(text: str, antidico: Set[str], use_spacy_filter: bool = True) -> Counter:
     """
     Fonction principale qui génère les candidats.
+    Intègre tous les filtres originaux + gestion de la ponctuation.
     """
-    # 1. Tokenisation
+    # 1. Tokenisation (inclut maintenant la ponctuation)
     tokens = tokenize(text)
-    cap_mask = [t and t[0].isupper() for t in tokens]
-    sentence_starts = get_sentence_starts(text)
+    
+    # Masque : True si Majuscule, False si minuscule OU ponctuation
+    cap_mask = [t[0].isupper() for t in tokens]
+    
+    # Note : get_sentence_starts utilise tokenize(), donc il restera synchronisé
+    sentence_starts = get_sentence_starts(text) 
+    
     counts = Counter()
     
-    # 2. Construction de la stop-list dynamique (optionnel mais recommandé)
+    # 2. Stop-list
     dynamic_stops = set()
     if use_spacy_filter:
         dynamic_stops = build_dynamic_stoplist(text)
     
     full_antidico = antidico | dynamic_stops | CONVERSATIONAL_STARTERS
 
-    # 3. Balayage du texte
+    # 3. Balayage
     n = len(tokens)
-    for i in range(n):
+    i = 0
+    while i < n:
         token = tokens[i]
         
-        # Si le mot n'est pas capitalisé, on passe
+        # Optimisation : Si c'est une ponctuation ou une minuscule, on passe
         if not cap_mask[i]:
+            i += 1
             continue
             
-        # --- FILTRES ---
-        # 1. Si c'est un début de phrase et que le mot est commun -> Rejet
-        if i in sentence_starts and token.lower() in full_antidico:
-            continue
+        # --- VOS FILTRES (Regroupés pour clarté) ---
         
-        # 2. Si c'est un mot conversationnel ou un chiffre romain -> Rejet
-        if token in CONVERSATIONAL_STARTERS or token in ROMAN_NUMERALS:
-            continue
-            
-        # 3. Filtre anti-OCR (lettres répétées comme "JJ")
-        if len(token) == 2 and token[0] == token[1]:
+        # A. Filtre début de phrase + mot commun
+        is_start_common = (i in sentence_starts and token.lower() in full_antidico)
+        
+        # B. Filtre Conversationnel / Chiffres Romains / Antidico Strict
+        is_forbidden = (token in CONVERSATIONAL_STARTERS) or \
+                       (token in ROMAN_NUMERALS) or \
+                       (token.lower() in full_antidico)
+                       
+        if is_start_common or is_forbidden:
+            i += 1
             continue
 
-        # 4. Filtre antidictionnaire strict (même hors début de phrase)
-        if token.lower() in full_antidico:
+        # C. Filtre Anti-OCR (Lettres répétées ex: "JJ")
+        if len(token) == 2 and token[0] == token[1]:
+            i += 1
             continue
 
         # --- GÉNÉRATION ---
-        # On essaie de construire le n-gramme le plus long possible
         phrase = build_ngram_greedy(tokens, cap_mask, i)
         
         if phrase:
-            # On ne garde que les candidats d'une longueur raisonnable (> 2 lettres)
             if len(phrase) > 2:
                 counts[phrase] += 1
+            
+            # Ici, on ne saute pas d'index pour l'instant (i += 1) pour être sûr 
+            # de ne rien rater, conformément à votre logique originale.
+            
+        i += 1
 
     return counts
 

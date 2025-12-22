@@ -1,143 +1,78 @@
 Ahab
 Alban Wellis
 Alem
-Alem Marbie
 Amaryl
-Anciens
 Astinwald
 Baley
-Baley Bentley
-Baley Clousarr
-Baley Daneel
-Baley Elijah
-Baley Qu'avez-vous
 Barrett
 Bentley Baley
 Bigell
 Boris
 CLÉON Ier
-Capitale
 Casilia
 Churchill
-Clowzia
 Cléon
 Cléon Ier
-D'une
 Damiano Nord
-Daneel
-Davan
-Dors
 Dr Fastolfe
-Dr Fastolfe Baley
-Dr Fastolfe Daneel
 Dr Gerrigel
 Dr Han Fastolfe
 Dr Sarton
-Dr Sarton Daneel
 Elgin Marron
-Elie
 Elisabeth
 Emmer Thalus
 Endor Levanian
-Enfouie
 Eto Demerzel
-Exos Seldon
-Fastolfe Baley
+Francis
 Francis Clousarr
-Frus-tra-tion Randa
-Galactique Kan
-Gerhard Baley
+Gerhard
 Han Fastolfe
 Hano Lindor
 Hari
 Hari Seldon
-Hari Seldon Cléon
-Hari Seldon Raych
 Heisenberg
-Hestelonia Kan Ziggoreth
-Hummin
-Hélicon
-Hélicon Seldon
-Héliconien
 Jacques
 Jane Myers
 Jesreel
+Jessica
 Jessie
-Jessie Baley
-Jessie Ben
 Joseph Klemin
 Julius
 Julius Enderby
 Jéhoram
 Jéhu
 Jésus
-Kan
-Kanite
-Kiangtow Randa Seldon
-L'Empereur
-L'homme
-L'image
+Kiangtow Randa
 Levanian
 Lije Baley
-Lije Bentley
-Lije Jessie
 Lindor
-Lissauer Mentone Novigor
+Lissauer
 Lisung
 Lisung Randa
-Malgré
 Mannix
 Mannix IV
 Mannix IV Kan
-Mannix Rachelle
 Manuel
-Marbie
 Marlo Tanto
-Mentone Novigor
-Mycélium
-Médiévaliste
-Médiévalistes
 Naboth
 Nemennuh Sarton
 Novigor
 Olivaw
-Olivaw Baley
 Paul
-Paul Gerhard Baley
+Paul Gerhard
 Phil
-Pierre Jacques
 Poldark
-RAYCH Hari Seldon
 Rachelle
-Rachelle Seldon
 Randa
-Randa Seldon
-Randa-là
 Raych Seldon
-Renégat
 Roj Nemennuh Sarton
 Russ
 Sammy
-Sammy Baley
 Sarton
-Sarton Daneel
 Seldon
-Seldon Amaryl
-Seldon Chetter Hummin
-Seldon Clowzia
-Seldon Cléon
-Seldon Dors
-Seldon Goutte-de-Pluie
-Seldon Hummin
-Seldon Hélicon
-Seldon Raych
-Seldon Tisalver
 Shakespeare
-Sire
-Sire Cléon
 Sœurs Goutte-de-Pluie
 Thalus
-Thalus Yugo Amaryl
 Venabili
 Vince
 Vince Barrett
