@@ -3,20 +3,6 @@
 
 """
 LL.py — Extraction ULTRA PRO MAXIMUM des lieux (Tâche 3 AMS)
-
-Ce script génère la liste finale des Lieux et Organisations (LL)
-en appliquant un filtrage très strict basé sur des listes blanches
-et noires, ainsi que des heuristiques linguistiques.
-
-Fonctionnalités clés :
-1. Exclusion des personnages confirmés (LP).
-2. Nettoyage et normalisation des n-grammes complexes (ex: "Aurora Monde").
-3. Exclusion du bruit sémantique (concepts abstraits, gentilés).
-4. Exclusion du bruit grammatical (fragments de phrases, verbes "être", pronoms).
-5. Inclusion par heuristique des lieux canoniques et composés (ex: "Secteur Mycogène").
-
-Auteur : [Votre Nom / Binôme]
-Date : Novembre 2025
 """
 
 import argparse
@@ -28,12 +14,22 @@ from pathlib import Path
 # ================================================================
 # Lieux et Organisations canoniques qui seront acceptés prioritairement.
 CANONICAL = {
-    "Trantor","Hélicon","Mycogène","Terminus","Aurora","Solaria","Gaia",
-    "Comporellon","Smyrno","Kalgan","Siwenna","Anacréon",
-    "Dahl","Kan","Streeling","Rossem",
-    "New York","Washington","Los Angeles","Berlin","Budapest","Toronto",
-    "Canterbury","Norwich","Brighton","Winnipeg","Trenton","Billibotton",
-    "Sacratorium","Université de Streeling","Palais","Secteur Mycogène"
+    # Planètes et lieux Asimov
+    "Trantor","TRANTOR","Hélicon","Mycogène","Terminus","Dahl","Kan","Aurora","Solaria","Gaia",
+    "Terre","Billibotton","Sacratorium","SACRATORIUM","Comporellon","Smyrno","Kalgan","Siwenna",
+    "Streeling","Rossem","Spacetown","Anacréon",
+    # Villes terrestres
+    "New York","Washington","Los Angeles","Berlin","Budapest","Toronto","Canterbury","Norwich",
+    "Brighton","Winnipeg","Trenton","Londres","Newark","Williamsburg","Philadelphie","Shanghai",
+    "Tachkent","Buenos Aires","Bronx","Caire",
+    # Régions et pays
+    "Long Island","New Jersey","Amérique","Alleghanis",
+    # Lieux génériques importants
+    "Palais","Empire","Capitale","Centrale","L'Empire","L'Université",
+    # Astronomie
+    "Mercure","Saturne",
+    # Concepts de lieux collectifs
+    "Mondes Extérieurs","ENCYCLOPAEDIA GALACTICA","GALACTICA"
 }
 
 # ================================================================
@@ -44,24 +40,33 @@ SEMANTIC_NOISE = {
     # Concepts et Abstractions (à éliminer de LL)
     "action","animation","administration","opinion","introduction","instruction",
     "image","existence","analyse","idée","obsession","résultat","impact",
-    "logique","raison","invasion","précaution","déduction",
+    "logique","raison","invasion","précaution","déduction","opération",
+    "question","surpopulation","attention",
 
-    # Généralités géographiques qui doivent être filtrées par leur nom spécifique
-    "monde","mondes","monde extérieur","mondes extérieurs","empire","galaxie",
+    # Généralités géographiques (mais garder Empire, Palais, Secteur comme lieux possibles)
+    "monde","mondes","monde extérieur","galaxie",
     "galactique","universités","ville","cité",
 
     # Dialogue/grammaire et Interjections
     "produit-on","qu'entend-on","qu'on",
-    "c'est","c’est","voilà","eh","hein","attention",
+    "c'est","c'est","voilà","eh","hein",
 
     # Noms communs faux positifs (à éliminer)
-    "garçon","marron","simpson","grisnuage","soupir"
+    "garçon","simpson","grisnuage","soupir",
+    
+    # Fragments de mots (à éliminer) - mais pas "island" seul
+    "town","torium","angeles","york","jersey"
 }
 
-# Peuples (Gentilés) : à éliminer absolument pour ne garder que le Lieu (LOC)
+# Peuples (Gentilés) : certains sont aussi des lieux valides
 GENTILES = {
-    "mycogénien","mycogéniens","spacien","spaciens","terrien","terriens",
-    "trantorien","trantoriens","yorkais","billibottains","impériaux","dahlites"
+    "mycogénien","mycogéniens","yorkais","billibottains","dahlites"
+}
+
+# Gentilés qui sont AUSSI des lieux/concepts géographiques (à garder)
+GENTILES_LIEUX = {
+    "Spacien","Spaciens","Terrien","Terriens","Trantorien","Trantoriens",
+    "Impériaux","Extérieurs"
 }
 
 # Règles de validation
@@ -78,6 +83,15 @@ def load_list(path: Path):
     if not path.is_file():
         return []
     return [x.strip() for x in path.open("r",encoding="utf-8") if x.strip()]
+
+def normalize_articles(token):
+    """
+    Normalise les articles contractés pour le matching avec SEMANTIC_NOISE.
+    Ex: "L'action" → "action"
+    """
+    if token.startswith(("L'", "l'", "d'", "D'")):
+        return token[2:]
+    return token
 
 def clean_composite_noise(token):
     """
@@ -111,9 +125,12 @@ def is_semantic_garbage(s):
     Vérifie si le candidat doit être rejeté à cause d'un contenu sémantique non-lieu.
     """
     parts = s.lower().split()
+    
+    # Normaliser pour gérer les articles contractés
+    normalized = normalize_articles(s).lower()
 
     # Rejet des concepts seuls
-    if s.lower() in SEMANTIC_NOISE:
+    if normalized in SEMANTIC_NOISE or s.lower() in SEMANTIC_NOISE:
         return True
 
     # Rejet des PER + bruit (ex: Baley Or, Hari L'obsession)
@@ -123,13 +140,21 @@ def is_semantic_garbage(s):
     # Rejet des fragments contenants le verbe être (même si le filtre principal l'a raté)
     if contains_verb_etre(s):
         return True
+    
+    # Rejet des mots trop courts (fragments probables) - mais accepter 4 lettres (Dahl, Caire, etc.)
+    if len(s) < 4:
+        return True
 
     return False
 
 def is_gentile_combo(s):
     """Vérifie les combinaisons Peuple + Lieu/Autre (ex: Terriens Spacetown)."""
-    parts = s.lower().split()
-    return len(parts) >= 2 and parts[0] in GENTILES
+    parts = s.split()
+    # Si c'est un gentilé-lieu seul, le garder
+    if len(parts) == 1 and s in GENTILES_LIEUX:
+        return False
+    # Rejeter les combinaisons comme "Terriens Spacetown"
+    return len(parts) >= 2 and parts[0].lower() in GENTILES
 
 def looks_like_location(token):
     """
@@ -142,13 +167,17 @@ def looks_like_location(token):
     # Inclusion 1 : Whitelist (Priorité maximale)
     if t in CANONICAL:
         return True
+    
+    # Inclusion 1b : Gentilés-Lieux
+    if t in GENTILES_LIEUX:
+        return True
 
     # Rejet des mots qui ne commencent pas par une majuscule
     if not RE_PROP.match(parts[0]):
         return False
 
-    # Inclusion 2 : Suffixes
-    if len(parts) == 1 and RE_PROP.match(t):
+    # Inclusion 2 : Suffixes (avec validation de longueur >= 4)
+    if len(parts) == 1 and RE_PROP.match(t) and len(t) >= 4:
         if any(t.lower().endswith(s) for s in SUFFIXES):
             return True
 
