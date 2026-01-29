@@ -1,0 +1,822 @@
+Candidat	Frequence	Label
+Baley	367	PER
+Trantor	96	PER
+Hari	79	PER
+Mycogène	57	PER
+Spaciens	53	PER
+Sarton	43	PER
+Cléon	38	PER
+Dr Sarton	37	PER
+Hari Seldon	37	PER
+Venabili	37	PER
+Rachelle	35	PER
+Sammy	34	PER
+Sire	28	PER
+Sacratorium	28	PER
+Amaryl	17	PER
+Olivaw	15	PER
+Terrien	14	PER
+Dr Fastolfe	14	PER
+Sœur	12	PER
+Russ	12	PER
+Médiévalistes	11	PER
+Maîtresse Tisalver	10	PER
+Alem	10	PER
+Randa	10	PER
+Julius	8	PER
+Julius Enderby	8	PER
+L'Empereur	8	PER
+Thalus	7	PER
+Ciel	6	PER
+Mycogénien	6	PER
+Maire de Kan	6	PER
+Casilia	6	PER
+Maîtresse	6	PER
+Barrett	5	PER
+Naboth	5	PER
+Maîtresse Venabili	5	PER
+Lindor	5	PER
+Mannix	5	PER
+Vince Barrett	4	PER
+Robot	4	PER
+Francis Clousarr	4	PER
+Eto Demerzel	4	PER
+Renégat	4	PER
+Yugo Amaryl	4	PER
+Astinwald	4	PER
+Mannix IV	4	PER
+Levanian	4	PER
+Voudriez-vous	3	PER
+Ai-je	3	PER
+Héliconien	3	PER
+Jenarr Leggen	3	PER
+Jenarr	3	PER
+MYCOGÈNE	3	PER
+Auriez-vous	2	PER
+Réponds-moi	2	PER
+Elisabeth	2	PER
+Boris	2	PER
+Médiévaliste	2	PER
+Lije Baley	2	PER
+Ahab	2	PER
+Jéhu	2	PER
+Dr Han Fastolfe	2	PER
+Han Fastolfe	2	PER
+Wellis	2	PER
+Quarantecinq	2	PER
+Parole	2	PER
+Galactos	2	PER
+Vince	1	PER
+Roj Nemennuh Sarton	1	PER
+Nemennuh Sarton	1	PER
+Jacques	1	PER
+Paul	1	PER
+Robot Daneel Olivaw	1	PER
+Shakespeare	1	PER
+Churchill	1	PER
+Paul Gerhard	1	PER
+Gerhard	1	PER
+Heisenberg	1	PER
+Manuel	1	PER
+Phil	1	PER
+L'égarement de Jessie	1	PER
+Jane Myers	1	PER
+Soixante	1	PER
+Joseph Klemin	1	PER
+Jésus	1	PER
+Dieu du Ciel	1	PER
+Francis	1	PER
+Messieurs	1	PER
+Jessica	1	PER
+Jéhoram	1	PER
+Jesreel	1	PER
+Bentley Baley	1	PER
+Mathématicien CLÉON Ier	1	PER
+CLÉON Ier	1	PER
+Lieutenant Alban Wellis	1	PER
+Alban Wellis	1	PER
+Espérez-vous	1	PER
+Ridicule	1	PER
+Aviez-vous	1	PER
+Lissauer	1	PER
+Novigor	1	PER
+Sœurs Goutte-de-Pluie	1	PER
+Wendome	1	PER
+Mathématicien	1	PER
+Maire de Mycogène	1	PER
+Anciens de Mycogène	1	PER
+Hano Lindor	1	PER
+Grimace de Seldon	1	PER
+Bigell	1	PER
+ENCYCLOPAEDIA GALACTICA Quand Hari Seldon	1	PER
+GALACTICA Quand Hari Seldon	1	PER
+Raison	1	PER
+ENCYCLOPAEDIA GALACTICA Hari Seldon	1	PER
+GALACTICA Hari Seldon	1	PER
+Marlo Tanto	1	PER
+D'après Hari Seldon	1	PER
+Êtes-vous Hari Seldon	1	PER
+Venabili de Cinna	1	PER
+Elgin Marron	1	PER
+Maire de Dahl	1	PER
+Emmer Thalus	1	PER
+Kanite	1	PER
+Restons-en à Rachelle	1	PER
+Rachelle Ire	1	PER
+Maire Mannix IV	1	PER
+Madame le Maire	1	PER
+Adieu	1	PER
+Reculez-vous	1	PER
+L'image de Trantor	1	PER
+Raych Seldon	1	PER
+Sacratorium de Mycogène	1	PER
+Mannix IV de Kan	1	PER
+Cléon Ier	1	PER
+Anacréon	1	PER
+Quarante	1	PER
+Streeling en Strelitzia	1	PER
+Strelitzia	1	PER
+Suaverose	1	PER
+Souvenez-vous	1	PER
+Machinchose	1	PER
+Poldark	1	PER
+Tambourinant	1	PER
+Lisung Randa	1	PER
+Kiangtow Randa	1	PER
+Randa-là	1	PER
+Lisung	1	PER
+Taciturne	1	PER
+JENARR	1	PER
+Controverse Leggen	1	PER
+L'autre Héliconien	1	PER
+Mycogène MYCOGÈNE	1	PER
+Primo	1	PER
+Redites-moi	1	PER
+Ziggoreth	1	PER
+Damiano Nord	1	PER
+Secteur de Mycogène	1	PER
+Endor Levanian	1	PER
+Seldon	602	MISC
+Raych	79	UNK
+Enderby	73	ORG
+Jessie	67	MISC
+Lije	61	MISC
+Terre	55	LOC
+Spacetown	53	MISC
+Tisalver	42	UNK
+Couverture	41	MISC
+Clousarr	39	LOC
+Fastolfe	38	ORG
+Terriens	34	LOC
+Leggen	34	LOC
+Galaxie	32	UNK
+S'il	28	UNK
+Livre	28	UNK
+Hélicon	27	UNK
+Billibotton	26	LOC
+Quarante-trois	24	UNK
+Davan	24	UNK
+J'en	23	UNK
+New York	22	LOC
+York	22	LOC
+Avez-vous	19	UNK
+Bentley	19	LOC
+Gerrigel	19	MISC
+Mondes Extérieurs	17	UNK
+Extérieurs	17	UNK
+Toilettes	17	LOC
+Rittah	17	LOC
+Personne	16	UNK
+Loi	16	MISC
+Frère	16	UNK
+Mycogéniens	16	MISC
+Maître-du-Soleil Quatorze	16	LOC
+Streeling	15	LOC
+Marron	15	LOC
+Première Loi	14	MISC
+Exos	14	UNK
+Maître Seldon	14	MISC
+Clowzia	13	LOC
+J'aurais	12	UNK
+Spacien	11	LOC
+L'homme	11	UNK
+D'une	11	UNK
+Maire	11	UNK
+Dr Gerrigel	9	MISC
+Savez-vous	9	UNK
+J'aimerais	9	UNK
+D'un	9	UNK
+N'est-ce	9	UNK
+J'espère	9	UNK
+Ancien	9	UNK
+Maître-du-Soleil	9	LOC
+J'avais	8	UNK
+Voulez-vous	8	UNK
+As-tu	8	UNK
+Empereur	8	UNK
+ENCYCLOPAEDIA GALACTICA	8	LOC
+GALACTICA	8	LOC
+Quarante-cinq	8	UNK
+Monde	8	ORG
+Aurora	8	UNK
+Cinna	8	MISC
+Dahlites	8	ORG
+Laissez-moi	7	UNK
+Robotique	7	MISC
+D'accord	7	UNK
+Elie	7	MISC
+Galactique	7	UNK
+Palais	7	LOC
+Anciens	7	UNK
+Trantoriens	7	LOC
+Marbie	7	MISC
+Grisnuage	7	UNK
+Quelqu'un	6	UNK
+Qu'y	6	UNK
+Pardonnez-moi	6	UNK
+Bible	6	MISC
+Dieu	6	MISC
+J'étais	6	UNK
+Croyez-vous	6	LOC
+D'ailleurs	6	UNK
+Empereurs	6	UNK
+S'ils	6	UNK
+D'après	6	UNK
+Pouvez-vous	6	UNK
+Excusez-moi	5	UNK
+J'y	5	UNK
+Médiévale	5	LOC
+Lois	5	UNK
+Williamsburg	5	LOC
+J'imagine	5	UNK
+Puis-je	5	UNK
+Sœurs	5	UNK
+Fuite	5	UNK
+L'un	5	UNK
+Trantorien	5	LOC
+Sergent	5	ORG
+Secteur	5	UNK
+L'idée	5	UNK
+C'étaient	4	UNK
+A-t-il	4	UNK
+Ville	4	UNK
+N'importe	4	UNK
+Newark	4	LOC
+Dites-moi	4	UNK
+Êtes-vous	4	UNK
+Terra	4	ORG
+L'Empire	4	LOC
+D'abord	4	UNK
+Exo	4	LOC
+Los Angeles	3	LOC
+Angeles	3	LOC
+Londres	3	LOC
+Monsieur	3	UNK
+Voyez-vous	3	UNK
+Washington	3	LOC
+Police	3	ORG
+Jusqu'à	3	UNK
+Trenton	3	LOC
+L'odeur	3	UNK
+Enchanté	3	UNK
+Médiévalisme	3	UNK
+L'air	3	UNK
+Qu'entendez-vous	3	UNK
+Allez-y	3	UNK
+D'où	3	UNK
+Écoutez	3	UNK
+Bande-céleste Deux	3	UNK
+Libre	3	UNK
+Qu'ils	3	UNK
+L'intéressé	3	UNK
+Impériaux	3	LOC
+Zéro	3	MISC
+Fraternité	3	UNK
+Service	2	UNK
+Don Quichotte	2	MISC
+Quichotte	2	MISC
+J'ignorais	2	UNK
+L'opération	2	UNK
+L'ennui	2	UNK
+Prétendez-vous	2	UNK
+L'humanité	2	UNK
+Etes-vous	2	UNK
+Klemin	2	LOC
+L'une	2	UNK
+L'assassin	2	UNK
+Vingt	2	UNK
+L'image	2	UNK
+Comprenez-vous	2	UNK
+Barrière	2	LOC
+Lorsqu'il	2	UNK
+Arrêtez-les	2	UNK
+ROBOT	2	ORG
+J'avoue	2	UNK
+Etats	2	LOC
+Monde Extérieur	2	ORG
+Extérieur	2	UNK
+L'appartement	2	UNK
+Aurore	2	UNK
+Qu'avez-vous	2	UNK
+Croyez-moi	2	LOC
+Ier	2	UNK
+Galactica	2	ORG
+Sciences	2	UNK
+Soleil	2	LOC
+Empire	2	LOC
+Congrès	2	UNK
+Laissezmoi	2	UNK
+L'édifice	2	UNK
+Étrange	2	UNK
+Fils	2	UNK
+L'autre	2	UNK
+L'âge	2	UNK
+Question	2	UNK
+Frères	2	UNK
+J'essaie	2	UNK
+Couverture de Streeling	2	LOC
+Mettez-vous	2	UNK
+Jirad	2	UNK
+Casilia Tisalver	2	UNK
+Qu'on	2	UNK
+Nân	2	LOC
+T'as	2	UNK
+Ba-Lee	2	UNK
+Pouvons-nous	2	MISC
+Maître Tisalver	2	UNK
+J'suis	2	UNK
+J'vais	2	UNK
+Z'êtes	2	UNK
+ENCYCLOPAEDIA GALACTICA Le	2	LOC
+GALACTICA Le	2	LOC
+Attention	2	UNK
+Pourrait-il	2	UNK
+J'peux	2	UNK
+N'est-il	2	UNK
+N'allez	2	UNK
+Coup	2	UNK
+Mairie	2	UNK
+Résultat	2	UNK
+L'esquisse	2	UNK
+Loi Zéro	2	UNK
+D'ici	2	UNK
+TRANTOR	2	MISC
+Empire Galactique	2	LOC
+Auraient-ils	2	UNK
+Allez-vous	2	UNK
+Réseau	2	UNK
+Historienne	2	UNK
+GALACTICA La	2	LOC
+Rappelez-vous	2	UNK
+Désolé	2	UNK
+Universités	2	UNK
+Ç'aurait	2	UNK
+Maître-duSoleil	2	UNK
+Gouttede-Pluie Quarante-trois	2	UNK
+Simpson	1	MISC
+JULIUS ENDERBY	1	MISC
+ENDERBY	1	ORG
+COMMISSAIRE PRINCIPAL DE POLICE DE NEW	1	MISC
+PRINCIPAL DE POLICE DE NEW YORK	1	MISC
+POLICE DE NEW YORK	1	MISC
+NEW YORK	1	UNK
+YORK	1	MISC
+City Hall Building	1	LOC
+Hall Building	1	LOC
+Building	1	LOC
+Vues	1	UNK
+Space	1	MISC
+Town	1	LOC
+Qu'allez-vous	1	UNK
+Berlin	1	LOC
+Shanghai	1	LOC
+Maison-Blanche	1	UNK
+Caisse	1	UNK
+J'accepte	1	UNK
+Pierre	1	MISC
+C'est-à-dire	1	UNK
+L'action	1	UNK
+Trinité	1	MISC
+Brighton à Norwich	1	LOC
+Norwich	1	LOC
+Coventry à Canterbury	1	LOC
+Canterbury	1	LOC
+Section Q	1	ORG
+L'introduction	1	UNK
+Saturne	1	LOC
+Comptez-vous	1	LOC
+Toronto	1	LOC
+Budapest	1	LOC
+Shanghai à Tachkent	1	LOC
+Tachkent	1	LOC
+Winnipeg à Buenos Aires	1	LOC
+Buenos Aires	1	LOC
+Aires	1	UNK
+Préfecture de Police	1	LOC
+L'employée	1	UNK
+S'habituait-il	1	UNK
+Zoo	1	UNK
+Francisco	1	MISC
+Caire	1	LOC
+Sont-ils	1	UNK
+Grimpons	1	LOC
+L'appareil	1	UNK
+Passez-moi Jessie	1	MISC
+N'as-tu	1	UNK
+Garçon	1	UNK
+Dis-lui	1	UNK
+Philadelphie	1	LOC
+Frankenstein	1	MISC
+Robotique des Mondes Extérieurs	1	MISC
+Pourraient-ils	1	UNK
+Deuxième	1	MISC
+Mercure	1	LOC
+Lizzy	1	MISC
+Myers	1	UNK
+D'autre	1	UNK
+Préfecture	1	UNK
+New Brunswick	1	UNK
+Brunswick	1	LOC
+New Jersey	1	LOC
+Jersey	1	LOC
+Alleghanis	1	LOC
+Groupe CG	1	ORG
+L'ouvrier	1	UNK
+Zymologiste	1	UNK
+Saccharomyces Olei Benedictae	1	LOC
+Olei Benedictae	1	LOC
+Benedictae	1	UNK
+Bronx	1	LOC
+Niez-vous	1	UNK
+Posez-le	1	UNK
+Laissez-le	1	UNK
+Dites-lui	1	UNK
+L'inspecteur	1	UNK
+Bizarre	1	UNK
+Docteur Gerrigel	1	MISC
+Revenons-en à R	1	LOC
+Centrale	1	LOC
+Détrompez-vous	1	UNK
+Parviendrait-il	1	UNK
+Plein	1	UNK
+J'allais	1	UNK
+Etait-il	1	UNK
+Rendez-moi	1	UNK
+N'essayez	1	UNK
+Ecoutez-moi	1	MISC
+L'incident	1	UNK
+J'affirme	1	UNK
+N'estce	1	UNK
+Retour	1	UNK
+Aideznous	1	UNK
+Expliquez-leur	1	UNK
+New Yorkais	1	LOC
+Yorkais	1	LOC
+Long Island	1	LOC
+Island	1	LOC
+Shanghaï	1	LOC
+New York City	1	LOC
+York City	1	LOC
+City	1	UNK
+VILLE	1	UNK
+L'énorme	1	UNK
+L'agent	1	UNK
+J'ose	1	UNK
+Montons	1	LOC
+Mettez-les	1	UNK
+Cassez-les	1	LOC
+N'ai-je	1	UNK
+RO-BOTS	1	UNK
+S'apercevant	1	UNK
+L'Histoire	1	UNK
+Jéhovah	1	MISC
+Premier Livre des Rois	1	MISC
+Livre des Rois	1	MISC
+Rois	1	UNK
+Baal	1	MISC
+Baalites	1	MISC
+Junior	1	MISC
+TOILETTES HOMMES	1	MISC
+HOMMES	1	MISC
+SUBDIVISIONS IA IE	1	MISC
+IA IE	1	UNK
+L'animation	1	UNK
+Attendez-moi	1	UNK
+Papa	1	UNK
+Assieds-toi	1	UNK
+N'ennuie	1	UNK
+Sommes-nous	1	LOC
+C-Fe	1	UNK
+L'instruction	1	UNK
+L'entrée de Spacetown	1	MISC
+New York à Spacetown	1	LOC
+York à Spacetown	1	LOC
+Impensable	1	UNK
+Dis-leur	1	UNK
+L'administration	1	UNK
+Dis-moi	1	UNK
+Excuse-moi	1	UNK
+J'écoutais	1	UNK
+Plastofilm	1	UNK
+Veux-tu	1	UNK
+L'abondance	1	UNK
+L'autoroute	1	UNK
+Celles-ci	1	UNK
+Permettez-moi	1	MISC
+Comportait-elle	1	UNK
+Monsieur Baley	1	UNK
+Vous-même	1	UNK
+L'existence	1	UNK
+Surpopulation	1	UNK
+J'utilise	1	UNK
+L'accroissement	1	UNK
+Amérique	1	LOC
+Mondes Nouveaux	1	MISC
+Nouveaux	1	UNK
+N'était-il	1	UNK
+Entun	1	UNK
+ENCYCLOPAEDIA GALACTICA Étouffant	1	LOC
+GALACTICA Étouffant	1	LOC
+Société	1	UNK
+Terminus	1	LOC
+Inconnus	1	UNK
+L'analyse	1	UNK
+Qu'ai-je	1	UNK
+L'intime	1	UNK
+Livre HISTOIRE DE LA MAIN SUR	1	MISC
+HISTOIRE DE LA MAIN SUR LA	1	MISC
+MAIN SUR LA CUISSE	1	MISC
+CUISSE	1	MISC
+Relaxez-vous	1	MISC
+Calmez-vous	1	UNK
+N'en	1	UNK
+Savait-elle	1	UNK
+J'espérais	1	UNK
+J'avisai	1	UNK
+J'approchai	1	UNK
+Jennat	1	MISC
+T-E-R-R-A	1	UNK
+Vingt-deux	1	UNK
+Sacratorium AURORA	1	MISC
+AURORA	1	UNK
+D'aucuns	1	UNK
+Tabou	1	MISC
+N'étant	1	UNK
+Superbe	1	UNK
+Soixante-sept	1	UNK
+Seuls	1	UNK
+Vigoureux	1	UNK
+Filles	1	UNK
+L'esprit	1	UNK
+Mentone	1	LOC
+Ancien du Sacratorium	1	MISC
+Invasion	1	UNK
+L'Ancien	1	MISC
+Empêchez-moi	1	UNK
+J'attendrai	1	UNK
+Prenez-moi	1	UNK
+L'obi de Hari	1	LOC
+Aire ROBOT	1	LOC
+Terme	1	UNK
+ENCYCLOPAEDIA GALACTICA Ils	1	ORG
+GALACTICA Ils	1	LOC
+Encyclopédie	1	UNK
+SACR TORIUM Le	1	MISC
+TORIUM Le	1	MISC
+SACRATORIUM	1	MISC
+Notez-le	1	UNK
+L'enregistrement	1	UNK
+Bendar	1	LOC
+Vérifions	1	MISC
+Mine	1	UNK
+Restons	1	UNK
+L'auriez-vous	1	UNK
+Nombre	1	UNK
+Agréable	1	UNK
+Donnez-vous	1	UNK
+Puits	1	LOC
+AMARYL	1	ORG
+YUGO	1	MISC
+L'habitude	1	UNK
+L'affaire	1	UNK
+J'entends	1	UNK
+Maître Hummin	1	UNK
+Chat	1	UNK
+Parlez-m'en	1	UNK
+Prudent	1	UNK
+Puisatiers	1	UNK
+J'aimais	1	UNK
+Déduction	1	UNK
+Violents	1	UNK
+Descendants	1	UNK
+Soupir de Seldon	1	MISC
+Jeune	1	UNK
+S'y	1	UNK
+Billibotton DAHL	1	UNK
+Étiez-vous	1	LOC
+J'essaierai	1	UNK
+Évitez-le	1	UNK
+Fermez-le	1	UNK
+Soupir	1	ORG
+Billibottains	1	LOC
+J'imaginais	1	UNK
+Sais-tu	1	UNK
+Es-tu	1	UNK
+J't'y	1	UNK
+Êtesvous	1	UNK
+Da-Nee	1	UNK
+CENTRALE	1	MISC
+Avions-nous	1	UNK
+Silence	1	UNK
+Clandestins DAVAN	1	MISC
+DAVAN	1	UNK
+Premier Empire	1	UNK
+Z'avez	1	UNK
+L'aime	1	UNK
+Z'ont	1	UNK
+J'veux	1	UNK
+Tanto	1	ORG
+Ch'sais	1	UNK
+Z'espérez	1	UNK
+J'vous	1	UNK
+Nouveau	1	MISC
+Maître Davan	1	MISC
+Appelez-moi Davan	1	UNK
+M'avez	1	MISC
+J'sais	1	UNK
+J'me	1	UNK
+Z'essayez	1	UNK
+Policiers RAYCH	1	MISC
+RAYCH	1	ORG
+Ouvrez-moi	1	UNK
+J'essayais	1	UNK
+L'obsession	1	UNK
+Droite	1	UNK
+Lanel Russ	1	UNK
+Gebore Astinwald	1	UNK
+L'usage	1	UNK
+L'agent Russ	1	MISC
+Comprenez-le	1	UNK
+Lâche-la	1	UNK
+Neutralisez	1	MISC
+Avait-il	1	UNK
+J'connais	1	UNK
+Tournez-vous	1	UNK
+Là-dessus	1	UNK
+Université	1	LOC
+Avais-tu	1	UNK
+D'autres	1	UNK
+M'dame	1	UNK
+Moi-même	1	UNK
+Amusons-nous	1	MISC
+Musique	1	UNK
+L'opinion	1	UNK
+Large	1	UNK
+Maître	1	UNK
+N'ayez	1	UNK
+Seldon au Congrès	1	MISC
+Réfléchissez-y	1	UNK
+Collaborez	1	UNK
+Renversement THALUS	1	UNK
+THALUS	1	UNK
+EMMER	1	MISC
+Seldon à Dors	1	LOC
+Quantité	1	UNK
+Contente-toi	1	UNK
+Facile	1	MISC
+Clin	1	UNK
+Insinuez-vous	1	UNK
+Qu'une	1	MISC
+Ire	1	UNK
+N'y	1	UNK
+L'égalité	1	UNK
+Z'allez	1	UNK
+Espèce	1	MISC
+Avais-je	1	MISC
+Splendide	1	MISC
+SELDON	1	ORG
+HARI	1	MISC
+N'êtes-vous	1	UNK
+Ont-elles	1	UNK
+Maître Robot	1	MISC
+Première	1	UNK
+Deuxième Loi	1	MISC
+Qu'entend-on	1	UNK
+J'interviendrai	1	UNK
+A-til	1	UNK
+Fuite TRANTOR	1	MISC
+ENCYCLOPAEDIA GALACTICA Seldon	1	ORG
+GALACTICA Seldon	1	LOC
+T'aimes	1	UNK
+T'es Trantorien	1	MISC
+T'es	1	UNK
+Étendezvous	1	UNK
+Capitale	1	LOC
+Précaution	1	UNK
+Pseudomagnétique	1	UNK
+Montez	1	UNK
+L'aérotaxi	1	UNK
+L'énormité	1	UNK
+Université UNIVERSITÉ DE STREELING	1	ORG
+UNIVERSITÉ DE STREELING	1	MISC
+STREELING	1	MISC
+Établissement	1	UNK
+L'Empire Galactique	1	LOC
+Produit-on	1	UNK
+J'échouerai	1	UNK
+L'après-midi	1	UNK
+Impressionnant	1	UNK
+Tâche	1	UNK
+UNIVERSITÉ DE STREELING MINUTES	1	MISC
+STREELING MINUTES	1	MISC
+MINUTES	1	MISC
+Bibliothèque VENABILI	1	MISC
+VENABILI	1	MISC
+ENCYLOPEDIA GALACTICA La	1	MISC
+Accordez-moi	1	UNK
+Neuf	1	UNK
+L'Université	1	LOC
+Psychohistoire	1	UNK
+J'enseignerai	1	UNK
+J'admets	1	UNK
+Qu'est-il	1	UNK
+L'avez-vous	1	UNK
+Là-bas	1	UNK
+Radicales	1	ORG
+J'aime	1	UNK
+Bizarrement	1	UNK
+Jouez-vous	1	UNK
+Affirmatif	1	UNK
+Guerre	1	MISC
+Jennisek	1	LOC
+L'ensemble	1	UNK
+L'histoire	1	UNK
+Ç'avait	1	UNK
+Couverture TRANTOR	1	MISC
+Frus-tra-tion	1	UNK
+Parlez-moi	1	UNK
+Froid	1	UNK
+Dommage	1	UNK
+PERSONNEL OFFICIEL	1	UNK
+OFFICIEL	1	UNK
+Allaient-ils	1	UNK
+L'engin	1	UNK
+L'entendrait-on	1	UNK
+Nouvelle	1	UNK
+Sauvetage LEGGEN	1	MISC
+LEGGEN	1	ORG
+ENCYCLOPAEDIA GALACTICA La	1	LOC
+Courant	1	UNK
+L'appareillage	1	UNK
+L'impact	1	ORG
+Perplexité de Benastra	1	UNK
+L'écran	1	UNK
+Furieux	1	UNK
+J'arrive	1	UNK
+Suivez-moi	1	UNK
+Donnez-moi	1	MISC
+Soulevez-le	1	UNK
+Souvenez-vous-en	1	LOC
+L'heure	1	UNK
+Détendez-vous	1	UNK
+L'argent	1	UNK
+Docteur Venabili	1	MISC
+ENCYCLOPAEDIA GALACTICA Quand Seldon	1	LOC
+GALACTICA Quand Seldon	1	LOC
+Était-il	1	UNK
+S'est-il	1	UNK
+Est-il	1	UNK
+Hestelonia	1	MISC
+Nord	1	LOC
+Faites-vous	1	UNK
+L'important	1	UNK
+Ceux-ci	1	UNK
+Maître-du-Soleil MAÎTRE-DU-SOLEIL QUATORZE	1	LOC
+MAÎTRE-DU-SOLEIL QUATORZE	1	MISC
+ENCYCLOPAEDIA GALACTICA Il	1	LOC
+GALACTICA Il	1	LOC
+Allons-nous	1	MISC
+Rares	1	UNK
+Mettez-la	1	UNK
+Lugubre	1	UNK
+Égalitaire	1	UNK
+L'espace	1	UNK
+Peuh	1	UNK
+Maîtredu-Soleil	1	UNK
+Gouttes	1	UNK
+Goutte-dePluie	1	UNK
+L'aînée	1	UNK
+Microferme MYCOGÈNE	1	UNK
+N'oubliez	1	UNK
+L'excuse	1	UNK
+Surnaturaliste	1	MISC
+L'évidence	1	UNK
+Religieuse	1	UNK
+Religieux	1	LOC
+Pressez	1	UNK
+D'ordinaire	1	UNK
+Balivernes	1	LOC
+Pourrais-je	1	MISC
+FFrère	1	MISC
+Prends-en	1	UNK
+Plateaux	1	LOC

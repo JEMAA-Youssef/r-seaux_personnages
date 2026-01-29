@@ -15,8 +15,7 @@ Fonctionnalités clés :
 4. Étiquetage final des candidats (PER, LOC, ORG) via SpaCy NER.
 5. Export en formats .txt (simple) et .tsv (enrichi).
 
-Auteur : [Votre Nom / Binôme]
-Date   : Septembre 2025
+Auteur : [Djellouli & JEMAA]
 """
 
 import argparse
@@ -31,20 +30,26 @@ from typing import List, Set, Tuple
 # CONFIGURATION & CONSTANTES
 # =============================================================================
 
-# Regex pour identifier les tokens (mots avec lettres, apostrophes, tirets)
+# Regex pour identifier les tokens
 _LET = r"A-Za-zÀ-ÖØ-öø-ÿŒœÆæ"
-# Regex pour un MOT (identique à votre version précédente)
+# Regex pour un MOT
 WORD_PATTERN = rf"[{_LET}]+(?:['’`\u2019][{_LET}]+|-[{_LET}]+)*"
 
-# Regex pour la PONCTUATION BLOQUANTE (virgules, points, etc.)
-# Ce sont les murs que l'algorithme ne doit pas traverser.
+# Regex pour la PONCTUATION BLOQUANTE (virgules, points...)
 PUNCT_PATTERN = r"[.,;?!:()«»“”\"]"
 
+# [{_LET}]+       : Capture le cœur du mot (une ou plusieurs lettres définies 
+#                      dans _LET). Exemple : "Jean", "pomme".
+# ['’][{_LET}]+   : Gère les APOSTROPHES. Si une apostrophe est suivie de 
+#                      lettres, l'ensemble reste un seul bloc.
+#                      Exemple : "l'arbre" est capturé en entier.
+#-[{_LET}]+      : Gère les TRAITS D'UNION. Si un tiret est suivi de lettres,
+#                      l'ensemble reste un seul bloc.
+#                      Exemple : "peut-être" est capturé en entier.
 # Tokenizer combiné : On capture soit un Mot, soit une Ponctuation
-# Le (?:...) signifie "groupe non capturant" pour garder une liste plate
 TOKEN_RE = re.compile(rf"(?:{WORD_PATTERN})|(?:{PUNCT_PATTERN})")
 
-# Regex pour repérer les fins de phrases (pour le contexte grammatical)
+# Regex pour repérer les fins de phrases
 SENT_BOUNDARY_RE = re.compile(r'(?<=[\.\!\?\;\:\u2026])\s+|[\n]+')
 
 # Particules autorisées dans les noms composés (ex: "de", "la")
@@ -63,7 +68,7 @@ CONVERSATIONAL_STARTERS = {
     "C'est", "C’est", "J'ai", "C'était", "Qu'est-ce", "Est-ce"
 }
 
-# Chiffres romains à filtrer (souvent des numéros de chapitre)
+# Chiffres romains à filtrer
 ROMAN_NUMERALS = {"I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX", "X", "XI", "XII"}
 
 # =============================================================================
@@ -71,7 +76,6 @@ ROMAN_NUMERALS = {"I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX", "X", "
 # =============================================================================
 
 def load_antidictionary(file_path: Path) -> Set[str]:
-    """Charge l'antidictionnaire depuis un fichier texte (un mot par ligne)."""
     if not file_path.is_file():
         print(f"Attention : Antidictionnaire introuvable à {file_path}")
         return set()
@@ -104,7 +108,6 @@ def tokenize(text: str) -> List[str]:
 def get_sentence_starts(text: str) -> Set[int]:
     """
     Identifie les indices des tokens qui commencent une phrase.
-    Utile pour filtrer les mots communs capitalisés en début de phrase.
     """
     starts = set()
     token_index = 0
@@ -116,7 +119,7 @@ def get_sentence_starts(text: str) -> Set[int]:
         segment = segment.lstrip('«»"“”\'—–- ').lstrip()
         seg_tokens = tokenize(segment)
         if seg_tokens:
-            starts.add(token_index)
+            starts.add(token_index) #en utilise le token_index pour savoir la position de mots exacte si il est au début de phrase il peut ne pas étre une EN
             token_index += len(seg_tokens)
     return starts
 
@@ -127,11 +130,10 @@ def get_sentence_starts(text: str) -> Set[int]:
 def build_dynamic_stoplist(text: str, model: str = "fr_core_news_md") -> Set[str]:
     """
     Utilise SpaCy pour construire une liste dynamique de mots à exclure (verbes, adverbes).
-    Ceci complète l'antidictionnaire statique.
     """
     try:
         import spacy
-        nlp = spacy.load(model, disable=["ner", "parser"]) # On a juste besoin du tagger
+        nlp = spacy.load(model, disable=["ner", "parser"])
     except ImportError:
         print("Erreur : La librairie 'spacy' n'est pas installée.")
         sys.exit(1)
@@ -140,7 +142,6 @@ def build_dynamic_stoplist(text: str, model: str = "fr_core_news_md") -> Set[str
         sys.exit(1)
 
     print("Analyse grammaticale du corpus pour filtrage dynamique...")
-    # Augmentation de la limite de taille pour les gros corpus
     nlp.max_length = max(len(text) + 100000, 1500000)
     
     doc = nlp(text[:1000000]) # Analyse le premier million de caractères pour construire la liste
@@ -193,25 +194,22 @@ def tag_candidates(counts: Counter, model: str = "fr_core_news_md") -> List[Tupl
         
         tagged_results.append((text, freq, label))
 
-    # Tri : D'abord les PER, puis par fréquence décroissante
+    # D'abord les PER puis par fréquence décroissante
     tagged_results.sort(key=lambda x: (x[2] != "PER", -x[1]))
     return tagged_results
 
 # =============================================================================
-# CŒUR DE L'ALGORITHME : CONSTRUCTION DES CANDIDATS
-# =============================================================================
 
 def build_ngram_greedy(tokens: List[str], cap_mask: List[bool], start_index: int, max_len: int = 6) -> str | None:
     """
-    Construit une séquence valide en s'arrêtant net à la moindre ponctuation.
+    Construit une séquence valide en s'arrêtant net à la moindre ponctuation
     """
     n = len(tokens)
     
-    # Si le mot de départ n'est pas une majuscule (ou est une ponctuation), on annule
+    # Si le mot de départ n'est pas une majuscule on annule
     if not cap_mask[start_index]: 
         return None
 
-    # Initialisation
     seq = [tokens[start_index]]
     j = start_index + 1
     expect_particle = True 
@@ -219,29 +217,25 @@ def build_ngram_greedy(tokens: List[str], cap_mask: List[bool], start_index: int
     while j < n and len(seq) < max_len:
         token = tokens[j]
         
-        # --- NOUVEAU : Le Mur de Ponctuation ---
-        # Si le token est une ponctuation (virgule, point...), on arrête TOUT de suite.
-        # On vérifie ça simplement : ce n'est ni un mot capitalisé, ni une particule, ni un mot minuscule accepté.
-        # Une virgule n'est jamais dans PARTICLES et n'est jamais isupper().
+        #Mur de Ponctuation
+        # Si le token est une ponctuation on arrête
         
         if token in PARTICLES:
             if expect_particle:
                 seq.append(token)
-                expect_particle = False # Après une particule ("de"), on VEUT un Nom
+                expect_particle = False # Après une particule  on veut un Nom
                 j += 1
                 continue
             else:
-                # On a "Nom Particule Particule" ? Non, on arrête.
                 break
         
-        # Si c'est un mot avec Majuscule (Nom Propre)
+        # Si c'est un mot avec Majuscule
         if cap_mask[j]:
             seq.append(token)
             expect_particle = True # Après un Nom, on peut avoir une particule ou un autre Nom
             j += 1
             continue
             
-        # Si on arrive ici, ce n'est ni une particule, ni une majuscule.
         # C'est donc soit un mot minuscule ordinaire, soit une VIRGULE/POINT.
         # Dans les deux cas -> FIN DE LA SÉQUENCE.
         break

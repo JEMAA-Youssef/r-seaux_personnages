@@ -17,8 +17,9 @@ def normalize(text: str) -> str:
     t = t.replace("’", "'").replace("`", "'").replace("´", "'")
     t = t.replace("“", '"').replace("”", '"').replace("«", '"').replace("»", '"')
     t = re.sub(r"-\s*\n\s*", "", t)
-    t = t.replace("\u00A0", " ").replace("\u202F", " ").replace("\t", " ")
-    t = re.sub(r"[ ]{2,}", " ", t)
+    t = t.replace("\u00A0", " ").replace("\u202F", " ").replace("\t", " ") # 10 € & bonjour !
+    t = re.sub(r"\n{2,}", "\n", t)#esoace multiple vertical
+    t = re.sub(r"[ ]{2,}", " ", t)#espace multiple horizontal
     return t
 
 def tokenize(text: str) -> list[str]:
