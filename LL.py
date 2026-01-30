@@ -9,10 +9,7 @@ import argparse
 import re
 from pathlib import Path
 
-# ================================================================
-# 1. WHITELIST (Lieux Asimov confirmés)
-# ================================================================
-# Lieux et Organisations canoniques qui seront acceptés prioritairement.
+
 CANONICAL = {
     # Planètes et lieux Asimov
     "Trantor","TRANTOR","Hélicon","Mycogène","Terminus","Dahl","Kan","Aurora","Solaria","Gaia",
@@ -32,18 +29,16 @@ CANONICAL = {
     "Mondes Extérieurs","ENCYCLOPAEDIA GALACTICA","GALACTICA"
 }
 
-# ================================================================
-# 2. BLACKLIST SÉMANTIQUE
-# ================================================================
+
 # Termes à rejeter car ils sont des concepts, du bruit ou des gentilés.
 SEMANTIC_NOISE = {
-    # Concepts et Abstractions (à éliminer de LL)
+   
     "action","animation","administration","opinion","introduction","instruction",
     "image","existence","analyse","idée","obsession","résultat","impact",
     "logique","raison","invasion","précaution","déduction","opération",
     "question","surpopulation","attention",
 
-    # Généralités géographiques (mais garder Empire, Palais, Secteur comme lieux possibles)
+    
     "monde","mondes","monde extérieur","galaxie",
     "galactique","universités","ville","cité",
 
@@ -51,33 +46,31 @@ SEMANTIC_NOISE = {
     "produit-on","qu'entend-on","qu'on",
     "c'est","c'est","voilà","eh","hein",
 
-    # Noms communs faux positifs (à éliminer)
+    # Noms communs faux positifs 
     "garçon","simpson","grisnuage","soupir",
     
-    # Fragments de mots (à éliminer) - mais pas "island" seul
     "town","torium","angeles","york","jersey"
 }
 
-# Peuples (Gentilés) : certains sont aussi des lieux valides
+
 GENTILES = {
     "mycogénien","mycogéniens","yorkais","billibottains","dahlites"
 }
 
-# Gentilés qui sont AUSSI des lieux/concepts géographiques (à garder)
+
 GENTILES_LIEUX = {
     "Spacien","Spaciens","Terrien","Terriens","Trantorien","Trantoriens",
     "Impériaux","Extérieurs"
 }
 
 # Règles de validation
-MONDE_NOISE = {"monde","Monde","MONDE"}  # Termes spécifiques à nettoyer
-SUFFIXES = ("or","ia","on","um","polis","grad","ville","town","land")  # Suffixes d'inclusion par heuristique
-RE_PROP = re.compile(r"^[A-ZÉÈÀÂÔÎ][A-Za-zéèàçùâêîôû'-]+$")  # Regex pour premier mot capitalisé
+MONDE_NOISE = {"monde","Monde","MONDE"}  
+SUFFIXES = ("or","ia","on","um","polis","grad","ville","town","land")  
+RE_PROP = re.compile(r"^[A-ZÉÈÀÂÔÎ][A-Za-zéèàçùâêîôû'-]+$")  
 
 
-# ================================================================
-# 3. FONCTIONS UTILITAIRES DE FILTRAGE
-# ================================================================
+# FONCTIONS UTILITAIRES DE FILTRAGE
+
 def load_list(path: Path):
     """Charge un fichier texte (LP, L) ligne par ligne."""
     if not path.is_file():
@@ -95,18 +88,15 @@ def normalize_articles(token):
 
 def clean_composite_noise(token):
     """
-    Normalisation : Simplifie les n-grammes de lieux/orgs complexes en retirant 
-    les mots génériques ou les particules.
-    Ex: "Aurora Monde" → "Aurora"
+    Normalisation : Simplifie les n-grammes de lieux/orgs complexes en retirant  les mots génériques ou les particules.
     Ex: "Secteur de Mycogène" → "Secteur Mycogène"
     """
     parts = token.split()
 
-    # X Monde → X
+    
     if len(parts) == 2 and parts[1].lower() == "monde":
         return parts[0]
 
-    # X de Y → X Y (gestion des particules courantes de noms d'institutions)
     if len(parts) == 3 and parts[0] in ("Secteur","Université","Palais") and parts[1].lower() == "de":
         return f"{parts[0]} {parts[2]}"
 
@@ -129,19 +119,16 @@ def is_semantic_garbage(s):
     # Normaliser pour gérer les articles contractés
     normalized = normalize_articles(s).lower()
 
-    # Rejet des concepts seuls
     if normalized in SEMANTIC_NOISE or s.lower() in SEMANTIC_NOISE:
         return True
 
-    # Rejet des PER + bruit (ex: Baley Or, Hari L'obsession)
+    # Rejet des PER + bruit 
     if len(parts) >= 2 and RE_PROP.match(s.split()[0]) and parts[-1] in SEMANTIC_NOISE:
         return True
 
-    # Rejet des fragments contenants le verbe être (même si le filtre principal l'a raté)
     if contains_verb_etre(s):
         return True
     
-    # Rejet des mots trop courts (fragments probables) - mais accepter 4 lettres (Dahl, Caire, etc.)
     if len(s) < 4:
         return True
 
@@ -157,40 +144,31 @@ def is_gentile_combo(s):
     return len(parts) >= 2 and parts[0].lower() in GENTILES
 
 def looks_like_location(token):
-    """
-    Heuristique d'inclusion : Vérifie si le candidat (après tous les rejets)
-    ressemble linguistiquement à un Lieu/Organisation.
-    """
+    
     t = token.strip()
     parts = t.split()
 
-    # Inclusion 1 : Whitelist (Priorité maximale)
+    
     if t in CANONICAL:
         return True
     
-    # Inclusion 1b : Gentilés-Lieux
     if t in GENTILES_LIEUX:
         return True
 
-    # Rejet des mots qui ne commencent pas par une majuscule
     if not RE_PROP.match(parts[0]):
         return False
 
-    # Inclusion 2 : Suffixes (avec validation de longueur >= 4)
     if len(parts) == 1 and RE_PROP.match(t) and len(t) >= 4:
         if any(t.lower().endswith(s) for s in SUFFIXES):
             return True
 
-    # Inclusion 3 : Composé Institution + Lieu canonique (ex: Secteur Mycogène)
     if len(parts)==2 and parts[0] in ("Secteur","Université","Palais") and parts[1] in CANONICAL:
         return True
 
     return False
 
 
-# ================================================================
-# 4. FONCTION PRINCIPALE (MAIN)
-# ================================================================
+
 def main():
     parser = argparse.ArgumentParser(description="Génère la liste LL par filtrage strict.")
     parser.add_argument("--L", type=Path, default="outputs/L.txt", help="Liste brute des candidats.")
@@ -199,24 +177,24 @@ def main():
     args = parser.parse_args()
 
     L = load_list(args.L)
-    LP = set(load_list(args.LP))  # Liste des PER à exclure
+    LP = set(load_list(args.LP))  
 
-    LL = set()  # Ensemble des lieux retenus
+    LL = set()  #
 
     print("--- Démarrage de la Tâche 3 (Extraction LL) ---")
 
     for item in L:
 
-        # 1. Exclusion Personnages (Filtre le plus important)
+        # 1. Exclusion Personnages 
         if item in LP:
             continue
 
         # 2. Nettoyage et Normalisation
         base = clean_composite_noise(item)
 
-        # --- Chaîne de Rejets Stricts (Les Garde-Fous) ---
+        
 
-        # 3. Rejet Bruit Sémantique (Concepts et Abstractions)
+        # 3. Rejet Bruit Sémantique 
         if is_semantic_garbage(base):
             continue
 
@@ -224,13 +202,12 @@ def main():
         if is_gentile_combo(base):
             continue
 
-        # 5. Rejet Pronoms (Bruit conversationnel final)
+        # 5. Rejet Pronoms 
         if contains_pronoun(base):
             continue
 
-        # --- Inclusion (Heuristique) ---
+    
 
-        # 6. Le candidat nettoyé est-il un Lieu/Org valide ?
         if looks_like_location(base):
             LL.add(base)
 
@@ -241,7 +218,7 @@ def main():
         for x in out:
             f.write(x+"\n")
 
-    print(f"✔ Terminé. {len(out)} lieux extraits.")
+    print(f"Terminé. {len(out)} lieux extraits.")
     print(f"→ {args.output}")
 
 

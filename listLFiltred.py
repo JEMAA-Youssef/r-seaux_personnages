@@ -71,9 +71,9 @@ CONVERSATIONAL_STARTERS = {
 # Chiffres romains à filtrer
 ROMAN_NUMERALS = {"I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX", "X", "XI", "XII"}
 
-# =============================================================================
+
 # FONCTIONS UTILITAIRES (TEXTE & FICHIERS)
-# =============================================================================
+
 
 def load_antidictionary(file_path: Path) -> Set[str]:
     if not file_path.is_file():
@@ -123,9 +123,9 @@ def get_sentence_starts(text: str) -> Set[int]:
             token_index += len(seg_tokens)
     return starts
 
-# =============================================================================
+
 # LOGIQUE LINGUISTIQUE & SPACY
-# =============================================================================
+
 
 def build_dynamic_stoplist(text: str, model: str = "fr_core_news_md") -> Set[str]:
     """
@@ -178,9 +178,9 @@ def tag_candidates(counts: Counter, model: str = "fr_core_news_md") -> List[Tupl
         label = "UNK"
 
         if doc.ents:
-            # Récupère tous les labels trouvés dans l'expression
+            
             labels = [ent.label_ for ent in doc.ents]
-            # Priorité hiérarchique pour notre projet
+                      
             if "PER" in labels:
                 label = "PER"
             elif "LOC" in labels:
@@ -194,7 +194,7 @@ def tag_candidates(counts: Counter, model: str = "fr_core_news_md") -> List[Tupl
         
         tagged_results.append((text, freq, label))
 
-    # D'abord les PER puis par fréquence décroissante
+    
     tagged_results.sort(key=lambda x: (x[2] != "PER", -x[1]))
     return tagged_results
 
@@ -223,7 +223,7 @@ def build_ngram_greedy(tokens: List[str], cap_mask: List[bool], start_index: int
         if token in PARTICLES:
             if expect_particle:
                 seq.append(token)
-                expect_particle = False # Après une particule  on veut un Nom
+                expect_particle = False 
                 j += 1
                 continue
             else:
@@ -232,40 +232,32 @@ def build_ngram_greedy(tokens: List[str], cap_mask: List[bool], start_index: int
         # Si c'est un mot avec Majuscule
         if cap_mask[j]:
             seq.append(token)
-            expect_particle = True # Après un Nom, on peut avoir une particule ou un autre Nom
+            expect_particle = True 
             j += 1
             continue
             
-        # C'est donc soit un mot minuscule ordinaire, soit une VIRGULE/POINT.
-        # Dans les deux cas -> FIN DE LA SÉQUENCE.
+        
         break
 
-    # Validation finale
     
-    # 1. On ne finit pas par une particule (ex: "Duc de")
+    
+    
     while seq and seq[-1] in PARTICLES:
         seq.pop()
 
-    # 2. Nettoyage des ponctuations qui auraient pu se glisser (par sécurité)
-    # Bien que notre logique devrait les avoir empêchés d'entrer.
+    #nettoyage des ponctuations qui auraient pu se glisser
     if not seq:
         return None
 
-    # On renvoie la séquence seulement si elle est valide
     return " ".join(seq)
 
 def generate_candidates(text: str, antidico: Set[str], use_spacy_filter: bool = True) -> Counter:
-    """
-    Fonction principale qui génère les candidats.
-    Intègre tous les filtres originaux + gestion de la ponctuation.
-    """
-    # 1. Tokenisation (inclut maintenant la ponctuation)
+    
+  
     tokens = tokenize(text)
     
-    # Masque : True si Majuscule, False si minuscule OU ponctuation
     cap_mask = [t[0].isupper() for t in tokens]
     
-    # Note : get_sentence_starts utilise tokenize(), donc il restera synchronisé
     sentence_starts = get_sentence_starts(text) 
     
     counts = Counter()
@@ -283,12 +275,11 @@ def generate_candidates(text: str, antidico: Set[str], use_spacy_filter: bool = 
     while i < n:
         token = tokens[i]
         
-        # Optimisation : Si c'est une ponctuation ou une minuscule, on passe
+        
         if not cap_mask[i]:
             i += 1
             continue
             
-        # --- VOS FILTRES (Regroupés pour clarté) ---
         
         # A. Filtre début de phrase + mot commun
         is_start_common = (i in sentence_starts and token.lower() in full_antidico)
@@ -307,23 +298,21 @@ def generate_candidates(text: str, antidico: Set[str], use_spacy_filter: bool = 
             i += 1
             continue
 
-        # --- GÉNÉRATION ---
+       
         phrase = build_ngram_greedy(tokens, cap_mask, i)
         
         if phrase:
             if len(phrase) > 2:
                 counts[phrase] += 1
             
-            # Ici, on ne saute pas d'index pour l'instant (i += 1) pour être sûr 
-            # de ne rien rater, conformément à votre logique originale.
             
         i += 1
 
     return counts
 
-# =============================================================================
+
 # FONCTION PRINCIPALE (MAIN)
-# =============================================================================
+
 
 def main():
     parser = argparse.ArgumentParser(description="Tâche 1 : Génération de la liste de candidats (L)")
