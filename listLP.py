@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 
 """
-listLP.py — Version "Hardcore" pour nettoyage strict.
+listLP.py
 """
 
 import argparse
@@ -11,18 +11,11 @@ import re
 from pathlib import Path
 from typing import Set
 
-# =============================================================================
-# 1. LISTE NOIRE ÉTENDUE (Basée sur vos résultats)
-# =============================================================================
-# Ces mots, s'ils sont trouvés, disqualifient immédiatement le candidat
+#LISTE NOIRE
 MANUAL_BLACKLIST = {
     # Lieux & Concepts
-    "Trantor", "Siwenna", "Kalgan", "Terminus", "Anacréon", "Smyrno", "Wye", "Cinna",
-    "Mycogène", "Mycogénien", "Spacetown", "Aurore", "Solaria", "Gaia", "Rossem", 
-    "Neotrantor", "Helicon", "Haven", "Comporellon", "Streeling", "Strelitzia", "Suaverose",
-    "Fondation", "Empire", "Galaxie", "Encyclopaedia", "Galactica", "Encyclopaedia Galactica",
-    "Spaciens", "Spacien", "Terrien", "Terriens", "Robot", "Robotique", "Positronique",
-    "Livre", "Plan", "Toilettes", "Secteur", "Université", "Mairie", "Préfecture", "Bibliothèque",
+    "Fondation", "Empire", "Robot", "Robotique", "Positronique",
+    "Livre", "Plan", "Secteur", "Université", "Mairie", "Préfecture", "Bibliothèque",
     "Sacratorium", "Psychohistoire", "Psychohistorien", "Mathématicien", "Projet", "Chapitre",
     "Toilettes", "Cités", "Ville", "Monde", "Mondes", "Extérieur", "Intérieur",
     
@@ -43,7 +36,6 @@ MANUAL_BLACKLIST = {
     "Ici", "Là", "Maintenant", "Aujourd'hui", "Demain", "Hier",
     "Cependant", "Pourtant", "Mais", "Car", "Donc", "Or", "Ni", "Ou", "Et",
     "Qui", "Que", "Quoi", "Dont", "Où", "Quand", "Comment", "Pourquoi",
-    "Jenarr", "Leggen", # Noms de chapitres ou auteurs cités souvent comme bruit
     "Je", "Tu", "Il", "Nous", "Vous", "Ils", "Elles", "On", "Ce", "Ca", "Ça", "C'est",
     "Anciens", "Héliconien", "Kanite", "Médiévaliste", "Médiévalistes",
     "Renégat", "Ridicule", "L'image", "Sire", "L'Empereur", "Randa-là",
@@ -75,7 +67,7 @@ def clean_candidate_string(candidate: str, antidico: Set[str]) -> str:
     parts = candidate.split()
     if not parts: return ""
 
-    # 1. Liste complète des parasites (tout en minuscules !)
+    #Liste  des parasites
     parasites = {
             # Mots de liaison & Prépositions
             "alors", "mais", "et", "ou", "ni", "car", "donc", "or", "puis", "bref", "comme",
@@ -83,9 +75,9 @@ def clean_candidate_string(candidate: str, antidico: Set[str]) -> str:
             "au", "aux", "en", "dans", "par", "pour", "sur", "avec", "sans", "sous",
             "ce", "cet", "cette", "ces", "celui-ci", "celle-ci", "ceux-ci", "celles-ci",
             "mon", "ton", "son", "notre", "votre", "leur", "nos", "vos", "leurs",
-            "quand", # Ajouté : "Quand Hari Seldon"
+            "quand",
             
-            # Verbes & Pronoms (Bruit conversationnel)
+            # Verbes & Pronoms
             "je", "tu", "il", "elle", "nous", "vous", "ils", "elles", "on", "ça", "c'est",
             "est", "a", "ont", "sont", "était", "avait", "faut", "fait", "dit",
             "j'ai", "j'y", "j'aime", "j'aurais", "j'avais", "qu'est-ce", "n'est-ce",
@@ -94,60 +86,62 @@ def clean_candidate_string(candidate: str, antidico: Set[str]) -> str:
             "laissez", "laissez-moi", "allez", "allez-y", "venez", "tenez", "mettez", "mettez-vous",
             "dites", "dites-moi", "souvenez-vous", "imaginez", "voyez-vous", "répondez-moi",
             "pardonnez-moi", "excusez-moi", "noter", "notez",
-            "parlez-m'en", "revenons-en", "restons-en", "évitez", "étendez-vous", "étendezvous", # Ajoutés
-            "espérez-vous", # Ajouté
+            "parlez-m'en", "revenons-en", "restons-en", "évitez", "étendez-vous", "étendezvous",
+            "espérez-vous",
             
             # Adverbes & Autres
             "non", "oui", "bien", "mal", "très", "trop", "ici", "là", "maintenant",
             "toujours", "jamais", "peut-être", "seulement", "aussi", "encore",
             "tout", "tous", "toute", "toutes", "seul", "seule", "même", "autre",
-            "pire", "l'habitude", "fuite", "controverse", # Ajoutés
+            "pire", "l'habitude", "fuite", "controverse", 
             
             # Mots spécifiques & Titres
             "d'ailleurs", "d'après", "effectivement", "néanmoins", "toutefois",
             "garçon", "fille", "homme", "femme", "personne", "gens",
             "maître", "monsieur", "madame", "docteur", "sergent",
-            "mathématicien", "policiers", # Ajoutés
+            "mathématicien", "policiers", 
             
-            # Fragments conversationnels déjà identifiés
+            # Fragments conversationnels
             "appelez-moi", "asseyez-vous", "reculez-vous", "redites-moi", 
             "n'allez", "c'était", "assis", "j'aimerais", "redites-moi",
             
-            # Lieux/Concepts parasites (en minuscules pour être sûr)
+            # Lieux/Concepts parasites
             "galactica", "encyclopaedia", "mycogène", "trantor",
             
-            # Mots de liaison, adverbes et petits mots supplémentaires
+            # Mots de liaison
             "si", "l'un", "l'autre", "c'est-à-dire", "ire", "libre", "trois", 
             "oh", "chut", "règle", "l'obsession", "l'égarement", "couverture", 
             "grimace", "machinchose", "raison", "taciturne", "tambourinant",
-            "quarante-trois", "soixante-douze", "quarante", "quarantecinq", "cinq" # Ajoutés (Chiffres)
+            "quarante-trois", "soixante-douze", "quarante", "quarantecinq", "cinq"
         }
 
-        # 2. Nettoyage INTERNE : On garde uniquement les mots qui NE SONT PAS des parasites
-        # Cela va transformer "Davan Appelez-moi Davan" en "Davan Davan"
+        #On garde uniquement les mots qui ne sont pas des parasites
     kept_parts = []
     for p in parts:
-        # On enlève les suffixes gênants (-vous, -moi)
+        # On enlève les suffixes 
         clean_p = re.sub(r"-(vous|nous|moi|toi|le|la|les|lui|leur|y|en)$", "", p, flags=re.IGNORECASE)
             
-        # On vérifie si le mot (ou sa version nettoyée) est un parasite
+        # On vérifie si le mot est un parasite
         if p.lower() not in parasites and clean_p.lower() not in parasites and p.lower() not in antidico:
             kept_parts.append(p)
 
-        # 3. Dédoublonnage simple (Davan Davan -> Davan)
+        #Dédoublonnage simple (Davan Davan -> Davan)
     if not kept_parts: return ""
         
     final_parts = [kept_parts[0]]
     for i in range(1, len(kept_parts)):
-        if kept_parts[i] != kept_parts[i-1]: # Si différent du précédent
+        if kept_parts[i] != kept_parts[i-1]: #si différent du précédent
             final_parts.append(kept_parts[i])
 
     return " ".join(final_parts)
 
+
+# =============================================================================
+
 def is_valid_candidate(word: str, label: str, antidico: Set[str]) -> bool:
-    clean_word = word.strip()
+    clean_word = word.strip() #supprime les espaces untils au début et fin
     
-    # 1. Vérification mot par mot contre la Blacklist (pour attraper ENCYCLOPAEDIA GALACTICA)
+    #verif mot par mot contre la Blacklist
     # On crée une version minuscule de la blacklist pour être sûr
     blacklist_lower = {w.lower() for w in MANUAL_BLACKLIST}
     
@@ -155,25 +149,23 @@ def is_valid_candidate(word: str, label: str, antidico: Set[str]) -> bool:
         if w.lower() in blacklist_lower:
             return False
             
-    # 2. Filtres classiques
+    #Filtres
     if clean_word.lower() in antidico: return False
     if re.search(r"[0-9\(\)\[\]]", clean_word): return False
     
-    # 3. Refus si tout majuscule et long (ex: GALACTICA) sauf si c'est un sigle court
+    #Refus si tout majuscule et long (ex: GALACTICA)
     if clean_word.isupper() and len(clean_word) > 3: return False
 
-    # 4. Refus si commence par apostrophe
+    #Refus si commence par apostrophe
     if clean_word.startswith(("'","’")): return False
 
-    # 5. Acceptation
+    #Acceptation
     if label == "PER": return True
     if TITLE_RE.match(clean_word): return True
 
     return False
 
-# =============================================================================
-# MAIN
-# =============================================================================
+
 
 def main():
     parser = argparse.ArgumentParser(description="Tâche 2 : Filtrage final LP (Hardcore)")
@@ -182,12 +174,11 @@ def main():
     parser.add_argument("--antidico", type=Path, default="resources/antidictionnaire.txt", help="Antidico")
     args = parser.parse_args()
 
-    print("--- Démarrage Tâche 2 (Mode Strict) ---")
     antidico = load_antidictionary(args.antidico)
     
     # On utilise un dictionnaire pour garder la version la plus courte d'un nom
-    # Ex: Si on a "Seldon" et "Seldon Amaryl", on garde les deux.
-    # Mais si on a "Baley" et "Baley Mais", le nettoyage de "Baley Mais" donne "Baley".
+    # Si on a "Seldon" et "Seldon Amaryl", on garde les deux.
+    # Mais si on a "Baley" et "Baley Mais" -> le nettoyage de "Baley Mais" donne "Baley".
     unique_characters = set()
 
     with args.input_tsv.open("r", encoding="utf-8") as f:
@@ -198,18 +189,17 @@ def main():
             if len(row) < 3: continue 
             candidate, label = row[0], row[2]
             
-            # 1. Nettoyage PREALABLE (avant validation)
-            # Cela transforme "Baley Est-ce" en "Baley" AVANT de vérifier si c'est valide
+            #Nettoyage PREALABLE
+            # Cela transforme "Baley Est-ce" en "Baley" avant de vérifier si c'est valide
             candidate_clean = clean_candidate_string(candidate, antidico)
             
             if not candidate_clean: continue
 
-            # 2. Validation
+            #Validation
             if is_valid_candidate(candidate_clean, label, antidico):
                 
-                # 3. Filtre de Longueur STRICT
-                # Un nom > 3 mots est presque toujours une erreur dans ce corpus
-                # (Ex: "Policiers RAYCH D'après Hari")
+                #Filtre de Longueur STRICT
+                #un nom > 3 mots est presque toujours une erreur
                 num_words = len(candidate_clean.split())
                 
                 if len(candidate_clean) > 2 and num_words <= 3:

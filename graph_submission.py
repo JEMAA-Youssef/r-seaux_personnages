@@ -57,24 +57,22 @@ GRAPH_BLACKLIST = {
     "Jésus", "Shakespeare", "Heisenberg", "Churchill", "Ahab", 
     "Job", "Naboth", "Jéhu", "Jéhoram", "Noé", "Moïse", 
     "Anciens", "Médiévaliste", "Médiévalistes", "Galactica", "Encyclopaedia",
-    "Ciel", "Dieu", "Seigneur", "Quarantecinq", "Jenarr", "Leggen"
+    "Ciel", "Dieu", "Seigneur", "Quarantecinq", "Jenarr", "Leggen","Torres"
 }
 
 TITLES_TO_STRIP = {"Dr", "Docteur", "Maire", "Commissaire", "Mme", "M.", "Maître", "Sire", "Empereur", "R.", "Robot", "Général"}
 
-# =============================================================================
 # OUTILS
-# =============================================================================
 
 def normalize_name(name):
     """Normalise la casse."""
-    parts = name.title().split()
+    parts = name.title().split() #mettre en majuscule la première lettre de chaque mot et découp la phrase en liste
     fixed_parts = []
     for p in parts:
-        if re.match(r'^(Ier|Ii|Iii|Iv|V|Vi|Vii|Ix|X)$', p, re.IGNORECASE):
+        if re.match(r'^(Ier|Ii|Iii|Iv|V|Vi|Vii|Ix|X)$', p, re.IGNORECASE): #forcer la maj
             if p.lower() == 'ier': fixed_parts.append('Ier')
             else: fixed_parts.append(p.upper())
-        elif p.lower() in ["de", "la", "von", "van", "of"]:
+        elif p.lower() in ["de", "la", "von", "van", "of"]:#force le min
             fixed_parts.append(p.lower())
         else:
             fixed_parts.append(p)
@@ -90,7 +88,7 @@ def clean_for_matching(name):
 def build_hybrid_alias_map(lp_list, corpus_dir):
     print("Construction Hybride des alias...")
     
-    # 1. Scan du corpus pour les fréquences
+    #Scan du corpus pour les fréquences
     full_text = ""
     for folder_name in BOOK_CODES:
         folder_path = corpus_dir / folder_name
@@ -102,13 +100,13 @@ def build_hybrid_alias_map(lp_list, corpus_dir):
     
     freqs = Counter()
     for name in normalized_lp:
-        count = len(re.findall(r'\b' + re.escape(name) + r'\b', full_text, re.IGNORECASE))
+        count = len(re.findall(r'\b' + re.escape(name) + r'\b', full_text, re.IGNORECASE))#calcul de fréquence 
         freqs[name] = count
 
     sorted_candidates = sorted(normalized_lp, key=lambda x: (freqs[x], len(x)), reverse=True)
     alias_map = {}
     
-    # 2. AUTOMATISATION (Pour les persos secondaires)
+    #automatisation
     for name in sorted_candidates:
         alias_map[name] = name
         
@@ -130,8 +128,7 @@ def build_hybrid_alias_map(lp_list, corpus_dir):
         if best_parent != child:
             alias_map[child] = best_parent
 
-    # 3. FORCE BRUTE MANUELLE (Pour écraser les erreurs de l'auto)
-    # C'est ici qu'on sauve le score
+    # 3. manuelle overrides (score)
     print("Application des correctifs manuels...")
     for short, target in CRITICAL_ALIASES.items():
         norm_short = normalize_name(short)
@@ -142,7 +139,7 @@ def build_hybrid_alias_map(lp_list, corpus_dir):
         # On s'assure que la cible est bien une clé canonique (pointe vers elle-même)
         alias_map[norm_target] = norm_target
 
-    # 4. Identification des Vitaux (Top 20 après fusion)
+    #identification des Top 20
     final_counts = Counter()
     for name, count in freqs.items():
         # Attention : on utilise la map mise à jour
@@ -155,9 +152,8 @@ def build_hybrid_alias_map(lp_list, corpus_dir):
     
     return alias_map, vital_chars
 
-# =============================================================================
+
 # MOTEUR DE GRAPHE
-# =============================================================================
 
 def get_entities_positions(text, alias_map):
     search_terms = sorted(alias_map.keys(), key=len, reverse=True)
@@ -227,9 +223,7 @@ def build_graph_for_chapter(text, alias_map, vital_chars):
             
     return G
 
-# =============================================================================
-# MAIN
-# =============================================================================
+
 
 def main():
     parser = argparse.ArgumentParser()
