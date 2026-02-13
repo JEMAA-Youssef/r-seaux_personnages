@@ -43,7 +43,6 @@ MANUAL_BLACKLIST = {
     "Ici", "Là", "Maintenant", "Aujourd'hui", "Demain", "Hier",
     "Cependant", "Pourtant", "Mais", "Car", "Donc", "Or", "Ni", "Ou", "Et",
     "Qui", "Que", "Quoi", "Dont", "Où", "Quand", "Comment", "Pourquoi",
-    "Jenarr", "Leggen", # Noms de chapitres ou auteurs cités souvent comme bruit
     "Je", "Tu", "Il", "Nous", "Vous", "Ils", "Elles", "On", "Ce", "Ca", "Ça", "C'est",
     "Anciens", "Héliconien", "Kanite", "Médiévaliste", "Médiévalistes",
     "Renégat", "Ridicule", "L'image", "Sire", "L'Empereur", "Randa-là",

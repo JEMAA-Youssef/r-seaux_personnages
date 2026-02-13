@@ -1,23 +1,6 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
-"""
-listLFiltred.py — Génération avancée de la liste des candidats (L)
-
-Ce script réalise la Tâche 1 du projet : produire une liste d'entités nommées candidates.
-Il utilise une approche hybride combinant des règles linguistiques (n-grammes, capitalisation)
-et des outils NLP modernes (SpaCy) pour un filtrage intelligent dès la source.
-
-Fonctionnalités clés :
-1. Normalisation robuste du texte (Unicode, apostrophes).
-2. Génération de n-grammes "gourmands" (PN + particule + PN).
-3. Filtrage dynamique via antidictionnaire et stop-list grammaticale (verbes, adverbes).
-4. Étiquetage final des candidats (PER, LOC, ORG) via SpaCy NER.
-5. Export en formats .txt (simple) et .tsv (enrichi).
-
-Auteur : [Votre Nom / Binôme]
-Date   : Septembre 2025
-"""
 
 import argparse
 import unicodedata
