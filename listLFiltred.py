@@ -124,7 +124,6 @@ def get_sentence_starts(text: str) -> Set[int]:
     return starts
 
 
-# LOGIQUE LINGUISTIQUE & SPACY
 
 
 def build_dynamic_stoplist(text: str, model: str = "fr_core_news_md") -> Set[str]:

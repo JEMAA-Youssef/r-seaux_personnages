@@ -82,7 +82,7 @@ def normalize_articles(token):
     Normalise les articles contractés pour le matching avec SEMANTIC_NOISE.
     Ex: "L'action" → "action"
     """
-    if token.startswith(("L'", "l'", "d'", "D'")):
+    if token.startswith(("L'", "l'", "d'", "D'")):  
         return token[2:]
     return token
 
