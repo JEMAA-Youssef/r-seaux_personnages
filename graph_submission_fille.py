@@ -591,3 +591,6 @@ def main():
 
 if __name__ == "__main__":
     main()
+    
+    
+#python3 graph_submission_fille.py \--LP outputs/LP_final.txt \--corpus "/mnt/c/Users/Youssef/Desktop/M1/S1/AMS Projet/r-seaux_personnages/corpus_asimov_leaderboard" \-o my_submission_fille_relation.csv
