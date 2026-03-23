@@ -98,6 +98,18 @@ def clean_for_matching(name):
         return " ".join(parts[1:])
     return name
 
+
+def normalize_corpus_path(path: Path) -> Path:
+    """
+    Convertit un chemin UNC WSL (//wsl.localhost/<distro>/...)
+    en chemin Linux (/...) quand le script est execute dans WSL.
+    """
+    raw = str(path)
+    match = re.match(r"^//wsl(?:\.localhost|\$)/[^/]+(/.*)$", raw, re.IGNORECASE)
+    if match:
+        return Path(match.group(1))
+    return path
+
 # =============================================================================
 # CHARGEMENT DES LEXIQUES DE SENTIMENT
 # =============================================================================
@@ -533,6 +545,15 @@ def main():
         print("Erreur: Fichier LP introuvable. Avez-vous exécuté listLP.py ?")
         return
 
+    corpus_path = normalize_corpus_path(args.corpus)
+    if corpus_path != args.corpus:
+        print(f"[INFO] Chemin corpus converti pour WSL : {args.corpus} -> {corpus_path}")
+
+    if not corpus_path.exists():
+        print(f"Erreur: Dossier corpus introuvable : {corpus_path}")
+        print("Conseil: sous Linux/WSL, utilisez un chemin de type /home/... et non //wsl.localhost/...")
+        return
+
     lp_list = [l.strip() for l in args.LP.open("r", encoding="utf-8") if l.strip()]
 
     # Chargement des lexiques de sentiment
@@ -542,13 +563,13 @@ def main():
     # Mode DEBUG
     if args.debug_pair:
         chap_id, perso_a, perso_b = args.debug_pair
-        alias_map, vital_chars = build_hybrid_alias_map(lp_list, args.corpus)
+        alias_map, vital_chars = build_hybrid_alias_map(lp_list, corpus_path)
         book_code = chap_id[:3]
         chap_num  = int(chap_id[3:]) + 1
         folder_name = {v: k for k, v in BOOK_CODES.items()}.get(book_code)
         if not folder_name:
             print(f"Code livre inconnu: {book_code}"); return
-        fpath = args.corpus / folder_name / f"chapter_{chap_num}.txt.preprocessed"
+        fpath = corpus_path / folder_name / f"chapter_{chap_num}.txt.preprocessed"
         if not fpath.exists():
             print(f"Fichier introuvable: {fpath}"); return
         text = fpath.read_text(encoding="utf-8")
@@ -556,12 +577,13 @@ def main():
         debug_pair(text, alias_map, feel, pos_verbs, neg_verbs, perso_a, perso_b)
         return
 
-    alias_map, vital_chars = build_hybrid_alias_map(lp_list, args.corpus)
+    alias_map, vital_chars = build_hybrid_alias_map(lp_list, corpus_path)
 
     df_dict = {"ID": [], "graphml": []}
 
+    chapter_count = 0
     for folder_name, book_code in BOOK_CODES.items():
-        folder_path = args.corpus / folder_name
+        folder_path = corpus_path / folder_name
         if not folder_path.exists(): continue
 
         files = sorted(folder_path.glob("chapter_*.txt.preprocessed"),
@@ -579,6 +601,11 @@ def main():
             graphml_str = "".join(nx.generate_graphml(G))
             df_dict["ID"].append(chap_id)
             df_dict["graphml"].append(graphml_str)
+            chapter_count += 1
+
+    if chapter_count == 0:
+        print("Erreur: aucun chapitre trouve. Verifiez --corpus et la structure des dossiers.")
+        return
 
     # Post-traitement : lissage global des relations
     print("Post-traitement des relations...")
@@ -593,4 +620,5 @@ if __name__ == "__main__":
     main()
     
     
+#python3 graph_submission_fille.py --LP outputs/LP_final.txt --corpus corpus_asimov_leaderboard -o my_submission_v8.csv
 #python3 graph_submission_fille.py \--LP outputs/LP_final.txt \--corpus "/mnt/c/Users/Youssef/Desktop/M1/S1/AMS Projet/r-seaux_personnages/corpus_asimov_leaderboard" \-o my_submission_fille_relation.csv

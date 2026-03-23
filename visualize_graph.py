@@ -138,3 +138,6 @@ def main():
 
 if __name__ == "__main__":
     main()
+
+
+    #python3 visualize_graph.py my_submission_v8.csv -b lca -o graphe_lca.png

@@ -50,7 +50,9 @@ CRITICAL_ALIASES = {
     "Raych": "Raych Seldon",
     "Hummin": "Chetter Hummin", "Chetter": "Chetter Hummin",
     "Randa": "Kiangtow Randa",
-    "Rashelle": "Rashelle of Wye", "Wye": "Rashelle of Wye"
+    "Rashelle": "Rashelle of Wye", "Wye": "Rashelle of Wye",
+    "Mannix IV": "Mannix IV Kan", 
+    "Mannix": "Mannix IV Kan"
 }
 
 # Mots à ignorer (Bruit)
@@ -58,7 +60,7 @@ GRAPH_BLACKLIST = {
     "Jésus", "Shakespeare", "Heisenberg", "Churchill", "Ahab", 
     "Job", "Naboth", "Jéhu", "Jéhoram", "Noé", "Moïse", 
     "Anciens", "Médiévaliste", "Médiévalistes", "Galactica", "Encyclopaedia",
-    "Ciel", "Dieu", "Seigneur", "Quarantecinq", "Jenarr", "Leggen"
+    "Ciel", "Dieu", "Seigneur", "Quarantecinq", "Jenarr", "Leggen","Nord"
 }
 
 TITLES_TO_STRIP = {"Dr", "Docteur", "Maire", "Commissaire", "Mme", "M.", "Maître", "Sire", "Empereur", "R.", "Robot", "Général"}
@@ -256,6 +258,18 @@ def clean_for_matching(name):
     if parts[0] in TITLES_TO_STRIP and len(parts) > 1:
         return " ".join(parts[1:])
     return name
+
+
+def normalize_corpus_path(path: Path) -> Path:
+    """
+    Convertit un chemin UNC WSL (//wsl.localhost/<distro>/...)
+    en chemin Linux (/...) quand le script est execute sous WSL.
+    """
+    raw = str(path)
+    match = re.match(r"^//wsl(?:\.localhost|\$)/[^/]+(/.*)$", raw, re.IGNORECASE)
+    if match:
+        return Path(match.group(1))
+    return path
 
 def build_hybrid_alias_map(lp_list, corpus_dir):
     print("Construction Hybride des alias...")
@@ -573,7 +587,19 @@ def main():
 
     print("--- Génération HYBRIDE (V5) + Analyse de Relation ---")
 
-    if not args.LP.exists(): return
+    if not args.LP.exists():
+        print("Erreur: Fichier LP introuvable. Avez-vous exécuté listLP.py ?")
+        return
+
+    corpus_path = normalize_corpus_path(args.corpus)
+    if corpus_path != args.corpus:
+        print(f"[INFO] Chemin corpus converti pour WSL : {args.corpus} -> {corpus_path}")
+
+    if not corpus_path.exists():
+        print(f"Erreur: Dossier corpus introuvable : {corpus_path}")
+        print("Conseil: sous Linux/WSL, utilisez un chemin de type /home/... et non //wsl.localhost/...")
+        return
+
     lp_list = [l.strip() for l in args.LP.open("r", encoding="utf-8") if l.strip()]
 
     # Chargement des lexiques de sentiment
@@ -583,16 +609,14 @@ def main():
     # ── Mode DEBUG ────────────────────────────────────────────────────────────
     if args.debug_pair:
         chap_id, perso_a, perso_b = args.debug_pair
-        if not args.LP.exists(): return
-        lp_list = [l.strip() for l in args.LP.open("r", encoding="utf-8") if l.strip()]
-        alias_map, vital_chars = build_hybrid_alias_map(lp_list, args.corpus)
+        alias_map, vital_chars = build_hybrid_alias_map(lp_list, corpus_path)
 
         book_code = chap_id[:3]          # ex: 'paf'
         chap_num  = int(chap_id[3:]) + 1  # ex: 0 -> chapter_1
         folder_name = {v: k for k, v in BOOK_CODES.items()}.get(book_code)
         if not folder_name:
             print(f"Code livre inconnu: {book_code}"); return
-        fpath = args.corpus / folder_name / f"chapter_{chap_num}.txt.preprocessed"
+        fpath = corpus_path / folder_name / f"chapter_{chap_num}.txt.preprocessed"
         if not fpath.exists():
             print(f"Fichier introuvable: {fpath}"); return
 
@@ -603,12 +627,13 @@ def main():
     # ─────────────────────────────────────────────────────────────────────────
 
     # Construction Hybride (Auto + Manuel)
-    alias_map, vital_chars = build_hybrid_alias_map(lp_list, args.corpus)
+    alias_map, vital_chars = build_hybrid_alias_map(lp_list, corpus_path)
 
     df_dict = {"ID": [], "graphml": []}
+    chapter_count = 0
     
     for folder_name, book_code in BOOK_CODES.items():
-        folder_path = args.corpus / folder_name
+        folder_path = corpus_path / folder_name
         if not folder_path.exists(): continue
             
         files = sorted(folder_path.glob("chapter_*.txt.preprocessed"), 
@@ -626,6 +651,11 @@ def main():
             graphml_str = "".join(nx.generate_graphml(G))
             df_dict["ID"].append(chap_id)
             df_dict["graphml"].append(graphml_str)
+            chapter_count += 1
+
+    if chapter_count == 0:
+        print("Erreur: aucun chapitre trouve. Verifiez --corpus et la structure des dossiers.")
+        return
 
     # ─ Post-traitement : lissage global des relations ───────────────────
     print("Post-traitement des relations...")
@@ -639,3 +669,7 @@ def main():
 
 if __name__ == "__main__":
     main()
+
+
+
+    #python3 graph_submission.py --LP outputs/LP_final.txt --corpus corpus_asimov_leaderboard -o my_submission_v5.csv
