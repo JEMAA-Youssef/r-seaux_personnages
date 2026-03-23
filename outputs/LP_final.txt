@@ -13,7 +13,6 @@ Casilia
 Churchill
 Cléon
 Cléon Ier
-Damiano Nord
 Dr Fastolfe
 Dr Gerrigel
 Dr Han Fastolfe
@@ -52,17 +51,13 @@ Lindor
 Lissauer
 Lisung
 Lisung Randa
-Maire
-Maire Dahl
-Maire Kan
-Maire Mannix IV
 Mannix
 Mannix IV
 Mannix IV Kan
-Manuel
 Marlo Tanto
 Naboth
 Nemennuh Sarton
+Nord
 Novigor
 Olivaw
 Paul
@@ -78,7 +73,6 @@ Sammy
 Sarton
 Seldon
 Shakespeare
-Sœurs Goutte-de-Pluie
 Thalus
 Venabili
 Vince
@@ -86,4 +80,3 @@ Vince Barrett
 Wellis
 Wendome
 Yugo Amaryl
-Ziggoreth

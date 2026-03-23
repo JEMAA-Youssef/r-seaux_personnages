@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 
 """
-listLP.py — Version "Hardcore" pour nettoyage strict (avec Whitelist pour noms longs).
+listLP.py — Version "Hardcore" Optimisée (Nettoyage Expert Asimov + Whitelist).
 """
 
 import argparse
@@ -12,19 +12,32 @@ from pathlib import Path
 from typing import Set
 
 # =============================================================================
-# 1. LISTE NOIRE ÉTENDUE
+# 1. LISTE NOIRE ÉTENDUE (Mise à jour avec l'analyse du graphe)
 # =============================================================================
 MANUAL_BLACKLIST = {
+    # --- Lieux, Secteurs & Planètes ---
     "Trantor", "Siwenna", "Kalgan", "Terminus", "Anacréon", "Smyrno", "Wye", "Cinna",
     "Mycogène", "Mycogénien", "Spacetown", "Aurore", "Solaria", "Gaia", "Rossem", 
     "Neotrantor", "Helicon", "Haven", "Comporellon", "Streeling", "Strelitzia", "Suaverose",
+    "Ziggoreth", "Damiano", "Damiano Nord", "Damiano Sud", "Upperside",
+    "Terre", "Soleil", "Sirius", "Aurora", "Aurorain", "Cités", "Ville", "Monde", "Mondes", 
+    
+    # --- Concepts, Factions & Groupes ---
     "Fondation", "Empire", "Galaxie", "Encyclopaedia", "Galactica", "Encyclopaedia Galactica",
     "Spaciens", "Spacien", "Terrien", "Terriens", "Robot", "Robotique", "Positronique",
+    "Sacratorium", "Psychohistoire", "Psychohistorien", "Mathématicien", "Projet",
+    "Sœurs", "Goutte", "Goutte-De-Pluie", "L'Empire", "Galactique", "Psychohistorique", "Mathématiques",
+    
+    # --- Objets & Bâtiments ---
     "Livre", "Plan", "Toilettes", "Secteur", "Université", "Mairie", "Préfecture", "Bibliothèque",
-    "Sacratorium", "Psychohistoire", "Psychohistorien", "Mathématicien", "Projet", "Chapitre",
-    "Toilettes", "Cités", "Ville", "Monde", "Mondes", "Extérieur", "Intérieur",
+    "Vaisseau", "Dôme", "Chapitre", "Extérieur", "Intérieur",
+    
+    # --- Titres génériques (seuls) ---
     "Messieurs", "Madame", "Monsieur", "Maître", "Maîtresse", "Docteur", "Maire", 
     "Sœur", "Frère", "Fils", "Père", "Mère", "Lieutenant", "Général", "Commissaire",
+    "Préfet", "Chef", "Inspecteur", "Manuel",
+    
+    # --- Verbes et Mots parasites (Conversation) ---
     "Oui", "Non", "Bien", "Merci", "Allons", "Allez", "Venez", "Tenez", "Adieu", "Parole",
     "Bonjour", "Bonsoir", "Ciel", "Dieu", "Seigneur", "Zéro", "Primo", "Secundo",
     "Ai-je", "Dit-il", "Réponds-moi", "Comprenez-vous", "Voudriez-vous", "Voyez-vous",
@@ -39,8 +52,7 @@ MANUAL_BLACKLIST = {
     "Qui", "Que", "Quoi", "Dont", "Où", "Quand", "Comment", "Pourquoi",
     "Je", "Tu", "Il", "Nous", "Vous", "Ils", "Elles", "On", "Ce", "Ca", "Ça", "C'est",
     "Anciens", "Héliconien", "Kanite", "Médiévaliste", "Médiévalistes",
-    "Renégat", "Ridicule", "L'image", "Sire", "L'Empereur", "Randa-là",
-    "Galactos"
+    "Renégat", "Ridicule", "L'image", "Sire", "L'Empereur", "Randa-là", "Galactos"
 }
 
 TITLES = [
@@ -92,6 +104,7 @@ def clean_candidate_string(candidate: str, antidico: Set[str]) -> str:
         "maître", "monsieur", "madame", "docteur", "sergent", "mathématicien", "policiers",
         "appelez-moi", "asseyez-vous", "reculez-vous", "redites-moi", "n'allez", "c'était", 
         "assis", "j'aimerais", "redites-moi", "galactica", "encyclopaedia", "mycogène", "trantor",
+        "ziggoreth", "damiano", "goutte-de-pluie", "sœurs", # Ajouts basés sur le graphe
         "si", "l'un", "l'autre", "c'est-à-dire", "ire", "libre", "trois", "oh", "chut", "règle", 
         "l'obsession", "l'égarement", "couverture", "grimace", "machinchose", "raison", "taciturne", 
         "tambourinant", "quarante-trois", "soixante-douze", "quarante", "quarantecinq", "cinq"
@@ -158,7 +171,6 @@ def main():
             if is_valid_candidate(candidate_clean, label, antidico):
                 num_words = len(candidate_clean.split())
                 
-                # --- CORRECTION ICI : On valide si <= 3 mots OU si c'est dans la whitelist ---
                 if len(candidate_clean) > 2 and (num_words <= 3 or candidate_clean in LONG_NAMES_WHITELIST):
                     unique_characters.add(candidate_clean)
 
