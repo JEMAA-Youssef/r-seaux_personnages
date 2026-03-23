@@ -13,7 +13,6 @@ Casilia
 Churchill
 Cléon
 Cléon Ier
-Damiano Nord
 Dr Fastolfe
 Dr Gerrigel
 Dr Han Fastolfe
@@ -33,6 +32,8 @@ Hari Seldon
 Heisenberg
 Jacques
 Jane Myers
+Jenarr
+Jenarr Leggen
 Jesreel
 Jessica
 Jessie
@@ -43,6 +44,7 @@ Jéhoram
 Jéhu
 Jésus
 Kiangtow Randa
+Leggen
 Levanian
 Lije Baley
 Lindor
@@ -52,10 +54,10 @@ Lisung Randa
 Mannix
 Mannix IV
 Mannix IV Kan
-Manuel
 Marlo Tanto
 Naboth
 Nemennuh Sarton
+Nord
 Novigor
 Olivaw
 Paul
@@ -71,7 +73,6 @@ Sammy
 Sarton
 Seldon
 Shakespeare
-Sœurs Goutte-de-Pluie
 Thalus
 Venabili
 Vince
@@ -79,4 +80,3 @@ Vince Barrett
 Wellis
 Wendome
 Yugo Amaryl
-Ziggoreth

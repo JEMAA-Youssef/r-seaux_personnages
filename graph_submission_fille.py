@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 
 """
-graph_submission.py — V5 HYBRIDE (Auto + Sécurité Manuelle)
+graph_submission.py — V8 ROLLBACK (Focus sur le Rappel pour maximiser le score Kaggle)
 """
 
 import pandas as pd
@@ -22,51 +22,45 @@ BOOK_CODES = {
     "les_cavernes_d_acier": "lca"
 }
 
-# On réduit la fenêtre pour augmenter la PRÉCISION
-WINDOW_SIZE = 120           
-MIN_WEIGHT_THRESHOLD = 3
+# 1. Fenêtre glissante ajustée au "Sweet Spot" (150 mots)
+MAX_WINDOW = 150 
+# 2. On garde TOUTES les relations trouvées (Seuil à 1)
+MIN_WEIGHT_THRESHOLD = 1 
 
-# --- 1. LA LISTE DE SÉCURITÉ (MANUELLE) ---
-# Ces règles écrasent l'automatisme pour garantir le score sur les héros.
-# C'est ce qui vous manquait dans la version 0.32.
 CRITICAL_ALIASES = {
-    # Héros Cavernes d'Acier
+    # Les Baley
     "Baley": "Lije Baley", "Lije": "Lije Baley", "Elijah": "Lije Baley",
-    "Jessie": "Jessie Baley",
-    "Bentley": "Bentley Baley",
+    "Jessie": "Jessie Baley", "Bentley": "Bentley Baley",
+    
+    # Les Spaciens / Robots
     "Daneel": "R. Daneel Olivaw", "Olivaw": "R. Daneel Olivaw", "R. Daneel": "R. Daneel Olivaw",
     "Giskard": "R. Giskard Reventlov", "Reventlov": "R. Giskard Reventlov",
     "Fastolfe": "Han Fastolfe", "Han": "Han Fastolfe",
-    "Enderby": "Julius Enderby", "Julius": "Julius Enderby",
     "Sarton": "Roj Nemennuh Sarton", "Roj": "Roj Nemennuh Sarton",
-    "Clousarr": "Francis Clousarr", "Francis": "Francis Clousarr",
+    "Enderby": "Julius Enderby", "Julius": "Julius Enderby",
     
-    # Héros Prélude
+    # Les Héros Fondation
     "Seldon": "Hari Seldon", "Hari": "Hari Seldon",
     "Dors": "Dors Venabili", "Venabili": "Dors Venabili",
     "Cléon": "Cléon Ier", "Empereur": "Cléon Ier", "Sire": "Cléon Ier",
     "Demerzel": "Eto Demerzel", "Eto": "Eto Demerzel",
-    "Yugo": "Yugo Amaryl", "Amaryl": "Yugo Amaryl",
-    "Raych": "Raych Seldon",
-    "Hummin": "Chetter Hummin", "Chetter": "Chetter Hummin",
-    "Randa": "Kiangtow Randa",
-    "Rashelle": "Rashelle of Wye", "Wye": "Rashelle of Wye"
+    "Amaryl": "Yugo Amaryl", "Yugo": "Yugo Amaryl",
+    "Raych": "Raych Seldon"
 }
 
-# Mots à ignorer (Bruit)
 GRAPH_BLACKLIST = {
     "Jésus", "Shakespeare", "Heisenberg", "Churchill", "Ahab", 
     "Job", "Naboth", "Jéhu", "Jéhoram", "Noé", "Moïse", 
     "Anciens", "Médiévaliste", "Médiévalistes", "Galactica", "Encyclopaedia",
-    "Ciel", "Dieu", "Seigneur", "Quarantecinq", "Jenarr", "Leggen"
+    "Ciel", "Dieu", "Seigneur", "Quarantecinq",
 }
 
 TITLES_TO_STRIP = {"Dr", "Docteur", "Maire", "Commissaire", "Mme", "M.", "Maître", "Sire", "Empereur", "R.", "Robot", "Général"}
 
-# Chemin vers les ressources de sentiment
+# Chemins vers les ressources de sentiment
 _RESOURCES_DIR = Path(__file__).parent / "resources"
-FEEL_LEXICON_PATH    = _RESOURCES_DIR / "feel_lexicon.csv"
-RELATION_VERBS_PATH  = _RESOURCES_DIR / "relation_verbs_asimov.csv"
+FEEL_LEXICON_PATH   = _RESOURCES_DIR / "feel_lexicon.csv"
+RELATION_VERBS_PATH = _RESOURCES_DIR / "relation_verbs_asimov.csv"
 
 # Marqueurs de négation française
 NEGATION_MARKERS = {
@@ -74,21 +68,42 @@ NEGATION_MARKERS = {
     "ni", "non", "plus", "guère", "nullement", "point"
 }
 
-# Intensificateurs (multiplient le score)
+# Intensificateurs (bonus +1 sur le mot suivant)
 INTENSIFIERS = {
     "très", "vraiment", "absolument", "profondément", "sincèrement",
     "terriblement", "extrêmement", "totalement", "complètement", "fortement"
 }
 
 # =============================================================================
-# CHARGEMENT DES LEXIQUES
+# OUTILS
+# =============================================================================
+
+def normalize_name(name):
+    parts = name.title().split()
+    fixed_parts = []
+    for p in parts:
+        if re.match(r'^(Ier|Ii|Iii|Iv|V|Vi|Vii|Ix|X)$', p, re.IGNORECASE):
+            if p.lower() == 'ier': fixed_parts.append('Ier')
+            else: fixed_parts.append(p.upper())
+        elif p.lower() in ["de", "la", "von", "van", "of"]:
+            fixed_parts.append(p.lower())
+        else:
+            fixed_parts.append(p)
+    return " ".join(fixed_parts)
+
+def clean_for_matching(name):
+    parts = name.split()
+    if not parts: return ""
+    if parts[0] in TITLES_TO_STRIP and len(parts) > 1:
+        return " ".join(parts[1:])
+    return name
+
+# =============================================================================
+# CHARGEMENT DES LEXIQUES DE SENTIMENT
 # =============================================================================
 
 def load_feel_lexicon(path: Path) -> Dict[str, Tuple[str, int]]:
-    """
-    Charge le lexique FEEL.
-    Retourne un dict: mot -> (polarite, intensite)
-    """
+    """Charge le lexique FEEL. Retourne un dict: mot -> (polarite, intensite)"""
     lexicon = {}
     if not path.exists():
         print(f"[AVERTISSEMENT] Lexique FEEL introuvable : {path}")
@@ -110,10 +125,7 @@ def load_feel_lexicon(path: Path) -> Dict[str, Tuple[str, int]]:
 
 
 def load_relation_verbs(path: Path) -> Tuple[Set[str], Set[str]]:
-    """
-    Charge les verbes de relation directionnels.
-    Retourne (verbes_positifs, verbes_négatifs).
-    """
+    """Charge les verbes de relation directionnels. Retourne (pos_verbs, neg_verbs)."""
     pos_verbs, neg_verbs = set(), set()
     if not path.exists():
         print(f"[AVERTISSEMENT] Verbes de relation introuvables : {path}")
@@ -145,36 +157,28 @@ def score_window(
     neg_verbs: Set[str]
 ) -> Tuple[int, int]:
     """
-    Analyse le texte d'une fenêtre de co-occurrence.
-    Gère :
-      - Le lexique FEEL (polarité + intensité)
-      - Les verbes de relation directionnels
-      - La négation (inversion de polarité sur les 3 mots suivants)
-      - Les intensificateurs (bonus +1)
-
+    Analyse le sentiment d'une fenêtre de co-occurrence.
+    Gère : lexique FEEL, verbes directionnels, négation, intensificateurs.
     Retourne (score_positif, score_négatif).
     """
-    # On tokenise EN GARDANT les ponctuations de fin de phrase comme sentinelles
     raw_tokens = re.findall(r"[a-zàâçéèêëîïôùûüæœ']+|[.!?]", window_text.lower())
     pos_total, neg_total = 0, 0
-    neg_countdown  = 0   # nombre de mots encore sous l'effet d'une négation
-    boost_next     = 0   # bonus intensificateur pour le prochain mot lexical
+    neg_countdown = 0
+    boost_next    = 0
 
     for token in raw_tokens:
-        # Fin de phrase → la négation ne peut pas déborder sur la phrase suivante
+        # Fin de phrase → réinitialiser la négation (pas de débordement inter-phrase)
         if token in ('.', '!', '?'):
             neg_countdown = 0
             boost_next    = 0
             continue
 
-        # Détection d'un intensificateur
         if token in INTENSIFIERS:
             boost_next = 1
             continue
 
-        # Détection d'un marqueur de négation
         if token in NEGATION_MARKERS:
-            neg_countdown = 4   # les 4 prochains tokens lexicaux sont inversés
+            neg_countdown = 4
             boost_next = 0
             continue
 
@@ -182,7 +186,6 @@ def score_window(
         if neg_countdown > 0:
             neg_countdown -= 1
 
-        # Score via le lexique FEEL
         if token in feel:
             polarite, intensite = feel[token]
             score = intensite + boost_next
@@ -199,7 +202,6 @@ def score_window(
 
         boost_next = 0
 
-        # Score via les verbes de relation directionnels
         if token in pos_verbs:
             delta = 2
             if flip:
@@ -218,10 +220,7 @@ def score_window(
 
 def classify_relation(pos: int, neg: int) -> str:
     """
-    Classifie la relation entre deux personnages :
-      'pour'   si les signaux positifs dominent (majorité simple)
-      'contre' si les signaux négatifs dominent
-      'neutre' si équilibre strict ou absence de signal
+    'pour' si pos > neg, 'contre' si neg > pos, 'neutre' sinon.
     """
     if pos == 0 and neg == 0:
         return "neutre"
@@ -232,35 +231,9 @@ def classify_relation(pos: int, neg: int) -> str:
     return "neutre"
 
 
-# =============================================================================
-# OUTILS
-# =============================================================================
-
-def normalize_name(name):
-    """Normalise la casse."""
-    parts = name.title().split()
-    fixed_parts = []
-    for p in parts:
-        if re.match(r'^(Ier|Ii|Iii|Iv|V|Vi|Vii|Ix|X)$', p, re.IGNORECASE):
-            if p.lower() == 'ier': fixed_parts.append('Ier')
-            else: fixed_parts.append(p.upper())
-        elif p.lower() in ["de", "la", "von", "van", "of"]:
-            fixed_parts.append(p.lower())
-        else:
-            fixed_parts.append(p)
-    return " ".join(fixed_parts)
-
-def clean_for_matching(name):
-    parts = name.split()
-    if not parts: return ""
-    if parts[0] in TITLES_TO_STRIP and len(parts) > 1:
-        return " ".join(parts[1:])
-    return name
-
 def build_hybrid_alias_map(lp_list, corpus_dir):
     print("Construction Hybride des alias...")
     
-    # 1. Scan du corpus pour les fréquences
     full_text = ""
     for folder_name in BOOK_CODES:
         folder_path = corpus_dir / folder_name
@@ -278,7 +251,6 @@ def build_hybrid_alias_map(lp_list, corpus_dir):
     sorted_candidates = sorted(normalized_lp, key=lambda x: (freqs[x], len(x)), reverse=True)
     alias_map = {}
     
-    # 2. AUTOMATISATION (Pour les persos secondaires)
     for name in sorted_candidates:
         alias_map[name] = name
         
@@ -291,7 +263,6 @@ def build_hybrid_alias_map(lp_list, corpus_dir):
             if child == potential_parent: continue
             parent_clean = clean_for_matching(potential_parent)
             
-            # Inclusion stricte
             if re.search(r'\b' + re.escape(child_clean) + r'\b', parent_clean):
                 if freqs[potential_parent] > best_parent_score:
                     best_parent = potential_parent
@@ -300,112 +271,24 @@ def build_hybrid_alias_map(lp_list, corpus_dir):
         if best_parent != child:
             alias_map[child] = best_parent
 
-    # 3. FORCE BRUTE MANUELLE (Pour écraser les erreurs de l'auto)
-    # C'est ici qu'on sauve le score
     print("Application des correctifs manuels...")
     for short, target in CRITICAL_ALIASES.items():
         norm_short = normalize_name(short)
         norm_target = normalize_name(target)
         
-        # On force le mapping
         alias_map[norm_short] = norm_target
-        # On s'assure que la cible est bien une clé canonique (pointe vers elle-même)
         alias_map[norm_target] = norm_target
 
-    # 4. Identification des Vitaux (Top 20 après fusion)
     final_counts = Counter()
     for name, count in freqs.items():
-        # Attention : on utilise la map mise à jour
         if name in alias_map:
             canon = alias_map[name]
             final_counts[canon] += count
     
-    # On sauve les 20 plus fréquents même s'ils sont isolés
-    vital_chars = {name for name, _ in final_counts.most_common(20)}
+    # 3. Filet de sauvetage maximum : on garde le Top 50 pour ne rater personne
+    vital_chars = {name for name, _ in final_counts.most_common(50)}
     
     return alias_map, vital_chars
-
-# =============================================================================
-# LISSAGE GLOBAL DES RELATIONS
-# =============================================================================
-
-def smooth_relations_globally(df_dict, min_chapters=3, min_confidence=0.60):
-    """
-    Post-traitement : pour les paires (A,B) apparaissant dans au moins
-    min_chapters chapitres avec une relation dominante à >= min_confidence,
-    on force cette relation dans TOUS les chapitres.
-
-    Principe : si Dors/Hari est « pour » dans 9 chapitres sur 16,
-    les 7 « contre » sont probablement des artefacts de fenêtres
-    chargées en mots d'action (scènes de combat, danger).
-    """
-    import xml.etree.ElementTree as ET
-    from collections import Counter as Ctr
-
-    _NS = 'http://graphml.graphdrawing.org/xmlns'
-    # Enregistrer les namespaces pour éviter les préfixes ns0: dans la sortie
-    ET.register_namespace('', _NS)
-    ET.register_namespace('xsi', 'http://www.w3.org/2001/XMLSchema-instance')
-
-    # 1. Collecter toutes les relations par paire à travers tous les chapitres
-    pair_rels = {}   # (A, B) -> [rel, rel, ...]
-    for graphml_str in df_dict["graphml"]:
-        try:
-            root = ET.fromstring(graphml_str)
-        except Exception:
-            continue
-        keys = {k.get('id'): k.get('attr.name')
-                for k in root.iter(f'{{{_NS}}}key')}
-        for edge in root.iter(f'{{{_NS}}}edge'):
-            src  = edge.get('source')
-            tgt  = edge.get('target')
-            pair = tuple(sorted([src, tgt]))
-            data = {keys.get(d.get('key')): d.text
-                    for d in edge.iter(f'{{{_NS}}}data')}
-            rel  = data.get('relation', 'neutre')
-            pair_rels.setdefault(pair, []).append(rel)
-
-    # 2. Déterminer la relation stable pour les paires qualifiées
-    overrides = {}
-    for pair, rels in pair_rels.items():
-        if len(rels) < min_chapters:
-            continue
-        counts     = Ctr(rels)
-        top, count = counts.most_common(1)[0]
-        if count / len(rels) >= min_confidence:
-            overrides[pair] = top
-
-    print(f"  Lissage global : {len(overrides)} paires stabilisées "
-          f"(≥{min_chapters} chap., ≥{int(min_confidence*100)}% dominance)")
-
-    # 3. Appliquer les overrides dans chaque GraphML
-    new_graphmls = []
-    for graphml_str in df_dict["graphml"]:
-        try:
-            root = ET.fromstring(graphml_str)
-        except Exception:
-            new_graphmls.append(graphml_str)
-            continue
-        keys     = {k.get('id'): k.get('attr.name')
-                    for k in root.iter(f'{{{_NS}}}key')}
-        key_inv  = {v: k for k, v in keys.items()}
-        rel_key  = key_inv.get('relation')
-
-        if rel_key:
-            for edge in root.iter(f'{{{_NS}}}edge'):
-                src  = edge.get('source')
-                tgt  = edge.get('target')
-                pair = tuple(sorted([src, tgt]))
-                if pair in overrides:
-                    for d in edge.iter(f'{{{_NS}}}data'):
-                        if d.get('key') == rel_key:
-                            d.text = overrides[pair]
-
-        new_graphmls.append(ET.tostring(root, encoding='unicode'))
-
-    df_dict["graphml"] = new_graphmls
-    return df_dict
-
 
 # =============================================================================
 # MOTEUR DE GRAPHE
@@ -440,10 +323,9 @@ def build_graph_for_chapter(text, alias_map, vital_chars, feel, pos_verbs, neg_v
     G = nx.Graph()
     entities = get_entities_positions(text, alias_map)
     node_variants = {}
-    # Accumulation des scores de sentiment par paire
-    edge_scores = {}   # (canonA, canonB) -> [pos_total, neg_total]
+    edge_scores   = {}   # (canonA, canonB) -> [pos_total, neg_total]
 
-    words = text.split()   # pour extraire les fenêtres de texte brut
+    words = text.split()  # pour extraire les fenêtres de texte
 
     for i in range(len(entities)):
         curr_idx, curr_raw, curr_canon = entities[i]
@@ -453,13 +335,21 @@ def build_graph_for_chapter(text, alias_map, vital_chars, feel, pos_verbs, neg_v
 
         for j in range(i + 1, len(entities)):
             next_idx, next_raw, next_canon = entities[j]
+            distance = next_idx - curr_idx
+
+            if distance > MAX_WINDOW: break
+            if curr_canon == next_canon: continue
+
             if next_canon not in node_variants: node_variants[next_canon] = set()
             node_variants[next_canon].add(next_raw)
 
-            if (next_idx - curr_idx) > WINDOW_SIZE: break
-            if curr_canon == next_canon: continue
+            # Poids de co-occurrence : 1 rencontre = +1 (logique V8 inchangée)
+            if G.has_edge(curr_canon, next_canon):
+                G[curr_canon][next_canon]['weight'] += 1
+            else:
+                G.add_edge(curr_canon, next_canon, weight=1)
 
-            # ── Analyse sentimentale de la fenêtre ──────────────────────────
+            # Analyse sentimentale de la fenêtre
             start_w = max(0, curr_idx)
             end_w   = min(len(words), next_idx + len(next_raw.split()))
             window_text = " ".join(words[start_w:end_w])
@@ -470,12 +360,6 @@ def build_graph_for_chapter(text, alias_map, vital_chars, feel, pos_verbs, neg_v
                 edge_scores[edge_key] = [0, 0]
             edge_scores[edge_key][0] += pos
             edge_scores[edge_key][1] += neg
-            # ────────────────────────────────────────────────────────────────
-
-            if G.has_edge(curr_canon, next_canon):
-                G[curr_canon][next_canon]['weight'] += 1
-            else:
-                G.add_edge(curr_canon, next_canon, weight=1)
 
     # Appliquer le type de relation sur chaque arête
     for (u, v), (pos_total, neg_total) in edge_scores.items():
@@ -487,33 +371,101 @@ def build_graph_for_chapter(text, alias_map, vital_chars, feel, pos_verbs, neg_v
         if 'relation' not in G[u][v]:
             G[u][v]['relation'] = 'neutre'
 
-    edges_to_remove = []
-    for u, v, data in G.edges(data=True):
-        if data['weight'] < MIN_WEIGHT_THRESHOLD:
-            edges_to_remove.append((u, v))
+    # Filtrage — seuil à 1 (garde tout ce qui s'est croisé au moins une fois)
+    edges_to_remove = [(u, v) for u, v, data in G.edges(data=True) if data['weight'] < MIN_WEIGHT_THRESHOLD]
     G.remove_edges_from(edges_to_remove)
 
     for canon, variants in node_variants.items():
         if not G.has_node(canon): G.add_node(canon)
-        variants.add(canon) 
+        variants.add(canon)
         G.nodes[canon]["names"] = ";".join(sorted(list(variants)))
 
-    # On ne garde les isolés que s'ils sont dans le TOP 20 vital
+    # Nettoyage des nœuds isolés, sauf s'ils font partie du Top 50
     isolates = list(nx.isolates(G))
     for node in isolates:
         if node not in vital_chars:
             G.remove_node(node)
-            
+
     return G
 
 # =============================================================================
-# MAIN
+# LISSAGE GLOBAL DES RELATIONS
+# =============================================================================
+
+def smooth_relations_globally(df_dict, min_chapters=4, min_confidence=0.50):
+    """
+    Post-traitement : pour les paires (A,B) apparaissant dans au moins
+    min_chapters chapitres avec une relation dominante à >= min_confidence,
+    on force cette relation dans TOUS les chapitres.
+    """
+    import xml.etree.ElementTree as ET
+    from collections import Counter as Ctr
+
+    _NS = 'http://graphml.graphdrawing.org/xmlns'
+    # Enregistrer les namespaces pour éviter les préfixes ns0: dans la sortie
+    ET.register_namespace('', _NS)
+    ET.register_namespace('xsi', 'http://www.w3.org/2001/XMLSchema-instance')
+
+    pair_rels = {}
+    for graphml_str in df_dict["graphml"]:
+        try:
+            root = ET.fromstring(graphml_str)
+        except Exception:
+            continue
+        keys = {k.get('id'): k.get('attr.name') for k in root.iter(f'{{{_NS}}}key')}
+        for edge in root.iter(f'{{{_NS}}}edge'):
+            src  = edge.get('source')
+            tgt  = edge.get('target')
+            pair = tuple(sorted([src, tgt]))
+            data = {keys.get(d.get('key')): d.text for d in edge.iter(f'{{{_NS}}}data')}
+            rel  = data.get('relation', 'neutre')
+            pair_rels.setdefault(pair, []).append(rel)
+
+    overrides = {}
+    for pair, rels in pair_rels.items():
+        if len(rels) < min_chapters:
+            continue
+        counts     = Ctr(rels)
+        top, count = counts.most_common(1)[0]
+        if count / len(rels) >= min_confidence:
+            overrides[pair] = top
+
+    print(f"  Lissage global : {len(overrides)} paires stabilisées "
+          f"(≥{min_chapters} chap., ≥{int(min_confidence*100)}% dominance)")
+
+    new_graphmls = []
+    for graphml_str in df_dict["graphml"]:
+        try:
+            root = ET.fromstring(graphml_str)
+        except Exception:
+            new_graphmls.append(graphml_str)
+            continue
+        keys    = {k.get('id'): k.get('attr.name') for k in root.iter(f'{{{_NS}}}key')}
+        key_inv = {v: k for k, v in keys.items()}
+        rel_key = key_inv.get('relation')
+
+        if rel_key:
+            for edge in root.iter(f'{{{_NS}}}edge'):
+                src  = edge.get('source')
+                tgt  = edge.get('target')
+                pair = tuple(sorted([src, tgt]))
+                if pair in overrides:
+                    for d in edge.iter(f'{{{_NS}}}data'):
+                        if d.get('key') == rel_key:
+                            d.text = overrides[pair]
+
+        new_graphmls.append(ET.tostring(root, encoding='unicode'))
+
+    df_dict["graphml"] = new_graphmls
+    return df_dict
+
+
+# =============================================================================
+# DÉBOGAGE
 # =============================================================================
 
 def debug_pair(text, alias_map, feel, pos_verbs, neg_verbs, charA, charB):
-    """
-    Affiche les mots qui contribuent au score de la relation entre charA et charB.
-    """
+    """Affiche les mots qui contribuent au score de la relation entre charA et charB."""
     entities = get_entities_positions(text, alias_map)
     words = text.split()
     windows_found = 0
@@ -523,7 +475,7 @@ def debug_pair(text, alias_map, feel, pos_verbs, neg_verbs, charA, charB):
         if cA != charA: continue
         for j in range(i + 1, len(entities)):
             nj, _, cB = entities[j]
-            if (nj - ci) > WINDOW_SIZE: break
+            if (nj - ci) > MAX_WINDOW: break
             if cB != charB: continue
 
             windows_found += 1
@@ -553,7 +505,7 @@ def debug_pair(text, alias_map, feel, pos_verbs, neg_verbs, charA, charB):
                     hits.append(f"{sign}VRB_NEG({t})")
 
             pos, neg = score_window(window_text, feel, pos_verbs, neg_verbs)
-            print(f"  Fenêtre {windows_found} [{start_w}-{end_w}] : pos={pos} neg={neg} → {classify_relation(pos,neg)}")
+            print(f"  Fenêtre {windows_found} [{start_w}-{end_w}] : pos={pos} neg={neg} → {classify_relation(pos, neg)}")
             print(f"    Mots détectés : {', '.join(hits) if hits else '(aucun)'}")
             print(f"    Texte : {window_text[:200]}")
             print()
@@ -561,6 +513,10 @@ def debug_pair(text, alias_map, feel, pos_verbs, neg_verbs, charA, charB):
     if windows_found == 0:
         print(f"  Aucune fenêtre commune trouvée entre '{charA}' et '{charB}'")
 
+
+# =============================================================================
+# MAIN
+# =============================================================================
 
 def main():
     parser = argparse.ArgumentParser()
@@ -571,66 +527,62 @@ def main():
                         help="Ex: paf0 'Hari Seldon' 'Chetter Hummin'")
     args = parser.parse_args()
 
-    print("--- Génération HYBRIDE (V5) + Analyse de Relation ---")
+    print("--- Génération HYBRIDE V8 + Analyse de Relation ---")
 
-    if not args.LP.exists(): return
+    if not args.LP.exists():
+        print("Erreur: Fichier LP introuvable. Avez-vous exécuté listLP.py ?")
+        return
+
     lp_list = [l.strip() for l in args.LP.open("r", encoding="utf-8") if l.strip()]
 
     # Chargement des lexiques de sentiment
-    feel      = load_feel_lexicon(FEEL_LEXICON_PATH)
+    feel = load_feel_lexicon(FEEL_LEXICON_PATH)
     pos_verbs, neg_verbs = load_relation_verbs(RELATION_VERBS_PATH)
 
-    # ── Mode DEBUG ────────────────────────────────────────────────────────────
+    # Mode DEBUG
     if args.debug_pair:
         chap_id, perso_a, perso_b = args.debug_pair
-        if not args.LP.exists(): return
-        lp_list = [l.strip() for l in args.LP.open("r", encoding="utf-8") if l.strip()]
         alias_map, vital_chars = build_hybrid_alias_map(lp_list, args.corpus)
-
-        book_code = chap_id[:3]          # ex: 'paf'
-        chap_num  = int(chap_id[3:]) + 1  # ex: 0 -> chapter_1
+        book_code = chap_id[:3]
+        chap_num  = int(chap_id[3:]) + 1
         folder_name = {v: k for k, v in BOOK_CODES.items()}.get(book_code)
         if not folder_name:
             print(f"Code livre inconnu: {book_code}"); return
         fpath = args.corpus / folder_name / f"chapter_{chap_num}.txt.preprocessed"
         if not fpath.exists():
             print(f"Fichier introuvable: {fpath}"); return
-
         text = fpath.read_text(encoding="utf-8")
         print(f"\n=== DEBUG relation : '{perso_a}' ↔ '{perso_b}' (chapitre {chap_id}) ===")
         debug_pair(text, alias_map, feel, pos_verbs, neg_verbs, perso_a, perso_b)
         return
-    # ─────────────────────────────────────────────────────────────────────────
 
-    # Construction Hybride (Auto + Manuel)
     alias_map, vital_chars = build_hybrid_alias_map(lp_list, args.corpus)
 
     df_dict = {"ID": [], "graphml": []}
-    
+
     for folder_name, book_code in BOOK_CODES.items():
         folder_path = args.corpus / folder_name
         if not folder_path.exists(): continue
-            
-        files = sorted(folder_path.glob("chapter_*.txt.preprocessed"), 
+
+        files = sorted(folder_path.glob("chapter_*.txt.preprocessed"),
                        key=lambda p: int(re.search(r'\d+', p.name).group()))
-        
+
         print(f"Traitement {book_code}...")
         for fpath in files:
             file_num = int(re.search(r'\d+', fpath.name).group())
             chap_num = max(0, file_num - 1)
             chap_id = f"{book_code}{chap_num}"
-            
+
             text = fpath.read_text(encoding="utf-8")
             G = build_graph_for_chapter(text, alias_map, vital_chars, feel, pos_verbs, neg_verbs)
-            
+
             graphml_str = "".join(nx.generate_graphml(G))
             df_dict["ID"].append(chap_id)
             df_dict["graphml"].append(graphml_str)
 
-    # ─ Post-traitement : lissage global des relations ───────────────────
+    # Post-traitement : lissage global des relations
     print("Post-traitement des relations...")
     df_dict = smooth_relations_globally(df_dict, min_chapters=4, min_confidence=0.50)
-    # ─────────────────────────────────────────────────────
 
     df = pd.DataFrame(df_dict)
     df.set_index("ID", inplace=True)
