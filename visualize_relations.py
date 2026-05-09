@@ -296,3 +296,7 @@ def main():
 
 if __name__ == "__main__":
     main()
+
+
+    #python3 visualize_relations.py my_submission.csv -b paf -o graphe_paf_final.png
+    #python3 visualize_relations.py my_submission.csv -b lca -o graphe_lca_final.png
