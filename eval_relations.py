@@ -25,9 +25,7 @@ from pathlib import Path
 NS = {'g': 'http://graphml.graphdrawing.org/xmlns'}
 
 
-# =============================================================================
-# EXTRACTION
-# =============================================================================
+
 
 def extract_edges(graphml_str):
     """Extrait les arêtes (src, tgt, weight, relation) d'un GraphML."""
@@ -72,9 +70,7 @@ def load_all_edges(csv_path):
     return pd.DataFrame(rows)
 
 
-# =============================================================================
-# MÉTRIQUES
-# =============================================================================
+
 
 def metric_coherence(df):
     """
@@ -177,9 +173,7 @@ def metric_inconsistent_pairs(df, seuil_coherence=0.6, min_apparitions=3):
     return inconsistent
 
 
-# =============================================================================
-# AFFICHAGE
-# =============================================================================
+
 
 def print_separator(titre):
     print(f"\n{'='*70}")
@@ -261,11 +255,11 @@ def print_score_global(coverage, avg_weight, incons_count):
     print(f"\n  ★ SCORE TOTAL : {total}/100")
 
     if total >= 75:
-        verdict = "✅ Excellent — lexique bien calibré"
+        verdict = " Excellent — lexique bien calibré"
     elif total >= 50:
-        verdict = "⚠️  Correct — affiner le lexique sur les paires incohérentes"
+        verdict = "  Correct — affiner le lexique sur les paires incohérentes"
     else:
-        verdict = "❌ Faible — le lexique manque de couverture ou de précision"
+        verdict = " Faible — le lexique manque de couverture ou de précision"
     print(f"  {verdict}\n")
 
 

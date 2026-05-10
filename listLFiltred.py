@@ -26,27 +26,16 @@ from collections import Counter
 from pathlib import Path
 from typing import List, Set, Tuple
 
-# =============================================================================
-# CONFIGURATION & CONSTANTES
-# =============================================================================
+
 
 # Regex pour identifier les tokens
 _LET = r"A-Za-zÀ-ÖØ-öø-ÿŒœÆæ"
 # Regex pour un MOT
 WORD_PATTERN = rf"[{_LET}]+(?:['’`\u2019][{_LET}]+|-[{_LET}]+)*"
 
-# Regex pour la PONCTUATION BLOQUANTE (virgules, points...)
 PUNCT_PATTERN = r"[.,;?!:()«»“”\"]"
 
-# [{_LET}]+       : Capture le cœur du mot (une ou plusieurs lettres définies 
-#                      dans _LET). Exemple : "Jean", "pomme".
-# ['’][{_LET}]+   : Gère les APOSTROPHES. Si une apostrophe est suivie de 
-#                      lettres, l'ensemble reste un seul bloc.
-#                      Exemple : "l'arbre" est capturé en entier.
-#-[{_LET}]+      : Gère les TRAITS D'UNION. Si un tiret est suivi de lettres,
-#                      l'ensemble reste un seul bloc.
-#                      Exemple : "peut-être" est capturé en entier.
-# Tokenizer combiné : On capture soit un Mot, soit une Ponctuation
+
 TOKEN_RE = re.compile(rf"(?:{WORD_PATTERN})|(?:{PUNCT_PATTERN})")
 
 # Regex pour repérer les fins de phrases
@@ -119,7 +108,7 @@ def get_sentence_starts(text: str) -> Set[int]:
         segment = segment.lstrip('«»"“”\'—–- ').lstrip()
         seg_tokens = tokenize(segment)
         if seg_tokens:
-            starts.add(token_index) #en utilise le token_index pour savoir la position de mots exacte si il est au début de phrase il peut ne pas étre une EN
+            starts.add(token_index) 
             token_index += len(seg_tokens)
     return starts
 
@@ -197,7 +186,7 @@ def tag_candidates(counts: Counter, model: str = "fr_core_news_md") -> List[Tupl
     tagged_results.sort(key=lambda x: (x[2] != "PER", -x[1]))
     return tagged_results
 
-# =============================================================================
+
 
 def build_ngram_greedy(tokens: List[str], cap_mask: List[bool], start_index: int, max_len: int = 6) -> str | None:
     """

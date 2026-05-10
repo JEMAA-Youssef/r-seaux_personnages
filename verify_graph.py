@@ -3,20 +3,20 @@ import networkx as nx
 import matplotlib.pyplot as plt
 import io
 
-# 1. Charger le CSV
+#Charger le CSV
 df = pd.read_csv("my_submission.csv")
 print(f"J'ai chargé {len(df)} chapitres au total.")
 
 target_id = "paf5" 
 
-# Récupérer la chaîne XML GraphML correspondante
+Récupérer la chaîne XML GraphML correspondante
 try:
     xml_content = df.loc[df['ID'] == target_id, 'graphml'].values[0]
 except IndexError:
     print(f"ID {target_id} introuvable !")
     exit()
 
-# 3. Parser le GraphML
+#Parser le GraphML
 # On utilise io.BytesIO car networkx attend un "fichier"
 G = nx.read_graphml(io.BytesIO(xml_content.encode('utf-8')))
 
@@ -28,7 +28,7 @@ print("\nAttributs 'names' (pour Kaggle) :")
 for node, data in G.nodes(data=True):
     print(f" - {node} : {data.get('names', 'PAS DE NAMES !')}")
 
-# 5. Dessiner le graphe
+# Dessiner le graphe
 plt.figure(figsize=(10, 8))
 pos = nx.spring_layout(G, k=0.5) # k écarte les nœuds
 nx.draw(G, pos, with_labels=True, node_color='lightblue', 

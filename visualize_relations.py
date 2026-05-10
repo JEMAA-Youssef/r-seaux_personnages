@@ -4,10 +4,6 @@
 """
 visualize_relations.py — Visualisation des graphes avec relations pour/contre/neutre
 
-Couleurs des arêtes :
-  vert   (#2ecc71) = POUR
-  rouge  (#e74c3c) = CONTRE
-  gris   (#95a5a6) = NEUTRE
 
 Usage :
   # Un seul chapitre
@@ -26,7 +22,7 @@ Usage :
 import pandas as pd
 import networkx as nx
 import matplotlib
-matplotlib.use('Agg')   # Pas besoin d'interface graphique (compatible WSL)
+matplotlib.use('Agg')   
 import matplotlib.pyplot as plt
 import matplotlib.patches as mpatches
 import argparse
@@ -34,9 +30,7 @@ import sys
 import re
 from pathlib import Path
 
-# =============================================================================
-# COULEURS
-# =============================================================================
+
 RELATION_COLORS = {
     "pour":    "#2ecc71",   # vert
     "contre":  "#e74c3c",   # rouge
@@ -45,9 +39,7 @@ RELATION_COLORS = {
 NODE_COLOR   = "#3498db"    # bleu
 NODE_OUTLINE = "#2980b9"
 
-# =============================================================================
-# CHARGEMENT
-# =============================================================================
+
 
 def load_graph_from_csv(csv_path, chapter_id=None, merge_book=None):
     """
@@ -108,9 +100,7 @@ def load_graph_from_csv(csv_path, chapter_id=None, merge_book=None):
         sys.exit(1)
 
 
-# =============================================================================
-# DESSIN
-# =============================================================================
+
 
 def draw_relation_graph(G, output_file, title, min_weight=1):
     """Dessine le graphe avec arêtes colorées par type de relation."""
@@ -229,9 +219,6 @@ def draw_relation_graph(G, output_file, title, min_weight=1):
     plt.close()
 
 
-# =============================================================================
-# MAIN
-# =============================================================================
 
 def main():
     parser = argparse.ArgumentParser(

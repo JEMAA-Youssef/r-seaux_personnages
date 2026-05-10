@@ -11,21 +11,15 @@ from pathlib import Path
 
 
 CANONICAL = {
-    # Planètes et lieux Asimov
     "Trantor","TRANTOR","Hélicon","Mycogène","Terminus","Dahl","Kan","Aurora","Solaria","Gaia",
     "Terre","Billibotton","Sacratorium","SACRATORIUM","Comporellon","Smyrno","Kalgan","Siwenna",
     "Streeling","Rossem","Spacetown","Anacréon",
-    # Villes terrestres
     "New York","Washington","Los Angeles","Berlin","Budapest","Toronto","Canterbury","Norwich",
     "Brighton","Winnipeg","Trenton","Londres","Newark","Williamsburg","Philadelphie","Shanghai",
     "Tachkent","Buenos Aires","Bronx","Caire",
-    # Régions et pays
     "Long Island","New Jersey","Amérique","Alleghanis",
-    # Lieux génériques importants
     "Palais","Empire","Capitale","Centrale","L'Empire","L'Université",
-    # Astronomie
     "Mercure","Saturne",
-    # Concepts de lieux collectifs
     "Mondes Extérieurs","ENCYCLOPAEDIA GALACTICA","GALACTICA"
 }
 

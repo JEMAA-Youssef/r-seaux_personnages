@@ -13,9 +13,8 @@ from pathlib import Path
 from collections import Counter
 from typing import Dict, Set, Tuple
 
-# =============================================================================
-# CONFIGURATION
-# =============================================================================
+
+
 
 BOOK_CODES = {
     "prelude_a_fondation": "paf",
@@ -26,40 +25,29 @@ BOOK_CODES = {
 WINDOW_SIZE = 120           
 MIN_WEIGHT_THRESHOLD = 3
 
-# --- 1. LA LISTE DE SÉCURITÉ (MANUELLE) ---
-# Ces règles écrasent l'automatisme pour garantir le score sur les héros.
-# C'est ce qui vous manquait dans la version 0.32.
+
+
+
 CRITICAL_ALIASES = {
-    # ----- Les Cavernes d'acier (LCA) -----
-    # Elijah Baley (On regroupe tout sous son nom officiel)
+
     "Baley": "Elijah Baley", "Lije": "Elijah Baley", "Lije Baley": "Elijah Baley", "Elijah": "Elijah Baley",
-    # Jessie (Jessica)
     "Jessie": "Jessica Baley", "Jessie Baley": "Jessica Baley", "Jessica": "Jessica Baley",
     "Bentley": "Bentley Baley",
-    # Daneel (Sans le "R." au cas où)
     "Daneel": "Daneel Olivaw", "Olivaw": "Daneel Olivaw", "R. Daneel": "Daneel Olivaw", "R. Daneel Olivaw": "Daneel Olivaw",
-    # Giskard
     "Giskard": "Giskard Reventlov", "Reventlov": "Giskard Reventlov", "R. Giskard Reventlov": "Giskard Reventlov",
-    # Fastolfe (On attrape TOUTES les variantes du Dr)
     "Fastolfe": "Han Fastolfe", "Han": "Han Fastolfe", "Dr Han Fastolfe": "Han Fastolfe", "Dr Fastolfe": "Han Fastolfe",
-    # Sarton
     "Sarton": "Roj Nemennuh Sarton", "Roj": "Roj Nemennuh Sarton", "Dr Sarton": "Roj Nemennuh Sarton", "Docteur Sarton": "Roj Nemennuh Sarton",
-    # Enderby
     "Enderby": "Julius Enderby", "Julius": "Julius Enderby",
     "Rachelle": "Rashelle", "Rashelle de Wye": "Rashelle",
 
-    # ----- Prélude à Fondation (PAF) -----
     "Seldon" : "Hari Seldon", "Hari": "Hari Seldon",
     "Dors": "Dors Venabili", "Venabili": "Dors Venabili",
-    # Cléon (SANS ACCENT pour éviter le bug HTML)
     "Cléon": "Cleon Ier", "Cléon Ier": "Cleon Ier", "Empereur": "Cleon Ier", "Sire": "Cleon Ier",
     "Demerzel": "Eto Demerzel", "Eto": "Eto Demerzel",
     "Amaryl": "Yugo Amaryl", "Yugo": "Yugo Amaryl",
     "Raych": "Raych Seldon",
-    # Rittah et Quatorze (SANS ACCENTS)
     "Rittah": "Mere Rittah", "Mère Rittah": "Mere Rittah", "Mother Rittah": "Mere Rittah",
     "Quatorze": "Maitre Quatorze", "Maître Quatorze": "Maitre Quatorze", "Sunmaster": "Maitre Quatorze",
-    # Mannix (Fusionner les doublons)
     "Mannix IV": "Mannix IV Kan", "Mannix": "Mannix IV Kan",
     "Hummin": "Chetter Hummin", "Chetter": "Chetter Hummin"
 }
@@ -68,7 +56,6 @@ GRAPH_BLACKLIST = {
     "Job", "Naboth", "Jéhu", "Jéhoram", "Noé", "Moïse", 
     "Anciens", "Médiévaliste", "Médiévalistes", "Galactica", "Encyclopaedia",
     "Ciel", "Dieu", "Seigneur", "Quarantecinq",
-    # --- AJOUTS POUR LA PRÉCISION ---
     "Nord", "Dahl", "Mycogène", "Mycogéne", "Wye", "Cinq", 
     "Trantor", "Terminus", "Empire", "Secteur", "Hélicon","Astinwald"
 }
@@ -76,26 +63,21 @@ GRAPH_BLACKLIST = {
 
 TITLES_TO_STRIP = {"Dr", "Docteur", "Maire", "Commissaire", "Mme", "M.", "Maître", "Sire", "Empereur", "R.", "Robot", "Général"}
 
-# Chemin vers les ressources de sentiment
 _RESOURCES_DIR = Path(__file__).parent / "resources"
 FEEL_LEXICON_PATH    = _RESOURCES_DIR / "feel_lexicon.csv"
 RELATION_VERBS_PATH  = _RESOURCES_DIR / "relation_verbs_asimov.csv"
 
-# Marqueurs de négation française
 NEGATION_MARKERS = {
     "ne", "n", "pas", "jamais", "aucun", "aucune", "sans",
     "ni", "non", "plus", "guère", "nullement", "point"
 }
 
-# Intensificateurs (multiplient le score)
 INTENSIFIERS = {
     "très", "vraiment", "absolument", "profondément", "sincèrement",
     "terriblement", "extrêmement", "totalement", "complètement", "fortement"
 }
 
-# =============================================================================
-# CHARGEMENT DES LEXIQUES
-# =============================================================================
+
 
 def load_feel_lexicon(path: Path) -> Dict[str, Tuple[str, int]]:
     """
@@ -147,9 +129,7 @@ def load_relation_verbs(path: Path) -> Tuple[Set[str], Set[str]]:
     return pos_verbs, neg_verbs
 
 
-# =============================================================================
-# ANALYSE DE SENTIMENT AVEC NÉGATION
-# =============================================================================
+
 
 def score_window(
     window_text: str,
@@ -167,7 +147,7 @@ def score_window(
 
     Retourne (score_positif, score_négatif).
     """
-    # On tokenise EN GARDANT les ponctuations de fin de phrase comme sentinelles
+
     raw_tokens = re.findall(r"[a-zàâçéèêëîïôùûüæœ']+|[.!?]", window_text.lower())
     pos_total, neg_total = 0, 0
     neg_countdown  = 0   # nombre de mots encore sous l'effet d'une négation
@@ -245,9 +225,7 @@ def classify_relation(pos: int, neg: int) -> str:
     return "neutre"
 
 
-# =============================================================================
-# OUTILS
-# =============================================================================
+
 
 def normalize_name(name):
     """Normalise la casse."""
@@ -325,8 +303,8 @@ def build_hybrid_alias_map(lp_list, corpus_dir):
         if best_parent != child:
             alias_map[child] = best_parent
 
-    # 3. FORCE BRUTE MANUELLE (Pour écraser les erreurs de l'auto)
-    # C'est ici qu'on sauve le score
+    # 3. FORCE BRUTE MANUELLE 
+  
     print("Application des correctifs manuels...")
     for short, target in CRITICAL_ALIASES.items():
         norm_short = normalize_name(short)
@@ -337,7 +315,7 @@ def build_hybrid_alias_map(lp_list, corpus_dir):
         # On s'assure que la cible est bien une clé canonique (pointe vers elle-même)
         alias_map[norm_target] = norm_target
 
-    # 4. Identification des Vitaux (Top 20 après fusion)
+    # 4. Identification des Vitaux 
     final_counts = Counter()
     for name, count in freqs.items():
         # Attention : on utilise la map mise à jour
@@ -350,25 +328,13 @@ def build_hybrid_alias_map(lp_list, corpus_dir):
     
     return alias_map, vital_chars
 
-# =============================================================================
-# LISSAGE GLOBAL DES RELATIONS
-# =============================================================================
 
 def smooth_relations_globally(df_dict, min_chapters=3, min_confidence=0.60):
-    """
-    Post-traitement : pour les paires (A,B) apparaissant dans au moins
-    min_chapters chapitres avec une relation dominante à >= min_confidence,
-    on force cette relation dans TOUS les chapitres.
-
-    Principe : si Dors/Hari est « pour » dans 9 chapitres sur 16,
-    les 7 « contre » sont probablement des artefacts de fenêtres
-    chargées en mots d'action (scènes de combat, danger).
-    """
+   
     import xml.etree.ElementTree as ET
     from collections import Counter as Ctr
 
     _NS = 'http://graphml.graphdrawing.org/xmlns'
-    # Enregistrer les namespaces pour éviter les préfixes ns0: dans la sortie
     ET.register_namespace('', _NS)
     ET.register_namespace('xsi', 'http://www.w3.org/2001/XMLSchema-instance')
 
@@ -432,9 +398,7 @@ def smooth_relations_globally(df_dict, min_chapters=3, min_confidence=0.60):
     return df_dict
 
 
-# =============================================================================
-# MOTEUR DE GRAPHE
-# =============================================================================
+
 
 def get_entities_positions(text, alias_map):
     search_terms = sorted(alias_map.keys(), key=len, reverse=True)
@@ -465,10 +429,9 @@ def build_graph_for_chapter(text, alias_map, vital_chars, feel, pos_verbs, neg_v
     G = nx.Graph()
     entities = get_entities_positions(text, alias_map)
     node_variants = {}
-    # Accumulation des scores de sentiment par paire
-    edge_scores = {}   # (canonA, canonB) -> [pos_total, neg_total]
+    edge_scores = {}   
 
-    words = text.split()   # pour extraire les fenêtres de texte brut
+    words = text.split()   
 
     for i in range(len(entities)):
         curr_idx, curr_raw, curr_canon = entities[i]
@@ -484,7 +447,6 @@ def build_graph_for_chapter(text, alias_map, vital_chars, feel, pos_verbs, neg_v
             if (next_idx - curr_idx) > WINDOW_SIZE: break
             if curr_canon == next_canon: continue
 
-            # ── Analyse sentimentale de la fenêtre ──────────────────────────
             start_w = max(0, curr_idx)
             end_w   = min(len(words), next_idx + len(next_raw.split()))
             window_text = " ".join(words[start_w:end_w])
@@ -495,7 +457,6 @@ def build_graph_for_chapter(text, alias_map, vital_chars, feel, pos_verbs, neg_v
                 edge_scores[edge_key] = [0, 0]
             edge_scores[edge_key][0] += pos
             edge_scores[edge_key][1] += neg
-            # ────────────────────────────────────────────────────────────────
 
             if G.has_edge(curr_canon, next_canon):
                 G[curr_canon][next_canon]['weight'] += 1
@@ -531,9 +492,7 @@ def build_graph_for_chapter(text, alias_map, vital_chars, feel, pos_verbs, neg_v
             
     return G
 
-# =============================================================================
-# MAIN
-# =============================================================================
+
 
 def debug_pair(text, alias_map, feel, pos_verbs, neg_verbs, charA, charB):
     """
@@ -617,7 +576,7 @@ def main():
     feel      = load_feel_lexicon(FEEL_LEXICON_PATH)
     pos_verbs, neg_verbs = load_relation_verbs(RELATION_VERBS_PATH)
 
-    # ── Mode DEBUG ────────────────────────────────────────────────────────────
+    # DEBUG 
     if args.debug_pair:
         chap_id, perso_a, perso_b = args.debug_pair
         alias_map, vital_chars = build_hybrid_alias_map(lp_list, corpus_path)
@@ -635,9 +594,9 @@ def main():
         print(f"\n=== DEBUG relation : '{perso_a}' ↔ '{perso_b}' (chapitre {chap_id}) ===")
         debug_pair(text, alias_map, feel, pos_verbs, neg_verbs, perso_a, perso_b)
         return
-    # ─────────────────────────────────────────────────────────────────────────
+    # Fin DEBUG
 
-    # Construction Hybride (Auto + Manuel)
+    
     alias_map, vital_chars = build_hybrid_alias_map(lp_list, corpus_path)
 
     df_dict = {"ID": [], "graphml": []}
@@ -668,10 +627,9 @@ def main():
         print("Erreur: aucun chapitre trouve. Verifiez --corpus et la structure des dossiers.")
         return
 
-    # ─ Post-traitement : lissage global des relations ───────────────────
     print("Post-traitement des relations...")
     df_dict = smooth_relations_globally(df_dict, min_chapters=4, min_confidence=0.50)
-    # ─────────────────────────────────────────────────────
+    # 
 
     df = pd.DataFrame(df_dict)
     df.set_index("ID", inplace=True)

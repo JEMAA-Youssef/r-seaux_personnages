@@ -61,15 +61,12 @@ THRESHOLD_NEG = -0.30  # Au lieu de -0.05
 
 # Labels candidats pour le Zero-Shot.
 # Des phrases complètes donnent de meilleures performances sur les modèles MNLI
-# (hypothèse naturelle plutôt qu'une simple liste de mots).
 NLI_LABELS = [
     "Ces deux personnages s'entraident, sont amis ou alliés.",
     "Ces deux personnages se détestent, sont adversaires ou s'affrontent."
 ]
 
-# --- LISTE DE SÉCURITÉ (MANUELLE) ---
 CRITICAL_ALIASES = {
-    # ----- Les Cavernes d'acier (LCA) -----
     "Baley": "Elijah Baley", "Lije": "Elijah Baley", "Lije Baley": "Elijah Baley", "Elijah": "Elijah Baley",
     "Jessie": "Jessica Baley", "Jessie Baley": "Jessica Baley", "Jessica": "Jessica Baley",
     "Bentley": "Bentley Baley",
@@ -79,7 +76,6 @@ CRITICAL_ALIASES = {
     "Sarton": "Roj Nemennuh Sarton", "Roj": "Roj Nemennuh Sarton", "Dr Sarton": "Roj Nemennuh Sarton", "Docteur Sarton": "Roj Nemennuh Sarton",
     "Enderby": "Julius Enderby", "Julius": "Julius Enderby",
     "Rachelle": "Rashelle", "Rashelle de Wye": "Rashelle",
-    # ----- Prélude à Fondation (PAF) -----
     "Seldon" : "Hari Seldon", "Hari": "Hari Seldon",
     "Dors": "Dors Venabili", "Venabili": "Dors Venabili",
     "Cléon": "Cleon Ier", "Cléon Ier": "Cleon Ier", "Empereur": "Cleon Ier", "Sire": "Cleon Ier",
@@ -103,9 +99,7 @@ GRAPH_BLACKLIST = {
 
 TITLES_TO_STRIP = {"Dr", "Docteur", "Maire", "Commissaire", "Mme", "M.", "Maître", "Sire", "Empereur", "R.", "Robot", "Général"}
 
-# =============================================================================
-# INITIALISATION DU MODÈLE NLI
-# =============================================================================
+
 
 def _init_nli_pipeline():
     """Charge la pipeline Zero-Shot sur le meilleur device disponible."""
@@ -127,11 +121,6 @@ def _init_nli_pipeline():
 
 NLI_PIPELINE = _init_nli_pipeline()
 
-# =============================================================================
-# INFÉRENCE NLI  (remplacée par le batching dans build_graph_for_chapter)
-# =============================================================================
-# La fonction scalaire get_nli_score n'est plus utilisée dans le flux principal.
-# Le scoring se fait en un seul appel batch après la double boucle d'extraction.
 
 
 def classify_relation(score_nli: float) -> str:
@@ -148,9 +137,7 @@ def classify_relation(score_nli: float) -> str:
         return "contre"
     return "neutre"
 
-# =============================================================================
-# OUTILS (identiques à la base)
-# =============================================================================
+
 
 def normalize_name(name):
     parts = name.title().split()
@@ -228,9 +215,7 @@ def build_hybrid_alias_map(lp_list, corpus_dir):
     vital_chars = {name for name, _ in final_counts.most_common(20)}
     return alias_map, vital_chars
 
-# =============================================================================
-# LISSAGE GLOBAL DES RELATIONS (identique à la base)
-# =============================================================================
+
 
 def smooth_relations_globally(df_dict, min_chapters=3, min_confidence=0.60):
     import xml.etree.ElementTree as ET
@@ -291,9 +276,7 @@ def smooth_relations_globally(df_dict, min_chapters=3, min_confidence=0.60):
     df_dict["graphml"] = new_graphmls
     return df_dict
 
-# =============================================================================
-# MOTEUR DE GRAPHE
-# =============================================================================
+
 
 def get_entities_positions(text, alias_map):
     search_terms = sorted(alias_map.keys(), key=len, reverse=True)
@@ -327,7 +310,6 @@ def build_graph_for_chapter(text, alias_map, vital_chars):
       - Collecte de toutes les fenêtres avant l'inférence, puis appel NLI
         en un seul batch (batch_size=8) pour maximiser le débit GPU.
     """
-    # Marge contextuelle ajoutée de chaque côté de la paire d'entités
     MARGIN = 20
 
     G             = nx.Graph()
@@ -335,11 +317,9 @@ def build_graph_for_chapter(text, alias_map, vital_chars):
     node_variants: Dict[str, set] = {}
     words = text.split()
 
-    # Listes parallèles : texte à scorer ↔ clé d'arête correspondante
     texts_to_score:    List[str]                   = []
     edge_keys_for_texts: List[Tuple[str, str]]     = []
 
-    # ── Phase 1 : parcours des co-occurrences, collecte des fenêtres ────────
     for i in range(len(entities)):
         curr_idx, curr_raw, curr_canon = entities[i]
         if curr_canon not in node_variants:
@@ -360,20 +340,20 @@ def build_graph_for_chapter(text, alias_map, vital_chars):
             end_w       = min(len(words), next_idx + len(next_raw.split()) + MARGIN)
             window_text = " ".join(words[start_w:end_w])
 
-            # Collecte pour le batch (tronqué à ~512 tokens)
+            # Collecte pour le batch 
             if window_text.strip():
                 texts_to_score.append(window_text[:1500])
                 edge_key = tuple(sorted([curr_canon, next_canon]))
                 edge_keys_for_texts.append(edge_key)
 
-            # Comptage du poids de l'arête (indépendant du scoring NLI)
+            # Comptage du poids de l'arête 
             if G.has_edge(curr_canon, next_canon):
                 G[curr_canon][next_canon]['weight'] += 1
             else:
                 G.add_edge(curr_canon, next_canon, weight=1)
-    # ────────────────────────────────────────────────────────────────────────
+                
+                
 
-    # ── Phase 2 : inférence NLI en un seul appel batch ──────────────────────
     edge_scores: Dict[Tuple[str, str], List[float]] = {}
     if texts_to_score:
         results = NLI_PIPELINE(
@@ -391,7 +371,7 @@ def build_graph_for_chapter(text, alias_map, vital_chars):
             if edge_key not in edge_scores:
                 edge_scores[edge_key] = []
             edge_scores[edge_key].append(score_nli)
-    # ────────────────────────────────────────────────────────────────────────
+    
 
     # Classifier chaque arête via le score NLI moyen de toutes ses fenêtres
     for (u, v), scores in edge_scores.items():
@@ -424,9 +404,7 @@ def build_graph_for_chapter(text, alias_map, vital_chars):
 
     return G
 
-# =============================================================================
-# MAIN
-# =============================================================================
+
 
 def main():
     parser = argparse.ArgumentParser(description="Graphe de personnages — DL Only (Zero-Shot NLI)")

@@ -11,8 +11,7 @@ import matplotlib.pyplot as plt
 import argparse
 import sys
 
-# Si vous voulez un style plus "pro" (nécessite d'avoir une police compatible, sinon commentez)
-# plt.style.use('seaborn-v0_8-whitegrid') 
+
 
 def load_graph_from_csv(csv_path, chapter_id=None, merge_book=None):
     """
@@ -26,7 +25,7 @@ def load_graph_from_csv(csv_path, chapter_id=None, merge_book=None):
         print(f"Erreur de lecture CSV : {e}")
         sys.exit(1)
 
-    # Cas 1 : Un seul chapitre
+    # Un seul chapitre
     if chapter_id:
         if chapter_id not in df.index:
             print(f"Erreur : L'ID '{chapter_id}' n'existe pas dans le CSV.")
@@ -39,12 +38,12 @@ def load_graph_from_csv(csv_path, chapter_id=None, merge_book=None):
         print(f"Graph chargé : {chapter_id} ({len(G.nodes)} nœuds, {len(G.edges)} arêtes)")
         return G
 
-    # Cas 2 : Fusion d'un livre entier (ex: 'lca')
+    # Fusion d'un livre entier (ex: 'lca')
     elif merge_book:
         print(f"Fusion des graphes pour le livre : {merge_book}...")
         G_final = nx.Graph()
         
-        # Filtre les IDs qui commencent par le code livre (ex: 'lca0', 'lca1'...)
+        # Filtre les IDs qui commencent par le code livre 
         book_rows = df[df.index.str.startswith(merge_book)]
         
         if book_rows.empty:
@@ -62,7 +61,7 @@ def load_graph_from_csv(csv_path, chapter_id=None, merge_book=None):
                 else:
                     G_final.add_edge(u, v, weight=weight)
             
-            # Ajout des nœuds (pour garder ceux isolés si besoin)
+            # Ajout des nœuds 
             for node in g_chap.nodes():
                 if not G_final.has_node(node):
                     G_final.add_node(node)
@@ -77,7 +76,7 @@ def load_graph_from_csv(csv_path, chapter_id=None, merge_book=None):
 def draw_pretty_graph(G, output_file, title):
     plt.figure(figsize=(12, 12)) # Grande image carrée
     
-    # 1. Layout (Disposition)
+    # 1. Layout 
     # k=0.5 espace les nœuds (plus k est grand, plus c'est espacé)
     pos = nx.spring_layout(G, k=0.6, iterations=50, seed=42)
     
@@ -100,7 +99,7 @@ def draw_pretty_graph(G, output_file, title):
     # On peut utiliser une couleur par degré ou fixe
     nx.draw_networkx_nodes(G, pos, node_size=node_sizes, node_color="#6495ED", alpha=0.9, edgecolors="white")
     
-    # Les Labels (Noms)
+    # Les Labels 
     # On décale un peu le label pour qu'il ne soit pas SUR le point
     label_pos = {k: (v[0], v[1]+0.04) for k, v in pos.items()}
     nx.draw_networkx_labels(G, label_pos, font_size=10, font_weight="bold", font_family="sans-serif", 

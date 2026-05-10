@@ -12,51 +12,37 @@ import argparse
 from pathlib import Path
 from collections import Counter
 
-# =============================================================================
-# CONFIGURATION
-# =============================================================================
+
 
 BOOK_CODES = {
     "prelude_a_fondation": "paf",
     "les_cavernes_d_acier": "lca"
 }
 
-# 1. Fenêtre glissante ajustée au "Sweet Spot" (150 mots)
 MAX_WINDOW = 150 
-# 2. On garde TOUTES les relations trouvées (Seuil à 1)
 MIN_WEIGHT_THRESHOLD = 3
 
 CRITICAL_ALIASES = {
-    # ----- Les Cavernes d'acier (LCA) -----
-    # Elijah Baley (On regroupe tout sous son nom officiel)
     "Baley": "Elijah Baley", "Lije": "Elijah Baley", "Lije Baley": "Elijah Baley", "Elijah": "Elijah Baley",
-    # Jessie (Jessica)
     "Jessie": "Jessica Baley", "Jessie Baley": "Jessica Baley", "Jessica": "Jessica Baley",
     "Bentley": "Bentley Baley",
-    # Daneel (Sans le "R." au cas où)
     "Daneel": "Daneel Olivaw", "Olivaw": "Daneel Olivaw", "R. Daneel": "Daneel Olivaw", "R. Daneel Olivaw": "Daneel Olivaw",
-    # Giskard
     "Giskard": "Giskard Reventlov", "Reventlov": "Giskard Reventlov", "R. Giskard Reventlov": "Giskard Reventlov",
-    # Fastolfe (On attrape TOUTES les variantes du Dr)
     "Fastolfe": "Han Fastolfe", "Han": "Han Fastolfe", "Dr Han Fastolfe": "Han Fastolfe", "Dr Fastolfe": "Han Fastolfe",
-    # Sarton
+    
     "Sarton": "Roj Nemennuh Sarton", "Roj": "Roj Nemennuh Sarton", "Dr Sarton": "Roj Nemennuh Sarton", "Docteur Sarton": "Roj Nemennuh Sarton",
-    # Enderby
+    
     "Enderby": "Julius Enderby", "Julius": "Julius Enderby",
     "Rachelle": "Rashelle", "Rashelle de Wye": "Rashelle",
 
-    # ----- Prélude à Fondation (PAF) -----
     "Seldon" : "Hari Seldon", "Hari": "Hari Seldon",
     "Dors": "Dors Venabili", "Venabili": "Dors Venabili",
-    # Cléon (SANS ACCENT pour éviter le bug HTML)
     "Cléon": "Cleon Ier", "Cléon Ier": "Cleon Ier", "Empereur": "Cleon Ier", "Sire": "Cleon Ier",
     "Demerzel": "Eto Demerzel", "Eto": "Eto Demerzel",
     "Amaryl": "Yugo Amaryl", "Yugo": "Yugo Amaryl",
     "Raych": "Raych Seldon",
-    # Rittah et Quatorze (SANS ACCENTS)
     "Rittah": "Mere Rittah", "Mère Rittah": "Mere Rittah", "Mother Rittah": "Mere Rittah",
     "Quatorze": "Maitre Quatorze", "Maître Quatorze": "Maitre Quatorze", "Sunmaster": "Maitre Quatorze",
-    # Mannix (Fusionner les doublons)
     "Mannix IV": "Mannix IV Kan", "Mannix": "Mannix IV Kan",
     "Hummin": "Chetter Hummin", "Chetter": "Chetter Hummin"
 }
@@ -65,16 +51,12 @@ GRAPH_BLACKLIST = {
     "Job", "Naboth", "Jéhu", "Jéhoram", "Noé", "Moïse", 
     "Anciens", "Médiévaliste", "Médiévalistes", "Galactica", "Encyclopaedia",
     "Ciel", "Dieu", "Seigneur", "Quarantecinq",
-    # --- AJOUTS POUR LA PRÉCISION ---
     "Nord", "Dahl", "Mycogène", "Mycogéne", "Wye", "Cinq", 
     "Trantor", "Terminus", "Empire", "Secteur", "Hélicon","Astinwald"
 }
 
 TITLES_TO_STRIP = {"Dr", "Docteur", "Maire", "Commissaire", "Mme", "M.", "Maître", "Sire", "Empereur", "R.", "Robot", "Général"}
 
-# =============================================================================
-# OUTILS
-# =============================================================================
 
 def normalize_name(name):
     parts = name.title().split()
@@ -155,9 +137,7 @@ def build_hybrid_alias_map(lp_list, corpus_dir):
     
     return alias_map, vital_chars
 
-# =============================================================================
-# MOTEUR DE GRAPHE
-# =============================================================================
+
 
 def get_entities_positions(text, alias_map):
     search_terms = sorted(alias_map.keys(), key=len, reverse=True)
@@ -210,7 +190,7 @@ def build_graph_for_chapter(text, alias_map, vital_chars):
             else:
                 G.add_edge(curr_canon, next_canon, weight=weight_score)
 
-    # Filtrage avec le seuil à 1 (Garde tout ce qui s'est croisé au moins une fois)
+    # Filtrage avec le seuil à 1 
     edges_to_remove = [(u, v) for u, v, data in G.edges(data=True) if data['weight'] < MIN_WEIGHT_THRESHOLD]
     G.remove_edges_from(edges_to_remove)
 
@@ -219,7 +199,6 @@ def build_graph_for_chapter(text, alias_map, vital_chars):
         variants.add(canon) 
         G.nodes[canon]["names"] = ";".join(sorted(list(variants)))
 
-    # Nettoyage des nœuds isolés, sauf s'ils font partie du Top 50
     isolates = list(nx.isolates(G))
     for node in isolates:
         if node not in vital_chars:
@@ -227,9 +206,7 @@ def build_graph_for_chapter(text, alias_map, vital_chars):
             
     return G
 
-# =============================================================================
-# MAIN
-# =============================================================================
+
 
 def main():
     parser = argparse.ArgumentParser()

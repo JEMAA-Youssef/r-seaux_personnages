@@ -7,7 +7,7 @@ import re
 from collections import Counter
 from pathlib import Path
 
-# --- Fonctions de base (reprises de votre script) ---
+
 _LET = r"A-Za-zÀ-ÖØ-öø-ÿŒœÆæ"
 TOKEN_RE = re.compile(rf"[{_LET}]+(?:['’][{_LET}]+|-[{_LET}]+)*")
 

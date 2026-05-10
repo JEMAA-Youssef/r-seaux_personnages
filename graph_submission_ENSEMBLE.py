@@ -2,9 +2,7 @@
 # -*- coding: utf-8 -*-
 
 """
-graph_submission_ENSEMBLE.py — Approche Neuro-Symbolique (Vote Pondéré)
-========================================================================
-ÉTUDE COMPARATIVE — Système 2 / 3
+
 
 Méthode d'évaluation des relations : ENSEMBLE (lexique + NLI).
 
@@ -45,9 +43,8 @@ from typing import Dict, List, Set, Tuple
 import torch
 from transformers import pipeline
 
-# =============================================================================
-# CONFIGURATION
-# =============================================================================
+
+
 
 BOOK_CODES = {
     "prelude_a_fondation": "paf",
@@ -57,24 +54,18 @@ BOOK_CODES = {
 WINDOW_SIZE          = 120
 MIN_WEIGHT_THRESHOLD = 3
 
-# --- Poids de l'ensemble (somme = 1.0 recommandée) ---
 W_NLI = 0.70  # poids de la composante Deep Learning (NLI)
 W_LEX = 0.30  # poids de la composante symbolique (FEEL + verbes)
 
-# --- Seuils de classification ---
 THRESHOLD_POS = -0.15  # Au lieu de +0.05
 THRESHOLD_NEG = -0.30  # Au lieu de -0.05
 
-# Labels candidats pour le Zero-Shot NLI.
-# Formulés comme des hypothèses complètes pour de meilleures performances MNLI.
 NLI_LABELS = [
     "Ces deux personnages s'entraident, sont amis ou alliés.",
     "Ces deux personnages se détestent, sont adversaires ou s'affrontent."
 ]
 
-# --- LISTE DE SÉCURITÉ (MANUELLE) ---
 CRITICAL_ALIASES = {
-    # ----- Les Cavernes d'acier (LCA) -----
     "Baley": "Elijah Baley", "Lije": "Elijah Baley", "Lije Baley": "Elijah Baley", "Elijah": "Elijah Baley",
     "Jessie": "Jessica Baley", "Jessie Baley": "Jessica Baley", "Jessica": "Jessica Baley",
     "Bentley": "Bentley Baley",
@@ -84,7 +75,6 @@ CRITICAL_ALIASES = {
     "Sarton": "Roj Nemennuh Sarton", "Roj": "Roj Nemennuh Sarton", "Dr Sarton": "Roj Nemennuh Sarton", "Docteur Sarton": "Roj Nemennuh Sarton",
     "Enderby": "Julius Enderby", "Julius": "Julius Enderby",
     "Rachelle": "Rashelle", "Rashelle de Wye": "Rashelle",
-    # ----- Prélude à Fondation (PAF) -----
     "Seldon" : "Hari Seldon", "Hari": "Hari Seldon",
     "Dors": "Dors Venabili", "Venabili": "Dors Venabili",
     "Cléon": "Cleon Ier", "Cléon Ier": "Cleon Ier", "Empereur": "Cleon Ier", "Sire": "Cleon Ier",
@@ -125,9 +115,8 @@ INTENSIFIERS = {
     "terriblement", "extrêmement", "totalement", "complètement", "fortement"
 }
 
-# =============================================================================
-# INITIALISATION DU MODÈLE NLI
-# =============================================================================
+
+
 
 def _init_nli_pipeline():
     """Charge la pipeline Zero-Shot sur le meilleur device disponible."""
@@ -149,9 +138,8 @@ def _init_nli_pipeline():
 
 NLI_PIPELINE = _init_nli_pipeline()
 
-# =============================================================================
-# CHARGEMENT DES LEXIQUES SYMBOLIQUES
-# =============================================================================
+
+
 
 def load_feel_lexicon(path: Path) -> Dict[str, Tuple[str, int]]:
     """Charge le lexique FEEL. Retourne : mot -> (polarite, intensite)."""
@@ -192,9 +180,8 @@ def load_relation_verbs(path: Path) -> Tuple[Set[str], Set[str]]:
     print(f"  Verbes rel. chargés : {len(pos_verbs)} positifs, {len(neg_verbs)} négatifs")
     return pos_verbs, neg_verbs
 
-# =============================================================================
-# COMPOSANTE SYMBOLIQUE : score de fenêtre (FEEL + négation + intensificateurs)
-# =============================================================================
+
+
 
 def score_window(
     window_text: str,
@@ -249,15 +236,8 @@ def score_window(
 
     return pos_total, neg_total
 
-# =============================================================================
-# INFÉRENCE NLI  (remplacée par le batching dans build_graph_for_chapter)
-# =============================================================================
-# get_nli_score supprimée : le scoring NLI se fait en un seul appel batch
-# après la double boucle d'extraction, pour maximiser le débit GPU.
 
-# =============================================================================
-# VOTE PONDÉRÉ : classification finale
-# =============================================================================
+
 
 def classify_relation(score_final: float) -> str:
     """
@@ -277,9 +257,8 @@ def classify_relation(score_final: float) -> str:
         return "contre"
     return "neutre"
 
-# =============================================================================
-# OUTILS (identiques à la base)
-# =============================================================================
+
+
 
 def normalize_name(name):
     parts = name.title().split()
@@ -357,9 +336,8 @@ def build_hybrid_alias_map(lp_list, corpus_dir):
     vital_chars = {name for name, _ in final_counts.most_common(20)}
     return alias_map, vital_chars
 
-# =============================================================================
-# LISSAGE GLOBAL DES RELATIONS (identique à la base)
-# =============================================================================
+
+
 
 def smooth_relations_globally(df_dict, min_chapters=3, min_confidence=0.60):
     import xml.etree.ElementTree as ET
@@ -419,9 +397,8 @@ def smooth_relations_globally(df_dict, min_chapters=3, min_confidence=0.60):
     df_dict["graphml"] = new_graphmls
     return df_dict
 
-# =============================================================================
-# MOTEUR DE GRAPHE
-# =============================================================================
+
+
 
 def get_entities_positions(text, alias_map):
     search_terms = sorted(alias_map.keys(), key=len, reverse=True)
@@ -469,7 +446,6 @@ def build_graph_for_chapter(text, alias_map, vital_chars, feel, pos_verbs, neg_v
     batch_edge_keys: List[Tuple[str, str]]   = []
     batch_lex_scores: List[float]            = []
 
-    # ── Phase 1 : parcours des co-occurrences ────────────────────────────────
     for i in range(len(entities)):
         curr_idx, curr_raw, curr_canon = entities[i]
         if curr_canon not in node_variants:
@@ -505,9 +481,9 @@ def build_graph_for_chapter(text, alias_map, vital_chars, feel, pos_verbs, neg_v
                 G[curr_canon][next_canon]['weight'] += 1
             else:
                 G.add_edge(curr_canon, next_canon, weight=1)
-    # ─────────────────────────────────────────────────────────────────────────
 
-    # ── Phase 2 : inférence NLI en un seul appel batch ───────────────────────
+
+
     edge_scores: Dict[Tuple[str, str], List[float]] = {}
     if batch_texts:
         results = NLI_PIPELINE(
@@ -527,7 +503,7 @@ def build_graph_for_chapter(text, alias_map, vital_chars, feel, pos_verbs, neg_v
             if edge_key not in edge_scores:
                 edge_scores[edge_key] = []
             edge_scores[edge_key].append(score_final)
-    # ─────────────────────────────────────────────────────────────────────────
+
 
     # Classifier chaque arête via le score_final moyen de toutes ses fenêtres
     for (u, v), scores in edge_scores.items():
@@ -560,9 +536,8 @@ def build_graph_for_chapter(text, alias_map, vital_chars, feel, pos_verbs, neg_v
 
     return G
 
-# =============================================================================
-# MAIN
-# =============================================================================
+
+
 
 def main():
     parser = argparse.ArgumentParser(description="Graphe de personnages — Ensemble (FEEL + NLI, vote pondéré)")
