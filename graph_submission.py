@@ -22,7 +22,7 @@ BOOK_CODES = {
 }
 
 # 1. Fenêtre glissante ajustée au "Sweet Spot" (150 mots)
-MAX_WINDOW = 150 
+MAX_WINDOW = 120 
 # 2. On garde TOUTES les relations trouvées (Seuil à 1)
 MIN_WEIGHT_THRESHOLD = 3
 
