@@ -673,3 +673,4 @@ if __name__ == "__main__":
 
 
     #python3 graph_submission.py --LP outputs/LP_final.txt --corpus corpus_asimov_leaderboard -o my_submission_v5.csv
+    # python3 eval_relations.py --input my_submission_v5.csv
