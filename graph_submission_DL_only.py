@@ -56,8 +56,8 @@ MIN_WEIGHT_THRESHOLD = 3
 
 # Seuils de classification pour le score NLI (entre -1 et +1)
 # Ajuster ici pour affiner le comportement sans toucher au reste du code.
-THRESHOLD_POS = -0.15  # Au lieu de +0.05
-THRESHOLD_NEG = -0.30  # Au lieu de -0.05
+THRESHOLD_POS = 0.5  # Au lieu de +0.05
+THRESHOLD_NEG = -0.5  # Au lieu de -0.05
 
 # Labels candidats pour le Zero-Shot.
 # Des phrases complètes donnent de meilleures performances sur les modèles MNLI

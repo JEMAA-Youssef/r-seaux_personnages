@@ -20,7 +20,7 @@ BOOK_CODES = {
 }
 
 MAX_WINDOW = 150 
-MIN_WEIGHT_THRESHOLD = 3
+MIN_WEIGHT_THRESHOLD = 2
 
 CRITICAL_ALIASES = {
     "Baley": "Elijah Baley", "Lije": "Elijah Baley", "Lije Baley": "Elijah Baley", "Elijah": "Elijah Baley",
@@ -52,7 +52,8 @@ GRAPH_BLACKLIST = {
     "Anciens", "Médiévaliste", "Médiévalistes", "Galactica", "Encyclopaedia",
     "Ciel", "Dieu", "Seigneur", "Quarantecinq",
     "Nord", "Dahl", "Mycogène", "Mycogéne", "Wye", "Cinq", 
-    "Trantor", "Terminus", "Empire", "Secteur", "Hélicon","Astinwald"
+    "Trantor", "Terminus", "Empire", "Secteur", "Hélicon","Astinwald",
+    "Novigor","Jesreel"
 }
 
 TITLES_TO_STRIP = {"Dr", "Docteur", "Maire", "Commissaire", "Mme", "M.", "Maître", "Sire", "Empereur", "R.", "Robot", "Général"}
